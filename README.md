@@ -1,16 +1,111 @@
-# React + Vite
+# Mangata & Gallo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive luxury jewelry website built with React and Vite for Mangata & Gallo, a fictional jewelry brand specializing in timeless and elegant designs.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Responsive design for desktop, tablet, and mobile devices
+* Luxury-focused visual design
+* Responsive navigation
+* Hero banner with call-to-action
+* Jewelry collection cards
+* React component-based structure
+* React Router navigation
+* Custom 404 / Not Found page
+* GitHub Pages deployment with GitHub Actions
+* Optimized image handling using Vite assets
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* Vite
+* React Router
+* JavaScript
+* HTML5
+* CSS3
+* Git & GitHub
+* GitHub Actions
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+├── assets/
+│   ├── banner.jpg
+│   ├── collection.jpg
+│   ├── engagement.jpg
+│   ├── wedding.jpg
+│   └── logo/
+│
+├── components/
+│   ├── Header.jsx
+│   ├── Banner.jsx
+│   ├── Card.jsx
+│   ├── Footer.jsx
+│   ├── Home.jsx
+│   ├── Development.jsx
+│   └── NotFound.jsx
+│
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
+## Getting Started
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
+
+```bash
+npm run dev
+```
+
+The application will be available at the local URL provided by Vite.
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview the production build
+
+```bash
+npm run preview
+```
+
+## Pages
+
+| Route          | Page              |
+| -------------- | ----------------- |
+| `/`            | Home              |
+| `/collections` | Under Development |
+| `/about`       | Under Development |
+| `/contact`     | Under Development |
+| `*`            | 404 Not Found     |
+
+## Deployment
+
+The project is configured for deployment to GitHub Pages using GitHub Actions.
+
+Every push to the deployment branch triggers the workflow, which builds the React application and deploys the generated `dist` folder to GitHub Pages.
+
+## Design
+
+The design uses a luxury-inspired visual style with:
+
+* Warm ivory backgrounds
+* Dark charcoal tones
+* Gold accents
+* Elegant typography
+* Subtle hover effects
+* Responsive layouts
+
+
+This project was created for educational purposes.
