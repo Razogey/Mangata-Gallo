@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        const path = window.location.pathname;
+        const repo = "/Mangata-Gallo";
+
+        const route = path.startsWith(repo)
+            ? path.slice(repo.length)
+            : path;
+
+        window.location.replace(
+            repo + "/?redirect=" + encodeURIComponent(route)
+        );
+    </script>
+</head>
+<body>
+</body>
+</html>
