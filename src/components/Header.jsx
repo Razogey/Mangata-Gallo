@@ -1,7 +1,7 @@
 export default function Header () {
     return (
         <header>
-            <img className="logo" src="/images/logo/Asset 1@3x.png" alt="Mangata and Gallo logo" />
+            <img className="logo" src="./images/logo/Asset 1@3x.png" alt="Mangata and Gallo logo" />
 
             <nav>
                 <ul>
