@@ -1,6 +1,8 @@
+import BannerImg from '../assets/banner.jpg'
+
 export default function Banner() {
     return (
-        <section className="banner">
+        <section className="banner" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${BannerImg})` }}>
             <h1>
                 Timeless Jewelry for Life's Most Beautiful Moments
             </h1>
