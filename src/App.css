@@ -2,6 +2,44 @@
     box-sizing: border-box;
 }
 
+.development {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.development-content {
+    max-width: 600px;
+}
+
+.development h1 {
+    color: #222222;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.development p {
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.development a {
+    display: inline-block;
+    background-color: #C6A15B;
+    color: #FFFFFF;
+    padding: 12px 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.development a:hover {
+    background-color: #A9843F;
+}
+
 body {
     margin: 0;
     background-color: #F8F5EF;
