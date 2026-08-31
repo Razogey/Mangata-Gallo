@@ -1,8 +1,10 @@
+import footer_logo from "../assets/logo/Asset 3@3x.png"
+
 export default function Footer() {
     return (
         <footer>
             <div id="footer_logo">
-                <img src="images/logo/Asset 4@3x.png" width="250" alt="Mangata and Gallo logo"/>
+                <img src={footer_logo} width="250" alt="Mangata and Gallo logo"/>
             </div>
 
             <div id="copyright">

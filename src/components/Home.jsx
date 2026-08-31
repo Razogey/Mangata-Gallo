@@ -1,5 +1,8 @@
 import Banner from './Banner';
 import Card from './Card';
+import engagement from "../assets/engagement.jpg";
+import wedding from "../assets/wedding.jpg";
+import collection from "../assets/collection.jpg";
 
 
 export default function Home() {
@@ -9,7 +12,7 @@ export default function Home() {
 
             <section className='cards' id='collections'>
                 <Card
-                    image='/images/engagement.jpg'
+                    image={engagement}
                     title='Engagement Rings'
                     description='Find the perfect symbol of your love with our collection of elegant diamond engagement rings,
                 thoughtfully designed for your special moment.'
@@ -17,7 +20,7 @@ export default function Home() {
                 />
 
                 <Card
-                    image='/images/wedding.jpg'
+                    image={wedding}
                     title='Wedding Collection'
                     description='Celebrate your journey together with beautifully crafted pieces designed to complement every
                 unforgettable moment of your wedding day'
@@ -25,7 +28,7 @@ export default function Home() {
                 />
 
                 <Card 
-                    image='/images/collection.jpg'
+                    image={collection}
                     title='Luxury Jewelry Collections'
                     description="Explore Mangata & Gallo's signature designs, where classic elegance meets exceptional craftsmanship
                 and modern sophistication."
