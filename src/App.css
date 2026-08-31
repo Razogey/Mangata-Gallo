@@ -396,11 +396,22 @@ footer {
         max-width: 160px;
     }
 
+    nav {
+        padding: 10px 12px;
+        width: 95%;
+    }
+
     nav ul {
         flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 6px;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 4px 2px;
+        white-space: nowrap;
     }
 
     .banner {
