@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
+import featuredProducts from "../data/featuredProducts";
 import collections from "../data/collections";
 
 export default function CollectionDetails() {
@@ -8,6 +9,8 @@ export default function CollectionDetails() {
     const collection = collections.find(
         (item) => item.slug === slug
     );
+
+    const products = featuredProducts.filter((product) => product.collection === slug);
 
     if (!collection) {
         return (
@@ -64,6 +67,41 @@ export default function CollectionDetails() {
                     >
                         ← Back to Collections
                     </Link>
+                </div>
+            </section>
+
+            <section className="collection-products">
+                <div className="section-heading">
+                    <h2>Featured Pieces</h2>
+                    <p>
+                        Discover selected pieces from this collection.
+                    </p>
+                </div>
+
+                <div className="collection-products-grid">
+                    {products.map((product) => (
+                        <article
+                            className="collection-product-card"
+                            key={product.id}
+                        >
+                            <img
+                                src={product.image}
+                                alt={product.title}
+                            />
+
+                            <div className="collection-product-content">
+                                <span>{product.category}</span>
+
+                                <h3>{product.title}</h3>
+
+                                <p>{product.description}</p>
+
+                                <Link to={`/products/${product.slug}`}>
+                                    View Details
+                                </Link>
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </section>
         </main>
