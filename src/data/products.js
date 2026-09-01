@@ -9,6 +9,7 @@ const products = [
         description:
             "Find the perfect symbol of your love with our collection of elegant diamond engagement rings, thoughtfully designed for your special moment.",
         link: "Discover Rings",
+        path: "/collections",
     },
     {
         image: wedding,
@@ -16,6 +17,7 @@ const products = [
         description:
             "Celebrate your journey together with beautifully crafted pieces designed to complement every unforgettable moment of your wedding day.",
         link: "View Collection",
+        path: "/collections",
     },
     {
         image: collection,
@@ -23,6 +25,7 @@ const products = [
         description:
             "Explore Mangata & Gallo's signature designs, where classic elegance meets exceptional craftsmanship and modern sophistication.",
         link: "Shop Jewelry",
+        path: "/collections",
     },
 ];
 

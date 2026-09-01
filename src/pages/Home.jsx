@@ -15,6 +15,7 @@ export default function Home() {
                         title={product.title}
                         description={product.description}
                         link={product.link}
+                        path={product.path}
                     />
                 ))}
             </section>
