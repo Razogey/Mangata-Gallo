@@ -6,7 +6,7 @@ export default function CollectionDetails() {
     const { slug } = useParams();
 
     const collection = collections.find(
-        (item) => item.path === `/collections/${slug}`
+        (item) => item.slug === slug
     );
 
     if (!collection) {
@@ -43,6 +43,16 @@ export default function CollectionDetails() {
                     <h1>{collection.title}</h1>
 
                     <p>{collection.description}</p>
+
+                    <p className="collection-details-text">
+                        {collection.details}
+                    </p>
+
+                    <ul className="collection-highlights">
+                        {collection.highlights.map((highlight) => (
+                            <li key={highlight}>{highlight}</li>
+                        ))}
+                    </ul>
 
                     <Link to="/contact">
                         Inquire About This Collection
