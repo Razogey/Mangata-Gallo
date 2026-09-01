@@ -1,4 +1,8 @@
-import "./App.css";
+import "./styles/navigation.css";
+import "./styles/banner.css";
+import "./styles/cards.css";
+import "./styles/footer.css";
+import "./styles/pages.css";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect } from "react";

@@ -1,0 +1,32 @@
+footer {
+    background-color: #222222;
+    color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 30px 50px;
+}
+
+#footer_logo img {
+    max-width: 250px;
+    margin: 0;
+}
+
+#copyright {
+    text-align: right;
+}
+
+#copyright p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    #footer_logo img {
+        margin: 0 auto;
+    }
+
+    #copyright {
+        text-align: center;
+    }
+}
