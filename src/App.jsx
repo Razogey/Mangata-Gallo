@@ -1,6 +1,18 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
+import Home from "./pages/Home";
+import Collections from "./pages/Collections";
+import NotFound from "./pages/Notfound";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import ProductDetails from "./pages/ProductDetails";
+import CollectionDetails from "./pages/CollectionDetails";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Development from "./components/Development";
+
 import "./styles/navigation.css";
 import "./styles/banner.css";
 import "./styles/cards.css";
@@ -10,17 +22,7 @@ import "./styles/collections.css";
 import "./styles/about.css";
 import "./styles/contact.css";
 import "./styles/product-details.css";
-
-import Home from "./pages/Home";
-import Collections from "./pages/Collections";
-import NotFound from "./pages/Notfound";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import ProductDetails from "./pages/ProductDetails";
-
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Development from "./components/Development";
+import "./styles/collection-details.css";
 
 function AppRoutes() {
     const navigate = useNavigate();
@@ -41,6 +43,7 @@ function AppRoutes() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/products/:slug" element={<ProductDetails />} />
+            <Route path="/collections/:slug" element={<CollectionDetails />} />
 
             <Route path="*" element={<NotFound />} />
         </Routes>
