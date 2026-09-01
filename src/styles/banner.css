@@ -16,6 +16,7 @@
     max-width: 800px;
     margin: 0 auto 20px;
     font-size: 42px;
+    line-height: 1.2;
 }
 
 .banner p {
@@ -27,16 +28,17 @@
 .banner a {
     background-color: #C6A15B;
     color: #FFFFFF;
-    border: none;
     display: inline-block;
     text-decoration: none;
     padding: 12px 25px;
-    cursor: pointer;
     border-radius: 10px;
-    transition: background-color 0.3s ease;
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(198, 161, 91, 0.5);
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .banner a::after {
@@ -48,32 +50,35 @@
     height: 100%;
     background: rgba(255, 255, 255, 0.5);
     transform: skewX(-25deg);
-    transition: left 0.5s;
+    transition: left 0.5s ease;
 }
 
 .banner a:hover {
     background-color: #A9843F;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(198, 161, 91, 0.35)
+    box-shadow: 0 5px 15px rgba(198, 161, 91, 0.35);
 }
 
 .banner a:hover::after {
     left: 150%;
 }
 
-@media (max-width:768px) {
+.banner a:focus-visible {
+    outline: 2px solid #C6A15B;
+    outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
     .banner {
         padding: 70px 20px;
     }
 
     .banner h1 {
         font-size: 30px;
-        line-height: 1.2;
     }
 
     .banner p {
         font-size: 16px;
         line-height: 1.6;
     }
-
 }
