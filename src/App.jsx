@@ -24,9 +24,9 @@ function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/collections" element={<Development />} />
-            <Route path="/about" element={<Development />} />
-            <Route path="/contact" element={<Development />} />
+            <Route path="/collections" element={<Development title="Our Collections" />} />
+            <Route path="/about" element={<Development title="About Us" />} />
+            <Route path="/contact" element={<Development title="Contact Us" />} />
 
             <Route path="*" element={<NotFound />} />
         </Routes>
