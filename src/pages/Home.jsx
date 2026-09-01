@@ -10,12 +10,13 @@ export default function Home() {
             <section className="cards" id="collections">
                 {products.map((product) => (
                     <Card
-                        key={product.title}
+                        key={product.id}
                         image={product.image}
                         title={product.title}
                         description={product.description}
                         link={product.link}
                         path={product.path}
+                        className="product-card"
                     />
                 ))}
             </section>

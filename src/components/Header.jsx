@@ -1,36 +1,44 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import header_logo from "../assets/logo/Asset 1@3x.png";
 
-export default function Header () {
+export default function Header() {
+    const navClass = ({ isActive }) => (isActive ? "active" : "");
+
     return (
         <header>
-            <img className="logo" src={header_logo} alt="Mangata and Gallo logo" />
+            <img
+                className="logo"
+                src={header_logo}
+                alt="Mangata and Gallo logo"
+            />
 
             <nav>
                 <ul>
-                    <li class="navbr">
-                        <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+                    <li className="navbr">
+                        <NavLink to="/" className={navClass}>
                             Home
                         </NavLink>
                     </li>
 
-                    <li class="navbr">
-                        <NavLink to="/collections" className={({ isActive }) => (isActive ? "active" : "")}>Collections</NavLink>
+                    <li className="navbr">
+                        <NavLink to="/collections" className={navClass}>
+                            Collections
+                        </NavLink>
                     </li>
 
-                    <li class="navbr">
-                        <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
+                    <li className="navbr">
+                        <NavLink to="/about" className={navClass}>
                             About Us
                         </NavLink>
                     </li>
 
-                    <li class="navbr">
-                        <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")}>
+                    <li className="navbr">
+                        <NavLink to="/contact" className={navClass}>
                             Contact Us
                         </NavLink>
                     </li>
                 </ul>
             </nav>
         </header>
-    )
+    );
 }

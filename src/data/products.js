@@ -4,6 +4,7 @@ import collection from "../assets/products/collection.jpg";
 
 const products = [
     {
+        id: 1,
         image: engagement,
         title: "Engagement Rings",
         description:
@@ -12,6 +13,7 @@ const products = [
         path: "/collections",
     },
     {
+        id: 2,
         image: wedding,
         title: "Wedding Collection",
         description:
@@ -20,6 +22,7 @@ const products = [
         path: "/collections",
     },
     {
+        id: 3,
         image: collection,
         title: "Luxury Jewelry Collections",
         description:
