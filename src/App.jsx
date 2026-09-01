@@ -3,11 +3,11 @@ import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Development from "./components/Development";
-import NotFound from "./components/Notfound";
+import NotFound from "./pages/Notfound";
 
 function AppRoutes() {
     const navigate = useNavigate();

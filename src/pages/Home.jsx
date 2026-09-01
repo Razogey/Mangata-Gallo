@@ -1,5 +1,5 @@
-import Banner from './Banner';
-import Card from './Card';
+import Banner from '../components/Banner';
+import Card from '../components/Card';
 import engagement from "../assets/products/engagement.jpg";
 import wedding from "../assets/products/wedding.jpg";
 import collection from "../assets/products/collection.jpg";
