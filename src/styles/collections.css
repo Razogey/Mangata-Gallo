@@ -79,7 +79,6 @@
     border: 1px solid #E1D6C5;
     border-radius: 10px;
     overflow: hidden;
-    border-radius: 8px;
     box-shadow: 0 4px 15px rgba(34, 34, 34, 0.08);
 
     display: flex;
@@ -101,7 +100,6 @@
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
-    border-radius: 5px;
 }
 
 .collection-card:hover img {

@@ -1,7 +1,12 @@
+import engagement from "../assets/products/engagement.jpg";
+import wedding from "../assets/products/wedding.jpg";
+import collection from "../assets/products/collection.jpg";
+
 const featuredProducts = [
     {
         id: 1,
         slug: "classic-diamond-ring",
+        image: engagement,
         title: "Classic Diamond Ring",
         category: "Rings",
         price: "$2,500",
@@ -10,9 +15,11 @@ const featuredProducts = [
         details:
             "Crafted with exceptional attention to detail, this classic diamond ring combines refined design with timeless elegance.",
     },
+
     {
         id: 2,
         slug: "golden-wedding-band",
+        image: wedding,
         title: "Golden Wedding Band",
         category: "Wedding Jewelry",
         price: "$1,800",
@@ -21,9 +28,11 @@ const featuredProducts = [
         details:
             "A beautifully crafted gold wedding band designed to celebrate a lasting commitment and complement every special moment.",
     },
+
     {
         id: 3,
         slug: "signature-gold-ring",
+        image: collection,
         title: "Signature Gold Ring",
         category: "Luxury Jewelry",
         price: "$2,200",
@@ -32,9 +41,11 @@ const featuredProducts = [
         details:
             "Our signature gold ring brings together classic craftsmanship and contemporary sophistication in a refined everyday piece.",
     },
+
     {
         id: 4,
         slug: "elegant-jewelry-piece",
+        image: collection,
         title: "Elegant Jewelry Piece",
         category: "Luxury Jewelry",
         price: "$1,950",

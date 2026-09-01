@@ -9,12 +9,14 @@ import "./styles/pages.css";
 import "./styles/collections.css";
 import "./styles/about.css";
 import "./styles/contact.css";
+import "./styles/product-details.css";
 
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import NotFound from "./pages/Notfound";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ProductDetails from "./pages/ProductDetails";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -38,6 +40,7 @@ function AppRoutes() {
             <Route path="/collections" element={<Collections />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/products/:slug" element={<ProductDetails />} />
 
             <Route path="*" element={<NotFound />} />
         </Routes>

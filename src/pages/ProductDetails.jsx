@@ -31,9 +31,10 @@ export default function ProductDetails() {
         <main className="product-details">
             <section className="product-details-content">
                 <div className="product-details-image">
-                    <div className="product-image-placeholder">
-                        <span>{product.category}</span>
-                    </div>
+                    <img
+                        src={product.image}
+                        alt={product.title}
+                    />
                 </div>
 
                 <div className="product-details-info">
