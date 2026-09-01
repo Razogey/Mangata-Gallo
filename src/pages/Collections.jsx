@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import ProductCard from "../components/ProductCard";
 import Card from "../components/Card";
 import collections from "../data/collections";
 import featuredProducts from "../data/featuredProducts";
@@ -60,17 +61,15 @@ export default function Collections() {
 
                 <div className="featured-grid">
                     {featuredProducts.map((product) => (
-                        <article className="featured-card" key={product.id}>
-                            <span>{product.category}</span>
-
-                            <h3>{product.title}</h3>
-
-                            <p>{product.description}</p>
-
-                            <Link to={`/products/${product.slug}`}>
-                                View Details
-                            </Link>
-                        </article>
+                        <ProductCard
+                            key={product.id}
+                            image={product.image}
+                            title={product.title}
+                            category={product.category}
+                            description={product.description}
+                            price={product.price}
+                            slug={product.slug}
+                        />
                     ))}
                 </div>
             </section>
