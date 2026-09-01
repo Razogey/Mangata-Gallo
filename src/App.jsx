@@ -7,10 +7,13 @@ import "./styles/cards.css";
 import "./styles/footer.css";
 import "./styles/pages.css";
 import "./styles/collections.css";
+import "./styles/about.css";
 
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
 import NotFound from "./pages/Notfound";
+import About from "./pages/About";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Development from "./components/Development";
@@ -31,7 +34,7 @@ function AppRoutes() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/collections" element={<Collections />} />
-            <Route path="/about" element={<Development title="About Us" />} />
+            <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Development title="Contact Us" />} />
 
             <Route path="*" element={<NotFound />} />
