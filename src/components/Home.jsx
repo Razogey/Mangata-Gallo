@@ -1,8 +1,8 @@
 import Banner from './Banner';
 import Card from './Card';
-import engagement from "../assets/engagement.jpg";
-import wedding from "../assets/wedding.jpg";
-import collection from "../assets/collection.jpg";
+import engagement from "../assets/products/engagement.jpg";
+import wedding from "../assets/products/wedding.jpg";
+import collection from "../assets/products/collection.jpg";
 
 
 export default function Home() {
