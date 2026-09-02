@@ -177,6 +177,24 @@
 
 /* Responsive */
 
+@media (max-width: 1024px) {
+    .product-details {
+        padding: 60px 30px;
+    }
+
+    .product-details-content {
+        gap: 40px;
+    }
+
+    .product-details-image img {
+        height: 480px;
+    }
+
+    .product-details-info h1 {
+        font-size: 38px;
+    }
+}
+
 @media (max-width: 768px) {
     .product-details {
         padding: 50px 20px;

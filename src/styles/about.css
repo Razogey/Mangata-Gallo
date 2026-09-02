@@ -131,6 +131,27 @@
 
 /* Responsive */
 
+@media (max-width: 1024px) {
+    .about-story,
+    .about-craft,
+    .about-philosophy {
+        padding: 60px 30px;
+    }
+
+    .about-values {
+        padding: 60px 30px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .about-cta {
+        padding: 70px 20px;
+    }
+}
+
 @media (max-width: 768px) {
     .about-story,
     .about-craft,
@@ -142,6 +163,12 @@
     .about-craft h2,
     .about-philosophy h2 {
         font-size: 28px;
+    }
+
+    .about-story p,
+    .about-craft p,
+    .about-philosophy p {
+        font-size: 16px;
     }
 
     .about-values {

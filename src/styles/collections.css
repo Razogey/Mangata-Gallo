@@ -249,18 +249,35 @@
 
 /* Responsive */
 
+@media (max-width: 1024px) {
+    .collection-list {
+        padding: 60px 30px;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured-pieces {
+        padding: 60px 30px;
+    }
+
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .collections-hero {
-        min-height: 320px;
-        padding: 40px 15px;
+    .collection-list {
+        padding: 50px 20px;
     }
 
-    .hero-content {
-        padding: 25px 15px;
+    .section-heading {
+        margin-bottom: 35px;
     }
 
-    .hero-content h1 {
-        font-size: 32px;
+    .section-heading h2 {
+        font-size: 28px;
     }
 
     .collection-grid {
@@ -269,11 +286,15 @@
     }
 
     .collection-card img {
-        height: 300px;
+        height: 280px;
     }
 
-    .product-card img {
-        height: 280px;
+    .collection-card h2 {
+        font-size: 24px;
+    }
+
+    .collection-card .card-content {
+        padding: 20px;
     }
 
     .featured-pieces {
@@ -283,5 +304,17 @@
     .featured-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .product-card img {
+        height: 280px;
+    }
+
+    .collections-cta {
+        padding: 60px 20px;
+    }
+
+    .collections-cta h2 {
+        font-size: 30px;
     }
 }

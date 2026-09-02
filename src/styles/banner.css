@@ -67,10 +67,24 @@
     outline: 2px solid #C6A15B;
     outline-offset: 4px;
 }
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .banner {
+        padding: 80px 30px;
+    }
+
+    .banner h1 {
+        font-size: 36px;
+    }
+}
 
 @media (max-width: 768px) {
     .banner {
+        width: calc(100% - 20px);
+        margin: 15px auto;
         padding: 70px 20px;
+        border-radius: 10px;
     }
 
     .banner h1 {
@@ -80,5 +94,9 @@
     .banner p {
         font-size: 16px;
         line-height: 1.6;
+    }
+
+    .banner a {
+        padding: 12px 22px;
     }
 }

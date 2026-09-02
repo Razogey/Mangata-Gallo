@@ -131,19 +131,8 @@
     outline-offset: 4px;
 }
 
-@media (max-width: 900px) {
-    .navbar-container {
-        flex-wrap: wrap;
-    }
-
-    .navbar-menu {
-        order: 3;
-        width: 100%;
-    }
-
-    .navbar-menu ul {
-        gap: 25px;
-    }
+.navbar-mobile-actions {
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -153,6 +142,7 @@
 
     .navbar-container {
         position: relative;
+        flex-wrap: wrap;
     }
 
     .navbar-logo img {
@@ -166,6 +156,7 @@
 
     .navbar-menu {
         display: none;
+        order: 3;
         width: 100%;
         padding: 15px;
         border-radius: 12px;
@@ -177,7 +168,7 @@
 
     .navbar-menu ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 25px;
     }
 
     .nav-link {
@@ -188,5 +179,14 @@
 
     .navbar-actions {
         display: none;
+    }
+
+    .navbar-mobile-actions {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #E1D6C5;
     }
 }

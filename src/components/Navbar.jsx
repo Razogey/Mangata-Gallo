@@ -48,6 +48,7 @@ export default function Navbar() {
                     }`}
                 >
                     <ul>
+
                         <li>
                             <NavLink
                                 to="/"
@@ -89,6 +90,24 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                     </ul>
+
+                    <div className="navbar-mobile-actions">
+                        <button
+                            type="button"
+                            className="navbar-action"
+                            aria-label="Search"
+                        >
+                            Search
+                        </button>
+
+                        <button
+                            type="button"
+                            className="navbar-action"
+                            aria-label="Shopping cart"
+                        >
+                            Cart
+                        </button>
+                    </div>
                 </nav>
 
                 <div className="navbar-actions">
