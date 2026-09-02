@@ -4,6 +4,7 @@ import ProductCard from "../components/ProductCard";
 
 import featuredProducts from "../data/featuredProducts";
 import collections from "../data/collections";
+import Button from "../components/Button";
 
 export default function CollectionDetails() {
     const { slug } = useParams();
@@ -59,9 +60,9 @@ export default function CollectionDetails() {
                         ))}
                     </ul>
 
-                    <Link to="/contact">
+                    <Button to="/contact">
                         Inquire About This Collection
-                    </Link>
+                    </Button>
 
                     <Link
                         to="/collections"

@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-
 import Banner from "../components/Banner";
+import Button from "../components/Button";
 import aboutHeroImg from "../assets/about-hero.jpg";
 
 import about from "../data/about";
@@ -48,9 +47,9 @@ export default function About() {
                 <h2>{about.cta.title}</h2>
                 <p>{about.cta.description}</p>
 
-                <Link to={about.cta.path}>
+                <Button to={about.cta.path}>
                     {about.cta.link}
-                </Link>
+                </Button>
             </section>
         </main>
     );

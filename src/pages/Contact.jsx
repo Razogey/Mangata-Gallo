@@ -1,5 +1,6 @@
 import contact from "../data/contact";
 
+import Button from "../components/Button";
 import Banner from "../components/Banner";
 import contactHeroImg from "../assets/contact-hero.jpg";
 
@@ -79,9 +80,9 @@ export default function Contact() {
                         ></textarea>
                     </div>
 
-                    <button type="submit">
+                    <Button type="submit">
                         {contact.form.button}
-                    </button>
+                    </Button>
                 </form>
             </section>
 

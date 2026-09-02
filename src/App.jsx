@@ -11,7 +11,6 @@ import CollectionDetails from "./pages/CollectionDetails";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Development from "./components/Development";
 
 import "./styles/navigation.css";
 import "./styles/banner.css";
@@ -23,6 +22,7 @@ import "./styles/about.css";
 import "./styles/contact.css";
 import "./styles/product-details.css";
 import "./styles/collection-details.css";
+import "./styles/button.css";
 
 function AppRoutes() {
     const navigate = useNavigate();

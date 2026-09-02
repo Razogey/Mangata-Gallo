@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 
 import featuredProducts from "../data/featuredProducts";
+import Button from "../components/Button";
 
 export default function ProductDetails() {
     const { slug } = useParams();
@@ -56,9 +57,9 @@ export default function ProductDetails() {
                         {product.details}
                     </p>
 
-                    <Link to="/contact" className="product-contact">
+                    <Button to="/contact" className="product-contact">
                         Inquire About This Piece
-                    </Link>
+                    </Button>
 
                     <Link to="/collections" className="back-link">
                         ← Back to Collections
