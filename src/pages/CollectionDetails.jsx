@@ -1,5 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 
+import ProductCard from "../components/ProductCard";
+
 import featuredProducts from "../data/featuredProducts";
 import collections from "../data/collections";
 
@@ -80,27 +82,15 @@ export default function CollectionDetails() {
 
                 <div className="collection-products-grid">
                     {products.map((product) => (
-                        <article
-                            className="collection-product-card"
+                        <ProductCard
                             key={product.id}
-                        >
-                            <img
-                                src={product.image}
-                                alt={product.title}
-                            />
-
-                            <div className="collection-product-content">
-                                <span>{product.category}</span>
-
-                                <h3>{product.title}</h3>
-
-                                <p>{product.description}</p>
-
-                                <Link to={`/products/${product.slug}`}>
-                                    View Details
-                                </Link>
-                            </div>
-                        </article>
+                            image={product.image}
+                            title={product.title}
+                            category={product.category}
+                            description={product.description}
+                            price={product.price}
+                            slug={product.slug}
+                        />
                     ))}
                 </div>
             </section>
