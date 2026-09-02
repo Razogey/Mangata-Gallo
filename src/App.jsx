@@ -11,6 +11,7 @@ import "./styles/contact.css";
 import "./styles/product-details.css";
 import "./styles/collection-details.css";
 import "./styles/button.css";
+import "./styles/auth.css";
 
 export default function App() {
     return <AppRoutes />;

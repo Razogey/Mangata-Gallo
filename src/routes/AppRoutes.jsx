@@ -13,6 +13,8 @@ import Contact from "../pages/Contact";
 import ProductDetails from "../pages/ProductDetails";
 import CollectionDetails from "../pages/CollectionDetails";
 import NotFound from "../pages/Notfound";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 import MainLayout from "../layouts/MainLayout";
 
@@ -60,6 +62,10 @@ export default function AppRoutes() {
                     path="/products/:slug"
                     element={<ProductDetails />}
                 />
+
+                <Route path="/login" element={<Login />} />
+
+                <Route path="/register" element={<Register />} />
 
                 <Route
                     path="*"
