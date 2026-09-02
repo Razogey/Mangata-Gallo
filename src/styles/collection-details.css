@@ -1,0 +1,231 @@
+.collection-details {
+    min-height: 70vh;
+    padding: 80px 50px;
+    background-color: #FAF9F6;
+}
+
+.collection-details-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.collection-details-image {
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #E1D6C5;
+}
+
+.collection-details-image img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.collection-details-image:hover img {
+    transform: scale(1.03);
+}
+
+.collection-details-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.collection-details-info span {
+    margin-bottom: 15px;
+    color: #C6A15B;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.collection-details-info h1 {
+    margin-bottom: 20px;
+    color: #222222;
+    font-size: 42px;
+    line-height: 1.2;
+}
+
+.collection-details-info p {
+    margin-bottom: 35px;
+    color: #666666;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.collection-details-info > a:first-of-type {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 13px 28px;
+    background-color: #C6A15B;
+    color: #FFFFFF;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.collection-details-info > a:first-of-type:hover {
+    background-color: #A9843F;
+    transform: translateY(-2px);
+}
+
+.back-link {
+    color: #666666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #C6A15B;
+}
+
+.collection-details-info a:focus-visible,
+.collection-not-found a:focus-visible {
+    outline: 2px solid #C6A15B;
+    outline-offset: 4px;
+}
+
+.collection-not-found {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.collection-not-found h1 {
+    margin-bottom: 20px;
+    color: #222222;
+    font-size: 40px;
+}
+
+.collection-not-found p {
+    margin-bottom: 30px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+.collection-not-found a {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #222222;
+    color: #FFFFFF;
+    border-radius: 6px;
+    text-decoration: none;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.collection-not-found a:hover {
+    background-color: #C6A15B;
+    transform: translateY(-2px);
+}
+
+.collection-details-text {
+    margin-bottom: 25px !important;
+    color: #555555 !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+}
+
+.collection-highlights {
+    margin: 0 0 35px;
+    padding-left: 20px;
+    color: #666666;
+}
+
+.collection-highlights li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+    line-height: 1.6;
+}
+
+.collection-highlights li::marker {
+    color: #C6A15B;
+}
+
+.collection-products {
+    max-width: 1200px;
+    margin: 80px auto 0;
+}
+
+.collection-products .section-heading {
+    margin-bottom: 40px;
+}
+
+.collection-products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .collection-details {
+        padding: 60px 30px;
+    }
+
+    .collection-details-content {
+        gap: 40px;
+    }
+
+    .collection-details-image img {
+        height: 480px;
+    }
+
+    .collection-details-info h1 {
+        font-size: 38px;
+    }
+
+    .collection-products {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .collection-details {
+        padding: 50px 20px;
+    }
+
+    .collection-details-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .collection-details-image img {
+        height: 400px;
+    }
+
+    .collection-details-info h1 {
+        font-size: 34px;
+    }
+
+    .collection-details-text {
+        font-size: 15px !important;
+    }
+
+    .collection-highlights {
+        margin-bottom: 30px;
+    }
+
+    .collection-products {
+        margin-top: 60px;
+    }
+
+    .collection-products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

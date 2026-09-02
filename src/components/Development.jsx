@@ -1,18 +1,20 @@
-export default function Developmnet () {
+import { Link } from "react-router-dom";
+
+export default function Development({ title }) {
     return (
         <main className="development">
             <div className="development-content">
-                <h1>Page Under Development</h1>
+                <h1>{title}</h1>
 
                 <p>
                     We're currently working on this page.
                     Please check back soon.
                 </p>
 
-                <a href="/">
+                <Link to="/">
                     Back to Home
-                </a>
+                </Link>
             </div>
         </main>
-    )
+    );
 }

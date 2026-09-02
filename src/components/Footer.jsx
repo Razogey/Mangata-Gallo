@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <footer>
             <div id="footer_logo">
-                <img src={footer_logo} width="250" alt="Mangata and Gallo logo"/>
+                <img src={footer_logo} alt="Mangata and Gallo logo"/>
             </div>
 
             <div id="copyright">
@@ -16,5 +16,5 @@ export default function Footer() {
                 </p>
             </div>
         </footer>
-    )
+    );
 }
