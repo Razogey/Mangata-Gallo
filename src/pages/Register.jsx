@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
+import SocialAuth from "../components/SocialAuth";
 
 export default function Register() {
     return (
@@ -78,6 +79,8 @@ export default function Register() {
                     <Button type="submit" className="auth-button">
                         Create Account
                     </Button>
+
+                    <SocialAuth />
                 </form>
 
                 <div className="auth-footer">

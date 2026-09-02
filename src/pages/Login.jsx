@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
+import SocialAuth from "../components/SocialAuth";
 
 export default function Login() {
     return (
@@ -61,6 +62,8 @@ export default function Login() {
                     <Button type="submit" className="auth-button">
                         Login
                     </Button>
+
+                    <SocialAuth />
                 </form>
 
                 <div className="auth-footer">
