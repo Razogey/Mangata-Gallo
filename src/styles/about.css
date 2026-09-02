@@ -2,34 +2,6 @@
     background-color: #FAF9F6;
 }
 
-/* Hero */
-
-.about-hero {
-    min-height: 350px;
-    padding: 80px 20px;
-    background-color: #222222;
-    color: #FFFFFF;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-}
-
-.about-hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.about-hero p {
-    max-width: 650px;
-    color: #E5E5E5;
-    line-height: 1.7;
-}
-
-
 /* Content Sections */
 
 .about-story,
@@ -160,15 +132,6 @@
 /* Responsive */
 
 @media (max-width: 768px) {
-    .about-hero {
-        min-height: 300px;
-        padding: 60px 20px;
-    }
-
-    .about-hero h1 {
-        font-size: 36px;
-    }
-
     .about-story,
     .about-craft,
     .about-philosophy {

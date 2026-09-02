@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import ProductCard from "../components/ProductCard";
 import Card from "../components/Card";
+import Banner from "../components/Banner";
+
 import collections from "../data/collections";
 import featuredProducts from "../data/featuredProducts";
 
@@ -10,20 +12,11 @@ import collectionsHeroImg from "../assets/collections-hero.jpg";
 export default function Collections() {
     return (
         <main className="collections-page">
-            <section 
-                className="collections-hero" 
-                style={{ 
-                    backgroundImage: `url(${collectionsHeroImg})`, 
-                    backgroundSize: 'cover', 
-                    backgroundPosition: 'center', 
-                    backgroundRepeat: 'no-repeat' 
-                }}
-                >
-                <div className="hero-content">
-                    <h1>Our Collections</h1>
-                    <p>Explore our carefully curated collections, designed to celebrate life's most meaningful moments.</p>
-                </div>
-            </section>
+            <Banner
+                title="Our Collections"
+                description="Explore our carefully curated collections, designed to celebrate life's most meaningful moments."
+                image={collectionsHeroImg}
+            />
 
             <section className="collection-list">
                 <div className="section-heading">

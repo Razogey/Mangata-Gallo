@@ -1,12 +1,16 @@
 import contact from "../data/contact";
 
+import Banner from "../components/Banner";
+import contactHeroImg from "../assets/contact-hero.jpg";
+
 export default function Contact() {
     return (
         <main className="contact-page">
-            <section className="contact-hero">
-                <h1>{contact.hero.title}</h1>
-                <p>{contact.hero.description}</p>
-            </section>
+            <Banner
+                title="Contact Us"
+                description="We would love to hear from you. Get in touch with Mangata & Gallo."
+                image={contactHeroImg}
+            />
 
             <section className="contact-info">
                 {contact.info.map((item) => (

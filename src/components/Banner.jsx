@@ -1,27 +1,34 @@
 import { Link } from "react-router-dom";
-import BannerImg from "../assets/banner.jpg";
+import "../styles/banner.css";
 
-export default function Banner() {
+export default function Banner({
+    title,
+    description,
+    image,
+    buttonText,
+    buttonPath,
+}) {
     return (
         <section
             className="banner"
             style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${BannerImg})`
+                backgroundImage: `linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)
+                ), url(${image})`,
             }}
         >
-            <h1>
-                Timeless Jewelry for Life's Most Beautiful Moments
-            </h1>
+            <div className="banner-content">
+                <h1>{title}</h1>
 
-            <p>
-                Discover exquisite jewelry crafted with exceptional materials
-                and timeless design, created to celebrate your most meaningful
-                occasions.
-            </p>
+                <p>{description}</p>
 
-            <Link to="/collections">
-                Explore Collection
-            </Link>
+                {buttonText && buttonPath && (
+                    <Link to={buttonPath}>
+                        {buttonText}
+                    </Link>
+                )}
+            </div>
         </section>
     );
 }

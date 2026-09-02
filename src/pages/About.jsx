@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
 
+import Banner from "../components/Banner";
+import aboutHeroImg from "../assets/about-hero.jpg";
+
 import about from "../data/about";
 
 export default function About() {
     return (
         <main className="about-page">
-            <section className="about-hero">
-                <h1>{about.hero.title}</h1>
-                <p>{about.hero.description}</p>
-            </section>
+            <Banner
+                title={about.hero.title}
+                description={about.hero.description}
+                image={aboutHeroImg}
+            />
 
             <section className="about-story">
                 <h2>{about.story.title}</h2>
