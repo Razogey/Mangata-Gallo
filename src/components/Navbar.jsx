@@ -31,8 +31,9 @@ export default function Navbar() {
                     className="menu-toggle"
                     type="button"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label="Toggle navigation menu"
+                    aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                     aria-expanded={isMenuOpen}
+                    aria-controls="main-navigation"
                 >
                     <span></span>
                     <span></span>
@@ -40,6 +41,8 @@ export default function Navbar() {
                 </button>
 
                 <nav
+                    id="main-navigation"
+                    aria-label="Main navigation"
                     className={`navbar-menu ${
                         isMenuOpen ? "open" : ""
                     }`}
@@ -48,6 +51,7 @@ export default function Navbar() {
                         <li>
                             <NavLink
                                 to="/"
+                                end
                                 className={navClass}
                                 onClick={closeMenu}
                             >
