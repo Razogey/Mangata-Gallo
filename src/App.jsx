@@ -9,7 +9,7 @@ import Contact from "./pages/Contact";
 import ProductDetails from "./pages/ProductDetails";
 import CollectionDetails from "./pages/CollectionDetails";
 
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import "./styles/navigation.css";
@@ -53,7 +53,7 @@ function AppRoutes() {
 export default function App() {
     return (
         <>
-            <Header />
+            <Navbar />
 
             <AppRoutes />
 
