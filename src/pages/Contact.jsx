@@ -99,9 +99,9 @@ export default function Contact() {
                 ))}
             </section>
 
-            <section className="contact-form-section">
+            <section className="contact-form-section" aria-labelledby="contact-form-title">
                 <div className="section-heading">
-                    <h2>{contact.form.title}</h2>
+                    <h2 id="contact-form-title">{contact.form.title}</h2>
                 </div>
 
                 <form
@@ -118,8 +118,10 @@ export default function Contact() {
                             type="text"
                             id="name"
                             name="name"
+                            autoComplete="name"
                             value={formData.name}
                             onChange={handleChange}
+                            required
                             aria-invalid={Boolean(errors.name)}
                             aria-describedby={
                                 errors.name ? "name-error" : undefined
@@ -145,8 +147,10 @@ export default function Contact() {
                             type="email"
                             id="email"
                             name="email"
+                            autoComplete="email"
                             value={formData.email}
                             onChange={handleChange}
+                            required
                             aria-invalid={Boolean(errors.email)}
                             aria-describedby={
                                 errors.email ? "email-error" : undefined
@@ -172,8 +176,10 @@ export default function Contact() {
                             type="text"
                             id="subject"
                             name="subject"
+                            autoComplete="off"
                             value={formData.subject}
                             onChange={handleChange}
+                            required
                             aria-invalid={Boolean(errors.subject)}
                             aria-describedby={
                                 errors.subject ? "subject-error" : undefined
@@ -201,6 +207,7 @@ export default function Contact() {
                             rows="6"
                             value={formData.message}
                             onChange={handleChange}
+                            required
                             aria-invalid={Boolean(errors.message)}
                             aria-describedby={
                                 errors.message ? "message-error" : undefined
