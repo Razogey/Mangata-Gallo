@@ -17,7 +17,6 @@ const collections = [
             "Elegant and refined craftsmanship",
             "Created for meaningful moments",
         ],
-        path: "/collections/engagement",
     },
     {
         id: 2,
@@ -33,7 +32,6 @@ const collections = [
             "Elegant designs for special occasions",
             "Crafted to celebrate lasting commitment",
         ],
-        path: "/collections/wedding",
     },
     {
         id: 3,
@@ -49,7 +47,6 @@ const collections = [
             "Classic elegance with modern sophistication",
             "Exceptional attention to detail",
         ],
-        path: "/collections/luxury",
     },
 ];
 

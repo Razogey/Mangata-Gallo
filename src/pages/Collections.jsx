@@ -36,7 +36,7 @@ export default function Collections() {
                             title={collection.title}
                             description={collection.description}
                             link="Explore Collection"
-                            path={collection.path}
+                            path={`/collections/${collection.slug}`}
                             className="collection-card"
                         />
                     ))}
