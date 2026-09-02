@@ -111,6 +111,7 @@
 .auth-button {
     width: 100%;
     margin-top: 5px;
+    border-radius: 16px;
 }
 
 .auth-footer {
@@ -130,13 +131,14 @@
     width: 100%;
     min-height: 46px;
     padding: 11px 16px;
+    margin-bottom: 10px;
 
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
 
-    border-radius: 6px;
+    border-radius: 16px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
