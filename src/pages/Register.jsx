@@ -1,7 +1,9 @@
 import { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
+
 import SocialAuth from "../components/SocialAuth";
 
 export default function Register() {
@@ -38,7 +40,8 @@ export default function Register() {
         if (!formData.email.trim()) {
             newErrors.email = "Email is required.";
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = "Please enter a valid email address.";
+            newErrors.email =
+                "Please enter a valid email address.";
         }
 
         if (!formData.password) {
@@ -76,9 +79,15 @@ export default function Register() {
 
     return (
         <main className="auth-page">
-            <section className="auth-card">
+            <section
+                className="auth-card"
+                aria-labelledby="register-title"
+            >
                 <div className="auth-header">
-                    <h1>Create Account</h1>
+                    <h1 id="register-title">
+                        Create Account
+                    </h1>
+
                     <p>
                         Join Mangata & Gallo and discover
                         timeless elegance.
@@ -86,18 +95,19 @@ export default function Register() {
                 </div>
 
                 <form
+                    id="register-form"
                     className="auth-form"
                     onSubmit={handleSubmit}
                     noValidate
                 >
                     <div className="form-group">
-                        <label htmlFor="name">
+                        <label htmlFor="register-name">
                             Full Name
                         </label>
 
                         <input
                             type="text"
-                            id="name"
+                            id="register-name"
                             name="name"
                             autoComplete="name"
                             placeholder="Enter your full name"
@@ -124,13 +134,13 @@ export default function Register() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">
+                        <label htmlFor="register-email">
                             Email Address
                         </label>
 
                         <input
                             type="email"
-                            id="email"
+                            id="register-email"
                             name="email"
                             autoComplete="email"
                             placeholder="Enter your email"
@@ -157,20 +167,22 @@ export default function Register() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">
+                        <label htmlFor="register-password">
                             Password
                         </label>
 
                         <input
                             type="password"
-                            id="password"
+                            id="register-password"
                             name="password"
                             autoComplete="new-password"
                             placeholder="Create a password"
                             value={formData.password}
                             onChange={handleChange}
                             required
-                            aria-invalid={Boolean(errors.password)}
+                            aria-invalid={Boolean(
+                                errors.password
+                            )}
                             aria-describedby={
                                 errors.password
                                     ? "register-password-error"
@@ -190,13 +202,13 @@ export default function Register() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="confirm-password">
+                        <label htmlFor="register-confirm-password">
                             Confirm Password
                         </label>
 
                         <input
                             type="password"
-                            id="confirm-password"
+                            id="register-confirm-password"
                             name="confirmPassword"
                             autoComplete="new-password"
                             placeholder="Confirm your password"

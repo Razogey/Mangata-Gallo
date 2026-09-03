@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 import contact from "../data/contact";
+
 import Button from "../components/Button";
+
 import Banner from "../components/Banner";
 
 import contactHeroImg from "../assets/contact-hero.jpg";
@@ -43,7 +45,8 @@ export default function Contact() {
         if (!formData.email.trim()) {
             newErrors.email = "Email is required.";
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = "Please enter a valid email address.";
+            newErrors.email =
+                "Please enter a valid email address.";
         }
 
         if (!formData.subject.trim()) {
@@ -87,7 +90,10 @@ export default function Contact() {
                 image={contactHeroImg}
             />
 
-            <section className="contact-info">
+            <section
+                className="contact-info"
+                aria-label="Contact information"
+            >
                 {contact.info.map((item) => (
                     <article
                         className="contact-info-card"
@@ -99,24 +105,30 @@ export default function Contact() {
                 ))}
             </section>
 
-            <section className="contact-form-section" aria-labelledby="contact-form-title">
+            <section
+                className="contact-form-section"
+                aria-labelledby="contact-form-title"
+            >
                 <div className="section-heading">
-                    <h2 id="contact-form-title">{contact.form.title}</h2>
+                    <h2 id="contact-form-title">
+                        {contact.form.title}
+                    </h2>
                 </div>
 
                 <form
+                    id="contact-form"
                     className="contact-form"
                     onSubmit={handleSubmit}
                     noValidate
                 >
                     <div className="form-group">
-                        <label htmlFor="name">
+                        <label htmlFor="contact-name">
                             {contact.form.fields.name}
                         </label>
 
                         <input
                             type="text"
-                            id="name"
+                            id="contact-name"
                             name="name"
                             autoComplete="name"
                             value={formData.name}
@@ -124,14 +136,17 @@ export default function Contact() {
                             required
                             aria-invalid={Boolean(errors.name)}
                             aria-describedby={
-                                errors.name ? "name-error" : undefined
+                                errors.name
+                                    ? "contact-name-error"
+                                    : undefined
                             }
                         />
 
                         {errors.name && (
                             <p
                                 className="form-error"
-                                id="name-error"
+                                id="contact-name-error"
+                                role="alert"
                             >
                                 {errors.name}
                             </p>
@@ -139,13 +154,13 @@ export default function Contact() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">
+                        <label htmlFor="contact-email">
                             {contact.form.fields.email}
                         </label>
 
                         <input
                             type="email"
-                            id="email"
+                            id="contact-email"
                             name="email"
                             autoComplete="email"
                             value={formData.email}
@@ -153,14 +168,17 @@ export default function Contact() {
                             required
                             aria-invalid={Boolean(errors.email)}
                             aria-describedby={
-                                errors.email ? "email-error" : undefined
+                                errors.email
+                                    ? "contact-email-error"
+                                    : undefined
                             }
                         />
 
                         {errors.email && (
                             <p
                                 className="form-error"
-                                id="email-error"
+                                id="contact-email-error"
+                                role="alert"
                             >
                                 {errors.email}
                             </p>
@@ -168,28 +186,33 @@ export default function Contact() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="subject">
+                        <label htmlFor="contact-subject">
                             {contact.form.fields.subject}
                         </label>
 
                         <input
                             type="text"
-                            id="subject"
+                            id="contact-subject"
                             name="subject"
                             autoComplete="off"
                             value={formData.subject}
                             onChange={handleChange}
                             required
-                            aria-invalid={Boolean(errors.subject)}
+                            aria-invalid={Boolean(
+                                errors.subject
+                            )}
                             aria-describedby={
-                                errors.subject ? "subject-error" : undefined
+                                errors.subject
+                                    ? "contact-subject-error"
+                                    : undefined
                             }
                         />
 
                         {errors.subject && (
                             <p
                                 className="form-error"
-                                id="subject-error"
+                                id="contact-subject-error"
+                                role="alert"
                             >
                                 {errors.subject}
                             </p>
@@ -197,27 +220,32 @@ export default function Contact() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="message">
+                        <label htmlFor="contact-message">
                             {contact.form.fields.message}
                         </label>
 
                         <textarea
-                            id="message"
+                            id="contact-message"
                             name="message"
                             rows="6"
                             value={formData.message}
                             onChange={handleChange}
                             required
-                            aria-invalid={Boolean(errors.message)}
+                            aria-invalid={Boolean(
+                                errors.message
+                            )}
                             aria-describedby={
-                                errors.message ? "message-error" : undefined
+                                errors.message
+                                    ? "contact-message-error"
+                                    : undefined
                             }
                         />
 
                         {errors.message && (
                             <p
                                 className="form-error"
-                                id="message-error"
+                                id="contact-message-error"
+                                role="alert"
                             >
                                 {errors.message}
                             </p>
@@ -229,21 +257,37 @@ export default function Contact() {
                     </Button>
 
                     {status === "success" && (
-                        <p className="form-success" role="status">
-                            Your message has been sent successfully.
+                        <p
+                            className="form-success"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            Your message has been sent
+                            successfully.
                         </p>
                     )}
 
                     {status === "error" && (
-                        <p className="form-status-error" role="alert">
-                            Please correct the errors above and try again.
+                        <p
+                            className="form-status-error"
+                            role="alert"
+                            aria-live="assertive"
+                        >
+                            Please correct the errors above and
+                            try again.
                         </p>
                     )}
                 </form>
             </section>
 
-            <section className="contact-hours">
-                <h2>{contact.hours.title}</h2>
+            <section
+                className="contact-hours"
+                aria-labelledby="contact-hours-title"
+            >
+                <h2 id="contact-hours-title">
+                    {contact.hours.title}
+                </h2>
+
                 <p>{contact.hours.description}</p>
             </section>
         </main>

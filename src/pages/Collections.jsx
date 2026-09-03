@@ -18,9 +18,9 @@ export default function Collections() {
                 image={collectionsHeroImg}
             />
 
-            <section className="collection-list">
+            <section className="collection-list" aria-labelledby="collection-heading">
                 <div className="section-heading">
-                    <h2>Explore Our Collections</h2>
+                    <h2 id="collection-heading">Explore Our Collections</h2>
 
                     <p>
                         Discover timeless jewelry crafted with exceptional
@@ -43,9 +43,9 @@ export default function Collections() {
                 </div>
             </section>
 
-            <section className="featured-pieces">
+            <section className="featured-pieces" aria-labelledby="featured-heading">
                 <div className="section-heading">
-                    <h2>Featured Pieces</h2>
+                    <h2 id="featured-heading">Featured Pieces</h2>
 
                     <p>
                         A selection of timeless designs from Mangata & Gallo.
@@ -67,9 +67,9 @@ export default function Collections() {
                 </div>
             </section>
 
-            <section className="collections-cta">
+            <section className="collections-cta" aria-labelledby="collections-cta-heading">
                 <div>
-                    <h2>Find Something Timeless</h2>
+                    <h2 id="collections-cta-heading">Find Something Timeless</h2>
 
                     <p>
                         Discover jewelry designed to become part of your most meaningful

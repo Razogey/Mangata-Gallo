@@ -1,13 +1,18 @@
 .button {
     display: inline-block;
     padding: 13px 28px;
+
     background-color: #C6A15B;
     color: #FFFFFF;
+
     border: none;
     border-radius: 6px;
+
     text-decoration: none;
     font-weight: 600;
+
     cursor: pointer;
+
     transition:
         background-color 0.3s ease,
         transform 0.3s ease;
@@ -21,4 +26,20 @@
 .button:focus-visible {
     outline: 2px solid #C6A15B;
     outline-offset: 4px;
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .button {
+        transition: none;
+    }
+
+    .button:hover {
+        transform: none;
+    }
 }

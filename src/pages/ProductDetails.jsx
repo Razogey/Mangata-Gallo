@@ -21,6 +21,7 @@ export default function ProductDetails() {
                     </p>
 
                     <Link to="/collections">
+                        <span className="back-link">←</span>
                         Back to Collections
                     </Link>
                 </div>

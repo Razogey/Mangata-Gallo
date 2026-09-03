@@ -1,33 +1,48 @@
 import { useState } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+
+import {
+    NavLink,
+    Link,
+    useLocation,
+} from "react-router-dom";
 
 import headerLogo from "../assets/logo/Asset 1@3x.png";
+
 import navItems from "../data/navigation";
 
 export default function Navbar() {
-    
     const location = useLocation();
-    
+
     const isAccountActive =
-        location.pathname === "/login" || 
+        location.pathname === "/login" ||
         location.pathname === "/register";
-    
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navClass = ({ isActive }) =>
         isActive ? "nav-link active" : "nav-link";
 
+    const accountClass = isAccountActive
+        ? "navbar-action active"
+        : "navbar-action";
+
     const closeMenu = () => {
         setIsMenuOpen(false);
+    };
+
+    const toggleMenu = () => {
+        setIsMenuOpen((currentState) => !currentState);
     };
 
     return (
         <header className="navbar">
             <div className="navbar-container">
+
                 <Link
                     to="/"
                     className="navbar-logo"
                     onClick={closeMenu}
+                    aria-label="Mangata and Gallo home"
                 >
                     <img
                         src={headerLogo}
@@ -38,14 +53,18 @@ export default function Navbar() {
                 <button
                     className="menu-toggle"
                     type="button"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                    onClick={toggleMenu}
+                    aria-label={
+                        isMenuOpen
+                            ? "Close navigation menu"
+                            : "Open navigation menu"
+                    }
                     aria-expanded={isMenuOpen}
                     aria-controls="main-navigation"
                 >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
 
                 <nav
@@ -74,7 +93,6 @@ export default function Navbar() {
                         <button
                             type="button"
                             className="navbar-action"
-                            aria-label="Search"
                         >
                             Search
                         </button>
@@ -82,12 +100,15 @@ export default function Navbar() {
                         <button
                             type="button"
                             className="navbar-action"
-                            aria-label="Shopping cart"
                         >
                             Cart
                         </button>
 
-                        <NavLink to="/login" className="navbar-action" aria-label="Login">
+                        <NavLink
+                            to="/login"
+                            className={accountClass}
+                            onClick={closeMenu}
+                        >
                             Login
                         </NavLink>
                     </div>
@@ -97,7 +118,6 @@ export default function Navbar() {
                     <button
                         type="button"
                         className="navbar-action"
-                        aria-label="Search"
                     >
                         Search
                     </button>
@@ -105,15 +125,18 @@ export default function Navbar() {
                     <button
                         type="button"
                         className="navbar-action"
-                        aria-label="Shopping cart"
                     >
                         Cart
                     </button>
 
-                    <NavLink to="/login" className={isAccountActive ? "navbar-action active" : "navbar-action"} aria-label="Login">
+                    <NavLink
+                        to="/login"
+                        className={accountClass}
+                    >
                         Login
                     </NavLink>
                 </div>
+
             </div>
         </header>
     );

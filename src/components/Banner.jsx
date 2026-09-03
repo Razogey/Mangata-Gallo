@@ -11,6 +11,7 @@ export default function Banner({
     return (
         <section
             className="banner"
+            aria-labelledby="banner-title"
             style={{
                 backgroundImage: `linear-gradient(
                     rgba(0, 0, 0, 0.55),
@@ -19,7 +20,7 @@ export default function Banner({
             }}
         >
             <div className="banner-content">
-                <h1>{title}</h1>
+                <h1 id="banner-title">{title}</h1>
 
                 <p>{description}</p>
 

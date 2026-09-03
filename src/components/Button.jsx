@@ -7,12 +7,17 @@ export default function Button({
     type = "button",
     className = "",
     onClick,
+    disabled = false,
 }) {
     const classes = `button ${className}`;
 
     if (to) {
         return (
-            <Link to={to} className={classes}>
+            <Link
+                to={to}
+                className={classes}
+                onClick={onClick}
+            >
                 {children}
             </Link>
         );
@@ -20,7 +25,11 @@ export default function Button({
 
     if (href) {
         return (
-            <a href={href} className={classes}>
+            <a
+                href={href}
+                className={classes}
+                onClick={onClick}
+            >
                 {children}
             </a>
         );
@@ -31,6 +40,7 @@ export default function Button({
             type={type}
             className={classes}
             onClick={onClick}
+            disabled={disabled}
         >
             {children}
         </button>

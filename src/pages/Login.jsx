@@ -1,7 +1,9 @@
 import { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
+
 import SocialAuth from "../components/SocialAuth";
 
 export default function Login() {
@@ -32,7 +34,8 @@ export default function Login() {
         if (!formData.email.trim()) {
             newErrors.email = "Email is required.";
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = "Please enter a valid email address.";
+            newErrors.email =
+                "Please enter a valid email address.";
         }
 
         if (!formData.password) {
@@ -57,27 +60,34 @@ export default function Login() {
 
     return (
         <main className="auth-page">
-            <section className="auth-card">
+            <section
+                className="auth-card"
+                aria-labelledby="login-title"
+            >
                 <div className="auth-header">
-                    <h1>Welcome Back</h1>
+                    <h1 id="login-title">
+                        Welcome Back
+                    </h1>
+
                     <p>
                         Sign in to your Mangata & Gallo account.
                     </p>
                 </div>
 
                 <form
+                    id="login-form"
                     className="auth-form"
                     onSubmit={handleSubmit}
                     noValidate
                 >
                     <div className="form-group">
-                        <label htmlFor="email">
+                        <label htmlFor="login-email">
                             Email Address
                         </label>
 
                         <input
                             type="email"
-                            id="email"
+                            id="login-email"
                             name="email"
                             autoComplete="email"
                             placeholder="Enter your email"
@@ -104,20 +114,22 @@ export default function Login() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">
+                        <label htmlFor="login-password">
                             Password
                         </label>
 
                         <input
                             type="password"
-                            id="password"
+                            id="login-password"
                             name="password"
                             autoComplete="current-password"
                             placeholder="Enter your password"
                             value={formData.password}
                             onChange={handleChange}
                             required
-                            aria-invalid={Boolean(errors.password)}
+                            aria-invalid={Boolean(
+                                errors.password
+                            )}
                             aria-describedby={
                                 errors.password
                                     ? "login-password-error"
@@ -137,11 +149,16 @@ export default function Login() {
                     </div>
 
                     <div className="auth-options">
-                        <label className="remember-me">
+                        <label
+                            className="remember-me"
+                            htmlFor="remember-me"
+                        >
                             <input
                                 type="checkbox"
+                                id="remember-me"
                                 name="remember"
                             />
+
                             <span>Remember me</span>
                         </label>
 

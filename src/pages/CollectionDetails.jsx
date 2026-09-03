@@ -68,7 +68,8 @@ export default function CollectionDetails() {
                         to="/collections"
                         className="back-link"
                     >
-                        ← Back to Collections
+                        <span className="back-arrow" aria-hidden="true">←</span>     
+                         Back to Collections
                     </Link>
                 </div>
             </section>

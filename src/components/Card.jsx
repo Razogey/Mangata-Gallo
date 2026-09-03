@@ -10,7 +10,7 @@ export default function Card({
 }) {
     return (
         <article className={className}>
-            <img src={image} alt={title} />
+            <img src={image} alt={title} loading="lazy" />
 
             <div className="card-content">
                 <h2>{title}</h2>

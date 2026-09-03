@@ -4,7 +4,10 @@ import { FaFacebookF, FaApple } from "react-icons/fa";
 export default function SocialAuth() {
     return (
         <div className="social-auth">
-            <div className="social-auth-divider">
+            <div
+                className="social-auth-divider"
+                aria-hidden="true"
+            >
                 <span>OR</span>
             </div>
 
@@ -13,7 +16,11 @@ export default function SocialAuth() {
                     type="button"
                     className="social-auth-button btn-google"
                 >
-                    <FcGoogle className="social-auth-icon" />
+                    <FcGoogle
+                        className="social-auth-icon"
+                        aria-hidden="true"
+                        focusable="false"
+                    />
                     Continue with Google
                 </button>
 
@@ -21,7 +28,11 @@ export default function SocialAuth() {
                     type="button"
                     className="social-auth-button btn-facebook"
                 >
-                    <FaFacebookF className="social-auth-icon" />
+                    <FaFacebookF
+                        className="social-auth-icon"
+                        aria-hidden="true"
+                        focusable="false"
+                    />
                     Continue with Facebook
                 </button>
 
@@ -29,7 +40,11 @@ export default function SocialAuth() {
                     type="button"
                     className="social-auth-button btn-apple"
                 >
-                    <FaApple className="social-auth-icon" />
+                    <FaApple
+                        className="social-auth-icon"
+                        aria-hidden="true"
+                        focusable="false"
+                    />
                     Continue with Apple
                 </button>
             </div>
