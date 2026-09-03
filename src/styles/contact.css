@@ -1,44 +1,59 @@
 /* Contact Page */
 
 .contact-page {
-    background-color: #FAF9F6;
+    background-color: #FFFDF9;
 }
 
 /* Contact Information */
 
 .contact-info {
-    max-width: 1200px;
+    max-width: 1700px;
     margin: 0 auto;
     padding: 70px 50px;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 36px;
 }
 
 .contact-info-card {
-    padding: 35px 25px;
-    background-color: #FFFFFF;
+    min-height: 190px;
+    padding: 30px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background-color: #FAF9F6;
     border: 1px solid #E1D6C5;
     border-radius: 8px;
+
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .contact-info-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(34, 34, 34, 0.08);
+    box-shadow: 0 8px 20px rgba(34, 34, 34, 0.12);
 }
 
 .contact-info-card h2 {
-    margin-bottom: 15px;
+    margin: 0 0 15px;
     color: #222222;
     font-size: 20px;
 }
 
 .contact-info-card p {
-    color: #666666;
-    line-height: 1.6;
     margin: 0;
+    color: #666666;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 /* Contact Form */
