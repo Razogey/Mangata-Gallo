@@ -80,6 +80,10 @@ export default function Navbar() {
                         >
                             Cart
                         </button>
+
+                        <Link to="/login" className="navbar-action" aria-label="Login">
+                            Login
+                        </Link>
                     </div>
                 </nav>
 
@@ -99,6 +103,10 @@ export default function Navbar() {
                     >
                         Cart
                     </button>
+
+                    <Link to="/login" className="navbar-action" aria-label="Login">
+                        Login
+                    </Link>
                 </div>
             </div>
         </header>
