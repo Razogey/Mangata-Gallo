@@ -3,6 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 
 import headerLogo from "../assets/logo/Asset 1@3x.png";
 
+import navItems from "../data/navigation";
+
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -48,47 +50,18 @@ export default function Navbar() {
                     }`}
                 >
                     <ul>
-
-                        <li>
-                            <NavLink
-                                to="/"
-                                end
-                                className={navClass}
-                                onClick={closeMenu}
-                            >
-                                Home
-                            </NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink
-                                to="/collections"
-                                className={navClass}
-                                onClick={closeMenu}
-                            >
-                                Collections
-                            </NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink
-                                to="/about"
-                                className={navClass}
-                                onClick={closeMenu}
-                            >
-                                About Us
-                            </NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink
-                                to="/contact"
-                                className={navClass}
-                                onClick={closeMenu}
-                            >
-                                Contact Us
-                            </NavLink>
-                        </li>
+                        {navItems.map((item) => (
+                            <li key={item.path}>
+                                <NavLink
+                                    to={item.path}
+                                    end={item.end}
+                                    className={navClass}
+                                    onClick={closeMenu}
+                                >
+                                    {item.name}
+                                </NavLink>
+                            </li>
+                        ))}
                     </ul>
 
                     <div className="navbar-mobile-actions">
