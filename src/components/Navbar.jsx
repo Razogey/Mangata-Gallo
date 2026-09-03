@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 import headerLogo from "../assets/logo/Asset 1@3x.png";
-
 import navItems from "../data/navigation";
 
 export default function Navbar() {
+    
+    const location = useLocation();
+    
+    const isAccountActive =
+        location.pathname === "/login" || 
+        location.pathname === "/register";
+    
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navClass = ({ isActive }) =>
@@ -81,9 +87,9 @@ export default function Navbar() {
                             Cart
                         </button>
 
-                        <Link to="/login" className="navbar-action" aria-label="Login">
+                        <NavLink to="/login" className="navbar-action" aria-label="Login">
                             Login
-                        </Link>
+                        </NavLink>
                     </div>
                 </nav>
 
@@ -104,9 +110,9 @@ export default function Navbar() {
                         Cart
                     </button>
 
-                    <Link to="/login" className="navbar-action" aria-label="Login">
+                    <NavLink to="/login" className={isAccountActive ? "navbar-action active" : "navbar-action"} aria-label="Login">
                         Login
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         </header>

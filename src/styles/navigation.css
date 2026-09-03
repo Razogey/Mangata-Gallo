@@ -88,16 +88,50 @@
 }
 
 .navbar-action {
+    position: relative;
+    display: inline-block;
+    padding: 8px 5px;
+
     background: none;
     border: none;
+
     color: #33302D;
     font-weight: 600;
+    text-decoration: none;
+
     cursor: pointer;
+
     transition: color 0.3s ease;
+}
+
+.navbar-action::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #C6A15B;
+
+    transition: width 0.3s ease;
 }
 
 .navbar-action:hover {
     color: #C6A15B;
+}
+
+.navbar-action:hover::after {
+    width: 100%;
+}
+
+.navbar-action.active {
+    color: #C6A15B;
+}
+
+.navbar-action.active::after {
+    width: 100%;
 }
 
 .navbar-action:focus-visible {
