@@ -15,6 +15,7 @@ export default function SocialAuth() {
                 <button
                     type="button"
                     className="social-auth-button btn-google"
+                    disabled
                 >
                     <FcGoogle
                         className="social-auth-icon"
@@ -27,6 +28,7 @@ export default function SocialAuth() {
                 <button
                     type="button"
                     className="social-auth-button btn-facebook"
+                    disabled
                 >
                     <FaFacebookF
                         className="social-auth-icon"
@@ -39,6 +41,7 @@ export default function SocialAuth() {
                 <button
                     type="button"
                     className="social-auth-button btn-apple"
+                    disabled
                 >
                     <FaApple
                         className="social-auth-icon"

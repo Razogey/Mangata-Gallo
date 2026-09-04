@@ -84,6 +84,22 @@ export default function Contact() {
         });
     };
 
+    const renderContactValue = ({ title, value }) => {
+        if (title === "Email") {
+            return <a href={`mailto:${value}`}>{value}</a>;
+        }
+
+        if (title === "Phone") {
+            return (
+                <a href={`tel:${value.replace(/[^\d+]/g, "")}`}>
+                    {value}
+                </a>
+            );
+        }
+
+        return value;
+    };
+
     return (
         <main className="contact-page">
             <Banner
@@ -103,7 +119,7 @@ export default function Contact() {
                         key={item.title}
                     >
                         <h2>{item.title}</h2>
-                        <p>{item.value}</p>
+                        <p>{renderContactValue(item)}</p>
                     </article>
                 ))}
             </section>

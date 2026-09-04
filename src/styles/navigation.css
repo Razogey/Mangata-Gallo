@@ -110,6 +110,17 @@
     box-shadow: 0 8px 20px rgba(34, 34, 34, 0.06);
 }
 
+.navbar-action:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.navbar-action:disabled:hover {
+    color: var(--color-text-dark);
+    transform: none;
+    box-shadow: none;
+}
+
 .navbar-action.active {
     color: var(--color-gold-dark);
     border-color: var(--color-gold);

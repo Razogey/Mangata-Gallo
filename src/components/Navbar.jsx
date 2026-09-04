@@ -122,6 +122,7 @@ export default function Navbar() {
                         <button
                             type="button"
                             className="navbar-action"
+                            disabled
                         >
                             Search
                         </button>
@@ -129,6 +130,7 @@ export default function Navbar() {
                         <button
                             type="button"
                             className="navbar-action"
+                            disabled
                         >
                             Cart
                         </button>
@@ -147,6 +149,7 @@ export default function Navbar() {
                     <button
                         type="button"
                         className="navbar-action"
+                        disabled
                     >
                         Search
                     </button>
@@ -154,6 +157,7 @@ export default function Navbar() {
                     <button
                         type="button"
                         className="navbar-action"
+                        disabled
                     >
                         Cart
                     </button>
