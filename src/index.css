@@ -1,3 +1,20 @@
+:root {
+    --color-cream: #FAF9F6;
+    --color-white: #FFFFFF;
+
+    --color-text: #222222;
+    --color-text-dark: #33302D;
+    --color-text-secondary: #555555;
+    --color-text-muted: #666666;
+
+    --color-gold: #C6A15B;
+    --color-gold-hover: #A9843F;
+    --color-gold-dark: #8F6B2F;
+
+    --color-border: #E1D6C5;
+    --color-input-border: #D8CDBB;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,8 +24,8 @@
 body {
     width: 100%;
     min-height: 100vh;
-    background-color: #FFFFFF;
-    color: #33302D;
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
     font-family: Arial, sans-serif;
 }
 

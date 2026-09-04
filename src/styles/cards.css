@@ -1,23 +1,13 @@
 .collections-section {
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
     padding-top: 60px;
-}
-
-.collections-section > h2 {
-    margin: 0;
-    padding: 0 50px 35px;
-    text-align: center;
-    color: #222222;
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 1px;
 }
 
 .collections-title {
     margin: 0;
     padding: 0 50px 35px;
     text-align: center;
-    color: #222222;
+    color: var(--color-text);
     font-family: "Playfair Display", serif;
     font-size: 2.2rem;
     font-weight: 500;
@@ -32,11 +22,11 @@
     width: 50px;
     height: 2px;
     margin: 18px auto 0;
-    background-color: #C6A15B;
+    background-color: var(--color-gold);
 }
 
 .cards {
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -44,22 +34,20 @@
 }
 
 .cards article {
-    background-color: #FAF9F6;
+    background-color: var(--color-cream);
     text-align: center;
-    border: 1px solid #E1D6C5;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     overflow: hidden;
-
     display: flex;
     flex-direction: column;
-
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
 .cards article .card-content {
-    padding: 25px;
+    padding: 25px 20px 20px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -85,7 +73,7 @@
 
 .cards article h2 {
     margin-top: 0;
-    color: #222222;
+    color: var(--color-text);
 }
 
 .cards article p {
@@ -93,16 +81,14 @@
 }
 
 .cards article a {
-    color: #C6A15B;
+    color: var(--color-gold);
     text-decoration: none;
     font-weight: 600;
     margin-top: auto;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-
     transition: color 0.3s ease;
 }
 
@@ -112,7 +98,7 @@
 }
 
 .cards article a:hover {
-    color: #8F6B2F;
+    color: var(--color-gold-dark);
 }
 
 .cards article a:hover::after {
@@ -120,18 +106,13 @@
 }
 
 .cards article a:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 
 @media (max-width: 768px) {
     .collections-section {
         padding-top: 40px;
-    }
-
-    .collections-section > h2 {
-        padding: 0 20px 30px;
-        font-size: 1.7rem;
     }
 
     .collections-title {

@@ -31,7 +31,7 @@ export default function Home() {
                             description={product.description}
                             link={product.link}
                             path={product.path}
-                            className="product-card"
+                            className="home-card"
                         />
                     ))}
                 </div>
