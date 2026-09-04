@@ -173,7 +173,8 @@ export default function Contact() {
                             role="status"
                             aria-live="polite"
                         >
-                            Your message has been sent successfully.
+                            Your message was processed by this frontend demo.
+                            No message was sent.
                         </p>
                     )}
 
