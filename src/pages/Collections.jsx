@@ -56,12 +56,7 @@ export default function Collections() {
                     {featuredProducts.map((product) => (
                         <ProductCard
                             key={product.id}
-                            image={product.image}
-                            title={product.title}
-                            category={product.category}
-                            description={product.description}
-                            price={product.price}
-                            slug={product.slug}
+                            product={product}
                         />
                     ))}
                 </div>

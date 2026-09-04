@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
 
 export default function ProductCard({
-    image,
-    title,
-    category,
-    description,
-    price,
-    slug,
+    product = {},
 }) {
+    const {
+        image,
+        title,
+        category,
+        description,
+        price,
+        slug,
+    } = product;
+
     return (
         <article className="product-card">
-            <img src={image} alt={title} loading="lazy" />
+            <img
+                src={image}
+                alt={category ? `${title} - ${category}` : title || "Product"}
+                loading="lazy"
+            />
 
             <div className="product-card-content">
                 <span>{category}</span>
@@ -25,7 +33,10 @@ export default function ProductCard({
                     </p>
                 )}
 
-                <Link to={`/products/${slug}`}>
+                <Link
+                    to={`/products/${slug}`}
+                    aria-label={`View details for ${title || "product"}`}
+                >
                     View Details
                 </Link>
             </div>
