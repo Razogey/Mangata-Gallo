@@ -1,6 +1,8 @@
 .navbar {
-    background-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.96);
     padding: 25px 20px;
+    border-bottom: 1px solid rgba(231, 220, 199, 0.8);
+    backdrop-filter: blur(8px);
 }
 
 .navbar-container {
@@ -24,10 +26,11 @@
 }
 
 .navbar-menu {
-    background-color: var(--color-cream);
+    background-color: #f8f5ef;
     border: 1px solid var(--color-border);
-    border-radius: 25px;
+    border-radius: 999px;
     padding: 12px 30px;
+    box-shadow: 0 8px 22px rgba(34, 34, 34, 0.04);
 }
 
 .navbar-menu ul {
@@ -45,7 +48,7 @@
     text-decoration: none;
     font-weight: bold;
     padding: 8px 5px;
-    transition: color 0.3s ease;
+    transition: color var(--transition-base);
 }
 
 .nav-link::after {
@@ -56,7 +59,7 @@
     width: 0;
     height: 2px;
     background-color: var(--color-gold);
-    transition: width 0.3s ease;
+    transition: width var(--transition-base);
 }
 
 .nav-link:hover {
@@ -88,78 +91,28 @@
 }
 
 .navbar-action {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 14px;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 999px;
+    background: linear-gradient(135deg, #f7f0e4 0%, #f2e7d8 100%);
+    border: 1px solid var(--color-border);
     color: var(--color-text-dark);
     font-weight: 600;
-    text-decoration: none;
     cursor: pointer;
+    padding: 10px 18px;
+    border-radius: 999px;
     transition:
-        color 0.3s ease,
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
-}
-
-.navbar-action::after {
-    content: "";
-    position: absolute;
-    left: 12px;
-    bottom: 6px;
-    width: calc(100% - 24px);
-    height: 2px;
-    background-color: var(--color-gold);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        color var(--transition-base);
 }
 
 .navbar-action:hover {
     color: var(--color-gold);
-}
-
-.navbar-action:hover::after {
-    opacity: 1;
-}
-
-.navbar-action.active {
-    color: var(--color-white);
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
-}
-
-.navbar-action.active::after {
-    opacity: 0;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(34, 34, 34, 0.06);
 }
 
 .navbar-action:focus-visible {
     outline: 2px solid var(--color-gold);
     outline-offset: 4px;
-}
-
-.navbar-actions .navbar-action:last-child,
-.navbar-mobile-actions .navbar-action:last-child {
-    background-color: var(--color-gold);
-    color: var(--color-white);
-    border-color: var(--color-gold);
-    padding: 10px 18px;
-}
-
-.navbar-actions .navbar-action:last-child:hover,
-.navbar-mobile-actions .navbar-action:last-child:hover {
-    background-color: var(--color-gold-hover);
-    color: var(--color-white);
-    transform: translateY(-1px);
-}
-
-.navbar-actions .navbar-action:last-child::after,
-.navbar-mobile-actions .navbar-action:last-child::after {
-    display: none;
 }
 
 .menu-toggle {

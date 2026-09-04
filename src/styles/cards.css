@@ -1,46 +1,19 @@
-.collections-section {
-    background-color: var(--color-white);
-    padding-top: 60px;
-}
-
-.collections-title {
-    margin: 0;
-    padding: 0 50px 35px;
-    text-align: center;
-    color: var(--color-text);
-    font-family: "Playfair Display", serif;
-    font-size: 2.2rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    position: relative;
-}
-
-.collections-title::after {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 2px;
-    margin: 18px auto 0;
-    background-color: var(--color-gold);
-}
-
 .cards {
     background-color: var(--color-white);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
-    padding: 0 50px 60px;
+    padding: 60px 50px;
 }
 
 .cards article {
     background-color: var(--color-cream);
+    text-align: center;
     border: 1px solid var(--color-border);
     border-radius: var(--card-radius-md);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    text-align: center;
     box-shadow: var(--card-shadow-soft);
     transition:
         transform var(--transition-base),
@@ -48,10 +21,10 @@
 }
 
 .cards article .card-content {
+    padding: 25px;
     display: flex;
-    flex: 1;
     flex-direction: column;
-    padding: 25px 20px 20px;
+    flex: 1;
 }
 
 .cards article:hover {
@@ -60,10 +33,11 @@
 }
 
 .cards article img {
-    display: block;
     width: 100%;
     height: 250px;
     object-fit: cover;
+    display: block;
+    border-radius: var(--card-radius-md) var(--card-radius-md) 0 0;
     transition: transform 0.5s ease;
 }
 
@@ -73,22 +47,23 @@
 
 .cards article h2 {
     margin-top: 0;
-    color: var(--color-text);
+    color: var(--color-charcoal);
 }
 
 .cards article p {
     line-height: 1.6;
+    color: var(--color-text-muted);
 }
 
 .cards article a {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    margin-top: auto;
-    color: var(--color-gold);
-    text-decoration: none;
-    font-weight: 600;
     transition: color var(--transition-base);
 }
 
@@ -98,7 +73,7 @@
 }
 
 .cards article a:hover {
-    color: var(--color-gold-dark);
+    color: var(--color-gold-hover);
 }
 
 .cards article a:hover::after {
@@ -111,24 +86,10 @@
 }
 
 @media (max-width: 768px) {
-    .collections-section {
-        padding-top: 40px;
-    }
-
-    .collections-title {
-        padding: 0 20px 30px;
-        font-size: 1.8rem;
-    }
-
-    .collections-title::after {
-        width: 40px;
-        margin-top: 14px;
-    }
-
     .cards {
         grid-template-columns: 1fr;
+        padding: 40px 20px;
         gap: 25px;
-        padding: 0 20px 40px;
     }
 
     .cards article img {

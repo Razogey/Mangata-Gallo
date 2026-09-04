@@ -2,6 +2,8 @@
     background-color: var(--color-white);
 }
 
+/* Content Sections */
+
 .about-story,
 .about-craft,
 .about-philosophy {
@@ -14,86 +16,72 @@
 .about-story h2,
 .about-craft h2,
 .about-philosophy h2 {
+    color: var(--color-charcoal);
+    font-size: 32px;
     margin-bottom: 20px;
-    color: var(--color-text);
-    font-family: "Playfair Display", serif;
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    font-weight: 500;
-    letter-spacing: 1px;
-    line-height: 1.2;
-}
-
-.about-story h2::after,
-.about-craft h2::after,
-.about-philosophy h2::after {
-    content: "";
-    display: block;
-    width: 56px;
-    height: 2px;
-    margin: 18px auto 0;
-    background-color: var(--color-gold);
 }
 
 .about-story p,
 .about-craft p,
 .about-philosophy p {
     color: var(--color-text-muted);
-    font-size: 17px;
     line-height: 1.8;
+    font-size: 17px;
 }
+
+
+/* Visual separation */
 
 .about-craft {
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
 }
 
+/* Values */
 .about-values {
-    padding: 70px 50px;
+    padding: var(--section-padding-desktop);
     background-color: var(--color-white);
 }
 
 .values-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 36px;
-    max-width: 1700px;
+    max-width: 1200px;
     margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
 
 .value-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 190px;
     padding: 30px 25px;
-    box-sizing: border-box;
     background-color: var(--color-cream);
     border: 1px solid var(--color-border);
-    border-radius: var(--card-radius-md);
+    border-radius: 8px;
     text-align: center;
+
     transition:
-        transform var(--transition-base),
-        box-shadow var(--transition-base);
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .value-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--card-shadow-soft);
+    box-shadow: 0 8px 20px rgba(34, 34, 34, 0.12);
 }
 
 .value-card h3 {
-    margin: 0 0 15px;
-    color: var(--color-text);
+    margin-bottom: 15px;
+    color: var(--color-charcoal);
     font-size: 20px;
 }
 
 .value-card p {
-    margin: 0;
     color: var(--color-text-muted);
     font-size: 15px;
     line-height: 1.6;
 }
+
+/* CTA */
 
 .about-cta {
     padding: 80px 20px;
@@ -103,28 +91,31 @@
 }
 
 .about-cta h2 {
-    margin-bottom: 15px;
     font-size: 36px;
+    margin-bottom: 15px;
 }
 
 .about-cta p {
     max-width: 600px;
     margin: 0 auto 30px;
-    color: rgba(255, 255, 255, 0.8);
+    color: #D5D5D5;
     line-height: 1.6;
 }
 
 .about-cta a {
     display: inline-block;
     padding: 12px 28px;
+
     background-color: var(--color-gold);
     color: var(--color-white);
+
     text-decoration: none;
     font-weight: 600;
-    border-radius: var(--card-radius-sm);
+    border-radius: 6px;
+
     transition:
-        background-color var(--transition-base),
-        transform var(--transition-base);
+        background-color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .about-cta a:hover {
@@ -136,6 +127,9 @@
     outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
+
+
+/* Responsive */
 
 @media (max-width: 1024px) {
     .about-story,
@@ -149,7 +143,7 @@
     }
 
     .values-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
@@ -162,7 +156,7 @@
     .about-story,
     .about-craft,
     .about-philosophy {
-        padding: 50px 20px;
+        padding: var(--section-padding-mobile);
     }
 
     .about-story h2,
@@ -178,7 +172,7 @@
     }
 
     .about-values {
-        padding: 50px 20px;
+        padding: var(--section-padding-mobile);
     }
 
     .values-grid {

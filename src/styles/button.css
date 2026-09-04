@@ -2,41 +2,29 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 13px 28px;
-    background-color: var(--color-gold);
+    padding: 13px 30px;
+    background: linear-gradient(135deg, var(--color-gold) 0%, #b8944b 100%);
     color: var(--color-white);
     border: none;
-    border-radius: var(--card-radius-sm);
+    border-radius: 999px;
     text-decoration: none;
     font-weight: 600;
+    letter-spacing: 0.02em;
     cursor: pointer;
+    box-shadow: 0 10px 25px rgba(198, 161, 91, 0.2);
     transition:
-        background-color var(--transition-base),
-        transform var(--transition-base);
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        filter var(--transition-base);
 }
 
 .button:hover {
-    background-color: var(--color-gold-hover);
     transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(198, 161, 91, 0.28);
+    filter: brightness(1.02);
 }
 
 .button:focus-visible {
     outline: 2px solid var(--color-gold);
     outline-offset: 4px;
-}
-
-.button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .button {
-        transition: none;
-    }
-
-    .button:hover {
-        transform: none;
-    }
 }
