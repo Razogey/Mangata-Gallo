@@ -1,11 +1,7 @@
 import { useState } from "react";
-
 import contact from "../data/contact";
-
 import Button from "../components/Button";
-
 import Banner from "../components/Banner";
-
 import contactHeroImg from "../assets/contact-hero.jpg";
 
 export default function Contact() {
@@ -18,6 +14,13 @@ export default function Contact() {
 
     const [errors, setErrors] = useState({});
     const [status, setStatus] = useState("");
+
+    const fieldsConfig = [
+        { name: "name", type: "text", autoComplete: "name" },
+        { name: "email", type: "email", autoComplete: "email" },
+        { name: "subject", type: "text", autoComplete: "off" },
+        { name: "message", type: "textarea", rows: 6 },
+    ];
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -45,8 +48,7 @@ export default function Contact() {
         if (!formData.email.trim()) {
             newErrors.email = "Email is required.";
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email =
-                "Please enter a valid email address.";
+            newErrors.email = "Please enter a valid email address.";
         }
 
         if (!formData.subject.trim()) {
@@ -85,6 +87,7 @@ export default function Contact() {
     return (
         <main className="contact-page">
             <Banner
+                className="contact-banner"
                 title="Contact Us"
                 description="We would love to hear from you. Get in touch with Mangata & Gallo."
                 image={contactHeroImg}
@@ -121,136 +124,44 @@ export default function Contact() {
                     onSubmit={handleSubmit}
                     noValidate
                 >
-                    <div className="form-group">
-                        <label htmlFor="contact-name">
-                            {contact.form.fields.name}
-                        </label>
+                    {fieldsConfig.map(({ name, type, autoComplete, rows }) => {
+                        const isTextArea = type === "textarea";
+                        const InputComponent = isTextArea ? "textarea" : "input";
+                        const errorId = `contact-${name}-error`;
 
-                        <input
-                            type="text"
-                            id="contact-name"
-                            name="name"
-                            autoComplete="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            aria-invalid={Boolean(errors.name)}
-                            aria-describedby={
-                                errors.name
-                                    ? "contact-name-error"
-                                    : undefined
-                            }
-                        />
+                        return (
+                            <div className="form-group" key={name}>
+                                <label htmlFor={`contact-${name}`}>
+                                    {contact.form.fields[name]}
+                                </label>
 
-                        {errors.name && (
-                            <p
-                                className="form-error"
-                                id="contact-name-error"
-                                role="alert"
-                            >
-                                {errors.name}
-                            </p>
-                        )}
-                    </div>
+                                <InputComponent
+                                    id={`contact-${name}`}
+                                    name={name}
+                                    type={!isTextArea ? type : undefined}
+                                    rows={rows}
+                                    autoComplete={autoComplete}
+                                    value={formData[name]}
+                                    onChange={handleChange}
+                                    required
+                                    aria-invalid={Boolean(errors[name])}
+                                    aria-describedby={
+                                        errors[name] ? errorId : undefined
+                                    }
+                                />
 
-                    <div className="form-group">
-                        <label htmlFor="contact-email">
-                            {contact.form.fields.email}
-                        </label>
-
-                        <input
-                            type="email"
-                            id="contact-email"
-                            name="email"
-                            autoComplete="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            aria-invalid={Boolean(errors.email)}
-                            aria-describedby={
-                                errors.email
-                                    ? "contact-email-error"
-                                    : undefined
-                            }
-                        />
-
-                        {errors.email && (
-                            <p
-                                className="form-error"
-                                id="contact-email-error"
-                                role="alert"
-                            >
-                                {errors.email}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="contact-subject">
-                            {contact.form.fields.subject}
-                        </label>
-
-                        <input
-                            type="text"
-                            id="contact-subject"
-                            name="subject"
-                            autoComplete="off"
-                            value={formData.subject}
-                            onChange={handleChange}
-                            required
-                            aria-invalid={Boolean(
-                                errors.subject
-                            )}
-                            aria-describedby={
-                                errors.subject
-                                    ? "contact-subject-error"
-                                    : undefined
-                            }
-                        />
-
-                        {errors.subject && (
-                            <p
-                                className="form-error"
-                                id="contact-subject-error"
-                                role="alert"
-                            >
-                                {errors.subject}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="contact-message">
-                            {contact.form.fields.message}
-                        </label>
-
-                        <textarea
-                            id="contact-message"
-                            name="message"
-                            rows="6"
-                            value={formData.message}
-                            onChange={handleChange}
-                            required
-                            aria-invalid={Boolean(
-                                errors.message
-                            )}
-                            aria-describedby={
-                                errors.message
-                                    ? "contact-message-error"
-                                    : undefined
-                            }
-                        />
-
-                        {errors.message && (
-                            <p
-                                className="form-error"
-                                id="contact-message-error"
-                                role="alert"
-                            >
-                                {errors.message}
-                            </p>
-                        )}
-                    </div>
+                                {errors[name] && (
+                                    <p
+                                        className="form-error"
+                                        id={errorId}
+                                        role="alert"
+                                    >
+                                        {errors[name]}
+                                    </p>
+                                )}
+                            </div>
+                        );
+                    })}
 
                     <Button type="submit">
                         {contact.form.button}
@@ -262,8 +173,7 @@ export default function Contact() {
                             role="status"
                             aria-live="polite"
                         >
-                            Your message has been sent
-                            successfully.
+                            Your message has been sent successfully.
                         </p>
                     )}
 
@@ -273,8 +183,7 @@ export default function Contact() {
                             role="alert"
                             aria-live="assertive"
                         >
-                            Please correct the errors above and
-                            try again.
+                            Please correct the errors above and try again.
                         </p>
                     )}
                 </form>

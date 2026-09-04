@@ -1,10 +1,24 @@
+.contact-banner {
+    background-color: #FAF9F6;
+}
+
 /* Contact Page */
 
 .contact-page {
-    background-color: #FFFDF9;
+    background-color: #FFFFFF;
 }
 
 /* Contact Information */
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 70px 50px;
+    background-color: #FAF9F6;
+    border: 1px solid #E1D6C5;
+    border-radius: 8px;
+
+}
 
 .contact-info {
     max-width: 1700px;
@@ -60,7 +74,7 @@
 
 .contact-form-section {
     padding: 70px 20px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 .contact-form-section h2 {
@@ -73,6 +87,10 @@
 .contact-form {
     max-width: 700px;
     margin: 0 auto;
+    padding: 70px 50px;
+    background-color: #FAF9F6;
+    border: 1px solid #E1D6C5;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -110,7 +128,8 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
+    outline: 2px solid #C6A15B;
+    outline-offset: 2px;
     border-color: #C6A15B;
     box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.15);
 }
