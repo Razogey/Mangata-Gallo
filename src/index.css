@@ -1,17 +1,33 @@
 :root {
-    --color-cream: #f8f4ee;
-    --color-white: #ffffff;
-    --color-charcoal: #1d1d1d;
-    --color-text: #222222;
-    --color-text-soft: #5f574f;
-    --color-gold: #c6a15b;
-    --color-gold-strong: #a9843f;
-    --color-border: #e7dcc7;
-    --shadow-soft: 0 18px 38px rgba(34, 34, 34, 0.08);
-    --shadow-strong: 0 22px 44px rgba(34, 34, 34, 0.12);
-    --radius-md: 18px;
-    --radius-sm: 12px;
-    --transition: 0.3s ease;
+    --color-cream: #FAF9F6;
+    --color-white: #FFFFFF;
+
+    --color-charcoal: #222222;
+    --color-text-dark: #33302D;
+    --color-text-secondary: #555555;
+    --color-text-muted: #666666;
+
+    --color-gold: #C6A15B;
+    --color-gold-hover: #A9843F;
+    --color-gold-dark: #8F6B2F;
+
+    --color-border: #E1D6C5;
+    --color-input-border: #D8CDBB;
+
+    --color-success-bg: #EEF8F0;
+    --color-error-bg: #FDF0EF;
+    --color-error-text: #B42318;
+
+    --card-radius-sm: 10px;
+    --card-radius-md: 16px;
+
+    --card-shadow-soft: 0 10px 25px rgba(34, 34, 34, 0.08);
+    --card-shadow-strong: 0 16px 36px rgba(34, 34, 34, 0.12);
+
+    --transition-base: 0.3s ease;
+
+    --section-padding-desktop: 70px 50px;
+    --section-padding-mobile: 50px 20px;
 }
 
 * {
@@ -27,8 +43,8 @@ html {
 body {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(180deg, #ffffff 0%, #faf7f2 100%);
-    color: var(--color-text);
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-cream) 100%);
+    color: var(--color-charcoal);
     font-family: Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

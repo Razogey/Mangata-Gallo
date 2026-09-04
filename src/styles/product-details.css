@@ -3,7 +3,7 @@
 .product-details {
     min-height: 70vh;
     padding: 80px 50px;
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
 }
 
 .product-details-content {
@@ -21,8 +21,8 @@
 .product-details-image {
     overflow: hidden;
     border-radius: 10px;
-    background-color: #FAF9F6;
-    border: 1px solid #E1D6C5;
+    background-color: var(--color-cream);
+    border: 1px solid var(--color-border);
 }
 
 .product-details-image img {
@@ -49,7 +49,7 @@
 .product-category {
     margin-bottom: 15px;
 
-    color: #C6A15B;
+    color: var(--color-gold);
     font-size: 14px;
     font-weight: 600;
 
@@ -60,7 +60,7 @@
 .product-details-info h1 {
     margin-bottom: 20px;
 
-    color: #222222;
+    color: var(--color-charcoal);
     font-size: 42px;
     line-height: 1.2;
 }
@@ -68,7 +68,7 @@
 .product-price {
     margin-bottom: 25px;
 
-    color: #8F6B2F;
+    color: var(--color-gold-dark);
     font-size: 24px;
     font-weight: 600;
 }
@@ -84,7 +84,7 @@
 .product-details-text {
     margin-bottom: 35px;
 
-    color: #666666;
+    color: var(--color-text-muted);
     line-height: 1.7;
 }
 
@@ -96,8 +96,8 @@
     margin-bottom: 20px;
     padding: 13px 28px;
 
-    background-color: #C6A15B;
-    color: #FFFFFF;
+    background-color: var(--color-gold);
+    color: var(--color-white);
 
     border-radius: 6px;
     text-decoration: none;
@@ -109,25 +109,25 @@
 }
 
 .product-contact:hover {
-    background-color: #A9843F;
+    background-color: var(--color-gold-hover);
     transform: translateY(-2px);
 }
 
 .product-contact:focus-visible,
 .back-link:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 
 .back-link {
-    color: #666666;
+    color: var(--color-text-muted);
     text-decoration: none;
 
     transition: color 0.3s ease;
 }
 
 .back-link:hover {
-    color: #C6A15B;
+    color: var(--color-gold);
 }
 
 /* Product Not Found */
@@ -143,14 +143,14 @@
 .product-not-found h1 {
     margin-bottom: 20px;
 
-    color: #222222;
+    color: var(--color-charcoal);
     font-size: 40px;
 }
 
 .product-not-found p {
     margin-bottom: 30px;
 
-    color: #666666;
+    color: var(--color-text-muted);
     line-height: 1.6;
 }
 
@@ -159,8 +159,8 @@
 
     padding: 12px 28px;
 
-    background-color: #222222;
-    color: #FFFFFF;
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
 
     border-radius: 6px;
     text-decoration: none;
@@ -171,7 +171,7 @@
 }
 
 .product-not-found a:hover {
-    background-color: #C6A15B;
+    background-color: var(--color-gold);
     transform: translateY(-2px);
 }
 

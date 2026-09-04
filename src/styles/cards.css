@@ -10,14 +10,14 @@
     background-color: var(--color-cream);
     text-align: center;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--card-radius-md);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--card-shadow-soft);
     transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
 .cards article .card-content {
@@ -29,7 +29,7 @@
 
 .cards article:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-strong);
+    box-shadow: var(--card-shadow-strong);
 }
 
 .cards article img {
@@ -37,7 +37,7 @@
     height: 250px;
     object-fit: cover;
     display: block;
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    border-radius: var(--card-radius-md) var(--card-radius-md) 0 0;
     transition: transform 0.5s ease;
 }
 
@@ -47,12 +47,12 @@
 
 .cards article h2 {
     margin-top: 0;
-    color: var(--color-text);
+    color: var(--color-charcoal);
 }
 
 .cards article p {
     line-height: 1.6;
-    color: var(--color-text-soft);
+    color: var(--color-text-muted);
 }
 
 .cards article a {
@@ -64,16 +64,16 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    transition: color var(--transition);
+    transition: color var(--transition-base);
 }
 
 .cards article a::after {
     content: "→";
-    transition: transform var(--transition);
+    transition: transform var(--transition-base);
 }
 
 .cards article a:hover {
-    color: var(--color-gold-strong);
+    color: var(--color-gold-hover);
 }
 
 .cards article a:hover::after {

@@ -1,6 +1,6 @@
 footer {
-    background-color: #222222;
-    color: #FFFFFF;
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;

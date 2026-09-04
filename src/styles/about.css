@@ -1,5 +1,5 @@
 .about-page {
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
 }
 
 /* Content Sections */
@@ -16,7 +16,7 @@
 .about-story h2,
 .about-craft h2,
 .about-philosophy h2 {
-    color: #222222;
+    color: var(--color-charcoal);
     font-size: 32px;
     margin-bottom: 20px;
 }
@@ -24,7 +24,7 @@
 .about-story p,
 .about-craft p,
 .about-philosophy p {
-    color: #666666;
+    color: var(--color-text-muted);
     line-height: 1.8;
     font-size: 17px;
 }
@@ -33,14 +33,14 @@
 /* Visual separation */
 
 .about-craft {
-    border-top: 1px solid #E1D6C5;
-    border-bottom: 1px solid #E1D6C5;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 }
 
 /* Values */
 .about-values {
-    padding: 70px 50px;
-    background-color: #FFFFFF;
+    padding: var(--section-padding-desktop);
+    background-color: var(--color-white);
 }
 
 .values-grid {
@@ -54,8 +54,8 @@
 
 .value-card {
     padding: 30px 25px;
-    background-color: #FAF9F6;
-    border: 1px solid #E1D6C5;
+    background-color: var(--color-cream);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     text-align: center;
 
@@ -71,12 +71,12 @@
 
 .value-card h3 {
     margin-bottom: 15px;
-    color: #222222;
+    color: var(--color-charcoal);
     font-size: 20px;
 }
 
 .value-card p {
-    color: #666666;
+    color: var(--color-text-muted);
     font-size: 15px;
     line-height: 1.6;
 }
@@ -85,8 +85,8 @@
 
 .about-cta {
     padding: 80px 20px;
-    background-color: #222222;
-    color: #FFFFFF;
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
     text-align: center;
 }
 
@@ -106,8 +106,8 @@
     display: inline-block;
     padding: 12px 28px;
 
-    background-color: #C6A15B;
-    color: #FFFFFF;
+    background-color: var(--color-gold);
+    color: var(--color-white);
 
     text-decoration: none;
     font-weight: 600;
@@ -119,12 +119,12 @@
 }
 
 .about-cta a:hover {
-    background-color: #A9843F;
+    background-color: var(--color-gold-hover);
     transform: translateY(-2px);
 }
 
 .about-cta a:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 
@@ -156,7 +156,7 @@
     .about-story,
     .about-craft,
     .about-philosophy {
-        padding: 50px 20px;
+        padding: var(--section-padding-mobile);
     }
 
     .about-story h2,
@@ -172,7 +172,7 @@
     }
 
     .about-values {
-        padding: 50px 20px;
+        padding: var(--section-padding-mobile);
     }
 
     .values-grid {

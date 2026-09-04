@@ -3,8 +3,8 @@
     align-items: center;
     justify-content: center;
     padding: 13px 30px;
-    background: linear-gradient(135deg, #c6a15b 0%, #b8944b 100%);
-    color: #FFFFFF;
+    background: linear-gradient(135deg, var(--color-gold) 0%, #b8944b 100%);
+    color: var(--color-white);
     border: none;
     border-radius: 999px;
     text-decoration: none;
@@ -13,9 +13,9 @@
     cursor: pointer;
     box-shadow: 0 10px 25px rgba(198, 161, 91, 0.2);
     transition:
-        transform var(--transition),
-        box-shadow var(--transition),
-        filter var(--transition);
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        filter var(--transition-base);
 }
 
 .button:hover {
@@ -25,6 +25,6 @@
 }
 
 .button:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }

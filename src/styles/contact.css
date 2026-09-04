@@ -7,7 +7,7 @@
 .contact-info {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 70px 50px;
+    padding: var(--section-padding-desktop);
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
@@ -17,25 +17,25 @@
     padding: 35px 25px;
     background: linear-gradient(180deg, var(--color-cream) 0%, #f7f0e3 100%);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--card-radius-md);
     text-align: center;
-    box-shadow: var(--shadow-soft);
-    transition: transform var(--transition), box-shadow var(--transition);
+    box-shadow: var(--card-shadow-soft);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .contact-info-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-strong);
+    box-shadow: var(--card-shadow-strong);
 }
 
 .contact-info-card h2 {
     margin-bottom: 15px;
-    color: var(--color-text);
+    color: var(--color-charcoal);
     font-size: 20px;
 }
 
 .contact-info-card p {
-    color: var(--color-text-soft);
+    color: var(--color-text-muted);
     line-height: 1.6;
     margin: 0;
 }
@@ -48,7 +48,7 @@
 .contact-form-section h2 {
     text-align: center;
     font-size: clamp(2rem, 3vw, 2.5rem);
-    color: var(--color-text);
+    color: var(--color-charcoal);
     margin-bottom: 40px;
     font-family: "Georgia", "Times New Roman", serif;
 }
@@ -61,8 +61,8 @@
     gap: 20px;
     background: linear-gradient(180deg, #f9f5ef 0%, #f2e9df 100%);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
+    border-radius: var(--card-radius-md);
+    box-shadow: var(--card-shadow-soft);
     padding: 35px 30px;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .form-group label {
-    color: var(--color-text);
+    color: var(--color-charcoal);
     font-weight: 600;
     font-size: 15px;
 }
@@ -82,13 +82,13 @@
 .form-group textarea {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid #d8cdbb;
-    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-input-border);
+    border-radius: var(--card-radius-sm);
     background-color: var(--color-white);
-    color: #33302D;
+    color: var(--color-text-dark);
     font-family: inherit;
     font-size: 16px;
-    transition: border-color var(--transition), box-shadow var(--transition);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .form-group textarea {
@@ -106,15 +106,15 @@
 .contact-form button {
     width: 100%;
     padding: 15px 30px;
-    background: linear-gradient(135deg, #c6a15b 0%, #b8944b 100%);
-    color: #FFFFFF;
+    background: linear-gradient(135deg, var(--color-gold) 0%, #b8944b 100%);
+    color: var(--color-white);
     border: none;
     border-radius: 999px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 10px 25px rgba(198, 161, 91, 0.2);
-    transition: transform var(--transition), box-shadow var(--transition);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .contact-form button:hover {
@@ -123,7 +123,7 @@
 }
 
 .contact-form button:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 
@@ -135,26 +135,26 @@
 
 .contact-hours h2 {
     margin-bottom: 15px;
-    color: var(--color-text);
+    color: var(--color-charcoal);
     font-size: 32px;
     font-family: "Georgia", "Times New Roman", serif;
 }
 
 .contact-hours p {
-    color: var(--color-text-soft);
+    color: var(--color-text-muted);
     line-height: 1.6;
 }
 
 .form-error {
     margin-top: 6px;
-    color: #B42318;
+    color: var(--color-error-text);
     font-size: 14px;
 }
 
 .form-success {
     margin-top: 20px;
     padding: 12px 16px;
-    background-color: #EEF8F0;
+    background-color: var(--color-success-bg);
     border: 1px solid #B7DDBD;
     border-radius: 6px;
     color: #2E6B35;
@@ -164,7 +164,7 @@
 .form-status-error {
     margin-top: 20px;
     padding: 12px 16px;
-    background-color: #FDF0EF;
+    background-color: var(--color-error-bg);
     border: 1px solid #E5B8B3;
     border-radius: 6px;
     color: #9B2C23;
@@ -173,13 +173,13 @@
 
 .contact-form input[aria-invalid="true"],
 .contact-form textarea[aria-invalid="true"] {
-    border-color: #B42318;
+    border-color: var(--color-error-text);
 }
 
 .contact-form input[aria-invalid="true"]:focus,
 .contact-form textarea[aria-invalid="true"]:focus {
     outline: 2px solid rgba(180, 35, 24, 0.2);
-    border-color: #B42318;
+    border-color: var(--color-error-text);
 }
 
 @media (max-width: 1024px) {
@@ -197,7 +197,7 @@
 @media (max-width: 768px) {
     .contact-info {
         grid-template-columns: 1fr;
-        padding: 50px 20px;
+        padding: var(--section-padding-mobile);
         gap: 20px;
     }
 
@@ -207,7 +207,7 @@
 
     .contact-form-section,
     .contact-hours {
-        padding: 50px 20px;
+        padding: var(--section-padding-mobile);
     }
 
     .contact-form-section h2,

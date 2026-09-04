@@ -5,8 +5,8 @@
     position: relative;
     background-size: cover;
     background-position: center;
-    background-color: #222222;
-    color: #FFFFFF;
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
     padding: 100px 40px;
     text-align: center;
     border-radius: 12px;
@@ -26,8 +26,8 @@
 }
 
 .banner a {
-    background-color: #C6A15B;
-    color: #FFFFFF;
+    background-color: var(--color-gold);
+    color: var(--color-white);
     display: inline-block;
     text-decoration: none;
     padding: 12px 25px;
@@ -54,7 +54,7 @@
 }
 
 .banner a:hover {
-    background-color: #A9843F;
+    background-color: var(--color-gold-hover);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(198, 161, 91, 0.35);
 }
@@ -64,7 +64,7 @@
 }
 
 .banner a:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 /* Responsive */

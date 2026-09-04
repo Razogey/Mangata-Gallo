@@ -3,7 +3,7 @@
 }
 
 .collection-list {
-    padding: 70px 50px;
+    padding: var(--section-padding-desktop);
     background-color: var(--color-white);
 }
 
@@ -15,7 +15,7 @@
 
 .section-heading h2 {
     font-size: clamp(2rem, 3vw, 2.8rem);
-    color: var(--color-text);
+    color: var(--color-charcoal);
     margin-bottom: 15px;
     letter-spacing: 0.04em;
     font-family: "Georgia", "Times New Roman", serif;
@@ -31,7 +31,7 @@
 }
 
 .section-heading p {
-    color: var(--color-text-soft);
+    color: var(--color-text-muted);
     line-height: 1.7;
 }
 
@@ -46,19 +46,19 @@
 .collection-card {
     background-color: var(--color-cream);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--card-radius-md);
     overflow: hidden;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--card-shadow-soft);
     display: flex;
     flex-direction: column;
     transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
 .collection-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-strong);
+    box-shadow: var(--card-shadow-strong);
 }
 
 .collection-card img {
@@ -83,13 +83,13 @@
 
 .collection-card h2 {
     margin: 0 0 15px;
-    color: var(--color-text);
+    color: var(--color-charcoal);
     font-size: 26px;
 }
 
 .collection-card p {
     margin: 0 0 25px;
-    color: var(--color-text-soft);
+    color: var(--color-text-muted);
     font-size: 16px;
     line-height: 1.6;
 }
@@ -99,28 +99,28 @@
     text-decoration: none;
     font-weight: 600;
     margin-top: auto;
-    transition: color var(--transition);
+    transition: color var(--transition-base);
 }
 
 .collection-card a:hover {
-    color: var(--color-gold-strong);
+    color: var(--color-gold-hover);
 }
 
 .product-card {
     background-color: var(--color-cream);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--card-radius-md);
     overflow: hidden;
     text-align: center;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--card-shadow-soft);
     transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-strong);
+    box-shadow: var(--card-shadow-strong);
 }
 
 .product-card img {
@@ -151,19 +151,19 @@
 
 .product-card-content h3 {
     margin-bottom: 15px;
-    color: var(--color-text);
+    color: var(--color-charcoal);
     font-size: 20px;
 }
 
 .product-card-content p {
     margin-bottom: 15px;
-    color: var(--color-text-soft);
+    color: var(--color-text-muted);
     font-size: 15px;
     line-height: 1.6;
 }
 
 .product-card-price {
-    color: var(--color-gold-strong) !important;
+    color: var(--color-gold-hover) !important;
     font-size: 18px !important;
     font-weight: 600;
 }
@@ -172,21 +172,21 @@
     color: var(--color-gold);
     text-decoration: none;
     font-weight: 600;
-    transition: color var(--transition);
+    transition: color var(--transition-base);
 }
 
 .product-card-content a:hover {
-    color: var(--color-gold-strong);
+    color: var(--color-gold-hover);
 }
 
 .product-card-content a:focus-visible,
 .collection-card a:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 
 .featured-pieces {
-    padding: 70px 50px;
+    padding: var(--section-padding-desktop);
     background-color: var(--color-white);
 }
 
@@ -220,15 +220,15 @@
 .collections-cta a {
     display: inline-block;
     padding: 12px 28px;
-    background: linear-gradient(135deg, #c6a15b 0%, #b8944b 100%);
-    color: #FFFFFF;
+    background: linear-gradient(135deg, var(--color-gold) 0%, #b8944b 100%);
+    color: var(--color-white);
     text-decoration: none;
     font-weight: 600;
     border-radius: 999px;
     box-shadow: 0 10px 25px rgba(198, 161, 91, 0.25);
     transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
 .collections-cta a:hover {
@@ -237,7 +237,7 @@
 }
 
 .collections-cta a:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 
@@ -261,7 +261,7 @@
 
 @media (max-width: 768px) {
     .collection-list {
-        padding: 50px 20px;
+        padding: var(--section-padding-mobile);
     }
 
     .section-heading {
@@ -290,7 +290,7 @@
     }
 
     .featured-pieces {
-        padding: 50px 20px;
+        padding: var(--section-padding-mobile);
     }
 
     .featured-grid {
