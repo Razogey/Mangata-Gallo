@@ -1,4 +1,4 @@
-import { Link, useLocation, useMatches } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import collections from "../data/collections";
 import featuredProducts from "../data/featuredProducts";
@@ -14,7 +14,6 @@ const formatSegment = (value) =>
 
 export default function Breadcrumbs() {
     const location = useLocation();
-    const matches = useMatches();
     const { pathname } = location;
 
     const buildPathBreadcrumbs = () => {
@@ -78,18 +77,12 @@ export default function Breadcrumbs() {
             return crumbs;
         }
 
-        const routeMatch = matches.find(
-            (match) => match.pathname === pathname
-        );
-
-        const staticLabel =
-            routeMatch?.handle?.breadcrumb ||
-            {
-                "/about": "About",
-                "/contact": "Contact",
-                "/login": "Login",
-                "/register": "Register",
-            }[pathname];
+        const staticLabel = {
+            "/about": "About",
+            "/contact": "Contact",
+            "/login": "Login",
+            "/register": "Register",
+        }[pathname];
 
         if (staticLabel) {
             return [
@@ -98,15 +91,16 @@ export default function Breadcrumbs() {
             ];
         }
 
-        const lastSegment = pathname.split("/").filter(Boolean).at(-1);
+        const segments = pathname.split("/").filter(Boolean);
+        const nestedCrumbs = segments.map((segment, index) => ({
+            label: formatSegment(segment),
+            to: `/${segments.slice(0, index + 1).join("/")}`,
+            current: index === segments.length - 1,
+        }));
 
         return [
             { label: "Home", to: "/" },
-            {
-                label: lastSegment ? formatSegment(lastSegment) : "Page",
-                to: pathname,
-                current: true,
-            },
+            ...nestedCrumbs,
         ];
     };
 
