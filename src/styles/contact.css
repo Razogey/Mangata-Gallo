@@ -10,21 +10,10 @@
 
 /* Contact Information */
 
-form {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 70px 50px;
-    background-color: #FAF9F6;
-    border: 1px solid #E1D6C5;
-    border-radius: 8px;
-
-}
-
 .contact-info {
     max-width: 1700px;
     margin: 0 auto;
     padding: 70px 50px;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 36px;
@@ -33,19 +22,16 @@ form {
 .contact-info-card {
     min-height: 190px;
     padding: 30px 25px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     box-sizing: border-box;
-    background-color: #FAF9F6;
+    background: linear-gradient(180deg, #FAF9F6 0%, #F7F2E8 100%);
     border: 1px solid #E1D6C5;
-    border-radius: 8px;
-
+    border-radius: 16px;
     text-align: center;
-
+    box-shadow: 0 12px 30px rgba(34, 34, 34, 0.04);
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -53,7 +39,7 @@ form {
 
 .contact-info-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(34, 34, 34, 0.12);
+    box-shadow: 0 12px 30px rgba(34, 34, 34, 0.1);
 }
 
 .contact-info-card h2 {
@@ -72,24 +58,23 @@ form {
 /* Contact Form */
 
 .contact-form-section {
-    padding: 70px 20px;
+    padding: 70px 20px 90px;
     background-color: #ffffff;
 }
 
 .contact-form-section h2 {
     text-align: center;
-    font-size: 32px;
-    color: #222222;
     margin-bottom: 40px;
 }
 
 .contact-form {
-    max-width: 700px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 70px 50px;
-    background-color: #FAF9F6;
+    padding: 40px 30px 30px;
+    background: linear-gradient(180deg, #FAF9F6 0%, #F5EFE5 100%);
     border: 1px solid #E1D6C5;
-    border-radius: 8px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(34, 34, 34, 0.06);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -105,6 +90,7 @@ form {
     color: #222222;
     font-weight: 600;
     font-size: 15px;
+    letter-spacing: 0.02em;
 }
 
 .form-group input,
@@ -112,12 +98,12 @@ form {
     width: 100%;
     padding: 14px 16px;
     border: 1px solid #D8CDBB;
-    border-radius: 6px;
-    background-color: #FAF9F6;
+    border-radius: 12px;
+    background-color: #FFFFFF;
     color: #33302D;
     font-family: inherit;
     font-size: 16px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .form-group textarea {
@@ -127,8 +113,7 @@ form {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: 2px solid #C6A15B;
-    outline-offset: 2px;
+    outline: none;
     border-color: #C6A15B;
     box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.15);
 }
@@ -139,7 +124,7 @@ form {
     background-color: #C6A15B;
     color: #FFFFFF;
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
