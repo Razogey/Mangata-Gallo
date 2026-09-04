@@ -1,6 +1,6 @@
 footer {
-    background-color: #222222;
-    color: #FFFFFF;
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -8,9 +8,9 @@ footer {
 }
 
 #footer_logo img {
+    display: block;
     max-width: 250px;
     height: auto;
-    display: block;
 }
 
 #copyright {
@@ -25,8 +25,8 @@ footer {
 @media (max-width: 768px) {
     footer {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 20px;
+        text-align: center;
     }
 
     #footer_logo img {

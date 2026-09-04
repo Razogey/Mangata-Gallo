@@ -1,40 +1,36 @@
 .contact-banner {
-    background-color: #FAF9F6;
+    background-color: var(--color-cream);
 }
-
-/* Contact Page */
 
 .contact-page {
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
 }
 
-/* Contact Information */
-
 .contact-info {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px;
     max-width: 1700px;
     margin: 0 auto;
     padding: 70px 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 36px;
 }
 
 .contact-info-card {
-    min-height: 190px;
-    padding: 30px 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 190px;
+    padding: 30px 25px;
     box-sizing: border-box;
-    background: linear-gradient(180deg, #FAF9F6 0%, #F7F2E8 100%);
-    border: 1px solid #E1D6C5;
-    border-radius: 16px;
+    background: linear-gradient(180deg, var(--color-cream) 0%, #f7f2e8 100%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius-md);
     text-align: center;
     box-shadow: 0 12px 30px rgba(34, 34, 34, 0.04);
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
 .contact-info-card:hover {
@@ -44,40 +40,38 @@
 
 .contact-info-card h2 {
     margin: 0 0 15px;
-    color: #222222;
+    color: var(--color-text);
     font-size: 20px;
 }
 
 .contact-info-card p {
     margin: 0;
-    color: #666666;
+    color: var(--color-text-muted);
     font-size: 15px;
     line-height: 1.6;
 }
 
-/* Contact Form */
-
 .contact-form-section {
     padding: 70px 20px 90px;
-    background-color: #ffffff;
+    background-color: var(--color-white);
 }
 
 .contact-form-section h2 {
-    text-align: center;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .contact-form {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 40px 30px 30px;
-    background: linear-gradient(180deg, #FAF9F6 0%, #F5EFE5 100%);
-    border: 1px solid #E1D6C5;
-    border-radius: 18px;
-    box-shadow: 0 18px 40px rgba(34, 34, 34, 0.06);
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 30px 30px;
+    background: linear-gradient(180deg, var(--color-cream) 0%, #f5efe5 100%);
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(34, 34, 34, 0.06);
 }
 
 .form-group {
@@ -87,7 +81,7 @@
 }
 
 .form-group label {
-    color: #222222;
+    color: var(--color-text);
     font-weight: 600;
     font-size: 15px;
     letter-spacing: 0.02em;
@@ -97,111 +91,107 @@
 .form-group textarea {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid #D8CDBB;
+    border: 1px solid var(--color-input-border);
     border-radius: 12px;
-    background-color: #FFFFFF;
-    color: #33302D;
+    background-color: var(--color-white);
+    color: var(--color-dark);
     font-family: inherit;
     font-size: 16px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base), transform 0.2s ease;
 }
 
 .form-group textarea {
-    resize: vertical;
     min-height: 150px;
+    resize: vertical;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #C6A15B;
+    border-color: var(--color-gold);
     box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.15);
 }
 
 .contact-form button {
     width: 100%;
     padding: 15px 30px;
-    background-color: #C6A15B;
-    color: #FFFFFF;
+    background-color: var(--color-gold);
+    color: var(--color-white);
     border: none;
     border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color var(--transition-base), transform 0.2s ease;
 }
 
 .contact-form button:hover {
-    background-color: #A9843F;
+    background-color: var(--color-gold-hover);
     transform: translateY(-2px);
 }
 
 .contact-form button:focus-visible {
-    outline: 2px solid #C6A15B;
+    outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 
-/* Business Hours */
-
 .contact-hours {
     padding: 70px 20px;
-    background-color: #FAF9F6;
+    background-color: var(--color-cream);
     text-align: center;
 }
 
 .contact-hours h2 {
     margin-bottom: 15px;
-    color: #222222;
+    color: var(--color-text);
     font-size: 32px;
 }
 
 .contact-hours p {
-    color: #666666;
+    color: var(--color-text-muted);
     line-height: 1.6;
 }
 
 .form-error {
     margin-top: 6px;
-    color: #B42318;
+    color: var(--color-error-text);
     font-size: 14px;
 }
 
 .form-success {
     margin-top: 20px;
     padding: 12px 16px;
-    background-color: #EEF8F0;
-    border: 1px solid #B7DDBD;
+    background-color: var(--color-success-bg);
+    border: 1px solid #b7ddbD;
     border-radius: 6px;
-    color: #2E6B35;
+    color: #2e6b35;
     font-size: 14px;
 }
 
 .form-status-error {
     margin-top: 20px;
     padding: 12px 16px;
-    background-color: #FDF0EF;
-    border: 1px solid #E5B8B3;
+    background-color: var(--color-error-bg);
+    border: 1px solid #e5b8b3;
     border-radius: 6px;
-    color: #9B2C23;
+    color: #9b2c23;
     font-size: 14px;
 }
 
 .contact-form input[aria-invalid="true"],
 .contact-form textarea[aria-invalid="true"] {
-    border-color: #B42318;
+    border-color: var(--color-error-text);
 }
 
 .contact-form input[aria-invalid="true"]:focus,
 .contact-form textarea[aria-invalid="true"]:focus {
     outline: 2px solid rgba(180, 35, 24, 0.2);
-    border-color: #B42318;
+    border-color: var(--color-error-text);
 }
-
-/* Responsive */
 
 @media (max-width: 1024px) {
     .contact-info {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 60px 30px;
     }
 
@@ -214,8 +204,8 @@
 @media (max-width: 768px) {
     .contact-info {
         grid-template-columns: 1fr;
-        padding: 50px 20px;
         gap: 20px;
+        padding: 50px 20px;
     }
 
     .contact-info-card {

@@ -1,7 +1,8 @@
 :root {
     --color-cream: #FAF9F6;
     --color-white: #FFFFFF;
-
+    --color-charcoal: #222222;
+    --color-dark: #33302D;
     --color-text: #222222;
     --color-text-dark: #33302D;
     --color-text-secondary: #555555;
@@ -13,6 +14,17 @@
 
     --color-border: #E1D6C5;
     --color-input-border: #D8CDBB;
+    --color-success-bg: #EEF8F0;
+    --color-error-bg: #FDF0EF;
+    --color-error-text: #B42318;
+
+    --card-radius-sm: 10px;
+    --card-radius-md: 16px;
+    --card-shadow-soft: 0 10px 25px rgba(34, 34, 34, 0.08);
+    --card-shadow-strong: 0 16px 36px rgba(34, 34, 34, 0.12);
+    --transition-base: 0.3s ease;
+    --section-padding-desktop: 70px 50px;
+    --section-padding-mobile: 50px 20px;
 }
 
 * {
