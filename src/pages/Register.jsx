@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -15,6 +15,15 @@ export default function Register() {
     });
 
     const [errors, setErrors] = useState({});
+    const [status, setStatus] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const submissionTimer = useRef(null);
+
+    useEffect(() => () => {
+        if (submissionTimer.current) {
+            window.clearTimeout(submissionTimer.current);
+        }
+    }, []);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -28,6 +37,7 @@ export default function Register() {
             ...currentErrors,
             [name]: "",
         }));
+        setStatus("");
     };
 
     const validateForm = () => {
@@ -67,14 +77,26 @@ export default function Register() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        if (isSubmitting) {
+            return;
+        }
+
         const newErrors = validateForm();
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
+            setStatus("error");
             return;
         }
 
         setErrors({});
+        setStatus("processing");
+        setIsSubmitting(true);
+
+        submissionTimer.current = window.setTimeout(() => {
+            setIsSubmitting(false);
+            setStatus("success");
+        }, 500);
     };
 
     return (
@@ -239,9 +261,29 @@ export default function Register() {
                     <Button
                         type="submit"
                         className="auth-button"
+                        disabled={isSubmitting}
                     >
-                        Create Account
+                        {isSubmitting ? "Checking..." : "Create Account"}
                     </Button>
+
+                    {status === "processing" && (
+                        <p className="auth-status" role="status" aria-live="polite">
+                            Checking your details locally...
+                        </p>
+                    )}
+
+                    {status === "success" && (
+                        <p className="auth-status" role="status" aria-live="polite">
+                            Your details were validated by this frontend demo.
+                            No account was created.
+                        </p>
+                    )}
+
+                    {status === "error" && (
+                        <p className="auth-status auth-status-error" role="alert">
+                            Please correct the errors above and try again.
+                        </p>
+                    )}
 
                     <SocialAuth />
                 </form>
