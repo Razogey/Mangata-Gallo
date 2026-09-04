@@ -1,7 +1,7 @@
 .collection-details {
     min-height: 70vh;
     padding: 80px 50px;
-    background-color: #FAF9F6;
+    background-color: #FFFFFF;
 }
 
 .collection-details-content {
@@ -16,7 +16,7 @@
 .collection-details-image {
     overflow: hidden;
     border-radius: 10px;
-    background-color: #FFFFFF;
+    background-color: #FAF9F6;
     border: 1px solid #E1D6C5;
 }
 

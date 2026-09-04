@@ -44,8 +44,7 @@
 }
 
 .cards article {
-    background-color: #F8F5EF;
-    padding: 20px;
+    background-color: #FAF9F6;
     text-align: center;
     border: 1px solid #E1D6C5;
     border-radius: 8px;
@@ -57,6 +56,13 @@
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
+}
+
+.cards article .card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .cards article:hover {
@@ -78,7 +84,7 @@
 }
 
 .cards article h2 {
-    margin-top: 25px;
+    margin-top: 0;
     color: #222222;
 }
 
