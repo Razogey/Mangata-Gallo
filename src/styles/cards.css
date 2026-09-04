@@ -1,3 +1,25 @@
+.collections-section {
+    background-color: var(--color-white);
+    padding-top: var(--section-padding-desktop);
+}
+
+.collections-title {
+    text-align: center;
+    color: var(--color-charcoal);
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-family: "Georgia", "Times New Roman", serif;
+    letter-spacing: 0.04em;
+}
+
+.collections-title::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 2px;
+    background: var(--color-gold);
+    margin: 16px auto 0;
+}
+
 .cards {
     background-color: var(--color-white);
     display: grid;
@@ -86,6 +108,10 @@
 }
 
 @media (max-width: 768px) {
+    .collections-section {
+        padding-top: var(--section-padding-mobile);
+    }
+
     .cards {
         grid-template-columns: 1fr;
         padding: 40px 20px;
