@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
     NavLink,
@@ -18,6 +18,34 @@ export default function Navbar() {
         location.pathname === "/register";
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuToggleRef = useRef(null);
+
+    useEffect(() => {
+        if (!isMenuOpen) {
+            return undefined;
+        }
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setIsMenuOpen(false);
+                menuToggleRef.current?.focus();
+            }
+        };
+
+        const previousOverflow = document.body.style.overflow;
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+        if (isMobile) {
+            document.body.style.overflow = "hidden";
+        }
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isMenuOpen]);
 
     const navClass = ({ isActive }) =>
         isActive ? "nav-link active" : "nav-link";
@@ -51,6 +79,7 @@ export default function Navbar() {
                 </Link>
 
                 <button
+                    ref={menuToggleRef}
                     className="menu-toggle"
                     type="button"
                     onClick={toggleMenu}
