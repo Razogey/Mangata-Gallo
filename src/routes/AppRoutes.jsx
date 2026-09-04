@@ -15,6 +15,7 @@ import CollectionDetails from "../pages/CollectionDetails";
 import NotFound from "../pages/Notfound";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ForgotPassword from "../pages/ForgotPassword";
 
 import MainLayout from "../layouts/MainLayout";
 
@@ -82,6 +83,12 @@ export default function AppRoutes() {
                     path="/register"
                     element={<Register />}
                     handle={{ breadcrumb: "Register" }}
+                />
+
+                <Route
+                    path="/forgot-password"
+                    element={<ForgotPassword />}
+                    handle={{ breadcrumb: "Forgot Password" }}
                 />
 
                 <Route
