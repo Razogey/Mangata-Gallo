@@ -89,26 +89,34 @@
 
 .navbar-action {
     position: relative;
-    display: inline-block;
-    padding: 8px 5px;
-    background: none;
-    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
     color: var(--color-text-dark);
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .navbar-action::after {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
+    left: 12px;
+    bottom: 6px;
+    width: calc(100% - 24px);
     height: 2px;
     background-color: var(--color-gold);
-    transition: width 0.3s ease;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .navbar-action:hover {
@@ -116,20 +124,42 @@
 }
 
 .navbar-action:hover::after {
-    width: 100%;
+    opacity: 1;
 }
 
 .navbar-action.active {
-    color: var(--color-gold);
+    color: var(--color-white);
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
 }
 
 .navbar-action.active::after {
-    width: 100%;
+    opacity: 0;
 }
 
 .navbar-action:focus-visible {
     outline: 2px solid var(--color-gold);
     outline-offset: 4px;
+}
+
+.navbar-actions .navbar-action:last-child,
+.navbar-mobile-actions .navbar-action:last-child {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-color: var(--color-gold);
+    padding: 10px 18px;
+}
+
+.navbar-actions .navbar-action:last-child:hover,
+.navbar-mobile-actions .navbar-action:last-child:hover {
+    background-color: var(--color-gold-hover);
+    color: var(--color-white);
+    transform: translateY(-1px);
+}
+
+.navbar-actions .navbar-action:last-child::after,
+.navbar-mobile-actions .navbar-action:last-child::after {
+    display: none;
 }
 
 .menu-toggle {
