@@ -20,7 +20,7 @@ export default function Breadcrumbs() {
         const crumbs = [{ label: "Home", to: "/" }];
 
         if (pathname === "/") {
-            return [{ label: "Home", to: "/", current: true }];
+            return [];
         }
 
         if (pathname === "/collections") {
@@ -78,7 +78,7 @@ export default function Breadcrumbs() {
         }
 
         const staticLabel = {
-            "/about": "About",
+            "/about": "About Us",
             "/contact": "Contact",
             "/login": "Login",
             "/register": "Register",
