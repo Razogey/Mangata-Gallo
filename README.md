@@ -10,7 +10,10 @@ A responsive luxury jewelry website built with React and Vite for Mangata & Gall
 - Hero banners with calls to action
 - Collection and product cards
 - Product and collection detail pages
-- Login and registration forms with validation
+- Login, registration, and forgot-password forms with frontend validation
+- Responsive mobile navigation with keyboard and Escape-key support
+- Structured footer with navigation and contact links
+- Accessible contact email and telephone links
 - React Router navigation
 - Custom 404 page
 - Vite asset handling for images and logos
@@ -61,6 +64,7 @@ src/
 │   ├── CollectionDetails.jsx
 │   ├── Collections.jsx
 │   ├── Contact.jsx
+│   ├── ForgotPassword.jsx
 │   ├── Home.jsx
 │   ├── Login.jsx
 │   ├── Notfound.jsx
@@ -121,11 +125,22 @@ npm run preview
 | `/contact` | Contact Us |
 | `/login` | Login |
 | `/register` | Register |
+| `/forgot-password` | Forgot Password |
 | `*` | 404 Not Found |
 
 ## Deployment
 
 The project is configured for GitHub Pages using GitHub Actions. Every push to the `main` branch runs the workflow in `.github/workflows/deploy.yml`, installs dependencies, builds the application, and deploys the generated `dist` directory to GitHub Pages.
+
+## Current scope
+
+This repository currently contains a frontend-only prototype. Product and contact data
+are static, and the Login, Register, Forgot Password, and Contact forms perform local
+validation and UI feedback only. Search, Cart, social authentication, checkout,
+payments, and backend API integration are not implemented.
+
+The frontend is prepared for future API integration through reusable components,
+slug-based product routes, and a consistent product data structure.
 
 ## Design
 
