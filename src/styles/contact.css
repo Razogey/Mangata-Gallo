@@ -1,58 +1,56 @@
 /* Contact Page */
 
 .contact-page {
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
 }
-
-/* Contact Information */
 
 .contact-info {
     max-width: 1200px;
     margin: 0 auto;
     padding: 70px 50px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
 }
 
 .contact-info-card {
     padding: 35px 25px;
-    background-color: #FAF9F6;
-    border: 1px solid #E1D6C5;
-    border-radius: 8px;
+    background: linear-gradient(180deg, var(--color-cream) 0%, #f7f0e3 100%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .contact-info-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(34, 34, 34, 0.08);
+    box-shadow: var(--shadow-strong);
 }
 
 .contact-info-card h2 {
     margin-bottom: 15px;
-    color: #222222;
+    color: var(--color-text);
     font-size: 20px;
 }
 
 .contact-info-card p {
-    color: #666666;
+    color: var(--color-text-soft);
     line-height: 1.6;
     margin: 0;
 }
 
-/* Contact Form */
-
 .contact-form-section {
     padding: 70px 20px;
-    background-color: #FFFFFF;
+    background-color: var(--color-white);
 }
 
 .contact-form-section h2 {
     text-align: center;
-    font-size: 32px;
-    color: #222222;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    color: var(--color-text);
     margin-bottom: 40px;
+    font-family: "Georgia", "Times New Roman", serif;
 }
 
 .contact-form {
@@ -61,6 +59,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background: linear-gradient(180deg, #f9f5ef 0%, #f2e9df 100%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    padding: 35px 30px;
 }
 
 .form-group {
@@ -70,7 +73,7 @@
 }
 
 .form-group label {
-    color: #222222;
+    color: var(--color-text);
     font-weight: 600;
     font-size: 15px;
 }
@@ -79,13 +82,13 @@
 .form-group textarea {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid #D8CDBB;
-    border-radius: 6px;
-    background-color: #FAF9F6;
+    border: 1px solid #d8cdbb;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-white);
     color: #33302D;
     font-family: inherit;
     font-size: 16px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .form-group textarea {
@@ -96,26 +99,27 @@
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #C6A15B;
-    box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.15);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.12);
 }
 
 .contact-form button {
     width: 100%;
     padding: 15px 30px;
-    background-color: #C6A15B;
+    background: linear-gradient(135deg, #c6a15b 0%, #b8944b 100%);
     color: #FFFFFF;
     border: none;
-    border-radius: 6px;
+    border-radius: 999px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 10px 25px rgba(198, 161, 91, 0.2);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .contact-form button:hover {
-    background-color: #A9843F;
     transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(198, 161, 91, 0.28);
 }
 
 .contact-form button:focus-visible {
@@ -123,22 +127,21 @@
     outline-offset: 4px;
 }
 
-/* Business Hours */
-
 .contact-hours {
     padding: 70px 20px;
-    background-color: #FAF9F6;
+    background-color: var(--color-cream);
     text-align: center;
 }
 
 .contact-hours h2 {
     margin-bottom: 15px;
-    color: #222222;
+    color: var(--color-text);
     font-size: 32px;
+    font-family: "Georgia", "Times New Roman", serif;
 }
 
 .contact-hours p {
-    color: #666666;
+    color: var(--color-text-soft);
     line-height: 1.6;
 }
 
@@ -179,11 +182,9 @@
     border-color: #B42318;
 }
 
-/* Responsive */
-
 @media (max-width: 1024px) {
     .contact-info {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 60px 30px;
     }
 
