@@ -1,7 +1,7 @@
 .auth-page {
     min-height: 75vh;
     padding: 80px 20px;
-    background-color: #FAF9F6;
+    background-color: #FFFFFF;
 
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@
     width: 100%;
     max-width: 480px;
     padding: 45px 40px;
-    background-color: #FFFFFF;
+    background-color: #FAF9F6;
     border: 1px solid #E1D6C5;
     border-radius: 35px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);

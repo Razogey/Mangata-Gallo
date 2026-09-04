@@ -1,11 +1,12 @@
 .collections-page {
-    background-color: #FAF9F6;
+    background-color: #FFFFFF;
 }
 
 /* Collections Section */
 
 .collection-list {
     padding: 70px 50px;
+    background-color: #FFFFFF;
 }
 
 .section-heading {
@@ -41,7 +42,7 @@
 /* Collection Cards */
 
 .collection-card {
-    background-color: #FFFFFF;
+    background-color: #FAF9F6;
     border: 1px solid #E1D6C5;
     border-radius: 10px;
     overflow: hidden;
