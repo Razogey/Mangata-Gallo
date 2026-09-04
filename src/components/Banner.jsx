@@ -7,10 +7,11 @@ export default function Banner({
     image,
     buttonText,
     buttonPath,
+    className = "",
 }) {
     return (
         <section
-            className="banner"
+            className={["banner", className].filter(Boolean).join(" ")}
             aria-labelledby="banner-title"
             style={{
                 backgroundImage: `linear-gradient(
