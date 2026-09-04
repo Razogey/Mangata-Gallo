@@ -36,40 +36,58 @@ export default function AppRoutes() {
     return (
         <Routes>
             <Route element={<MainLayout />}>
-                <Route path="/" element={<Home />} />
+                <Route
+                    path="/"
+                    element={<Home />}
+                    handle={{ breadcrumb: "Home" }}
+                />
 
                 <Route
                     path="/collections"
                     element={<Collections />}
+                    handle={{ breadcrumb: "Collections" }}
                 />
 
                 <Route
                     path="/collections/:slug"
                     element={<CollectionDetails />}
+                    handle={{ breadcrumb: "Collection" }}
                 />
 
                 <Route
                     path="/about"
                     element={<About />}
+                    handle={{ breadcrumb: "About" }}
                 />
 
                 <Route
                     path="/contact"
                     element={<Contact />}
+                    handle={{ breadcrumb: "Contact" }}
                 />
 
                 <Route
                     path="/products/:slug"
                     element={<ProductDetails />}
+                    handle={{ breadcrumb: "Product" }}
                 />
 
-                <Route path="/login" element={<Login />} />
+                <Route
+                    path="/login"
+                    element={<Login />}
+                    handle={{ breadcrumb: "Login" }}
+                />
 
-                <Route path="/register" element={<Register />} />
+                <Route
+                    path="/register"
+                    element={<Register />}
+                    handle={{ breadcrumb: "Register" }}
+                />
 
                 <Route
                     path="*"
                     element={<NotFound />}
+                    handle={{ breadcrumb: "Page Not Found" }}
                 />
             </Route>
         </Routes>
