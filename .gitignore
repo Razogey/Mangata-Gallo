@@ -40,3 +40,6 @@ old.jpg
 .claude/
 .cursor/
 .devin/
+
+# Prisma generated client
+generated/
