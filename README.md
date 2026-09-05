@@ -33,50 +33,14 @@ A responsive luxury jewelry website built with React and Vite for Mangata & Gall
 ## Project Structure
 
 ```text
-src/
-├── assets/
-│   ├── logo/
-│   ├── products/
-│   ├── about-hero.jpg
-│   ├── banner.jpg
-│   ├── collections-hero.jpg
-│   └── contact-hero.jpg
-├── components/
-│   ├── Banner.jsx
-│   ├── Button.jsx
-│   ├── Card.jsx
-│   ├── Development.jsx
-│   ├── Footer.jsx
-│   ├── Navbar.jsx
-│   ├── ProductCard.jsx
-│   └── SocialAuth.jsx
-├── data/
-│   ├── about.js
-│   ├── collections.js
-│   ├── contact.js
-│   ├── featuredProducts.js
-│   ├── navigation.js
-│   └── products.js
-├── layouts/
-│   └── MainLayout.jsx
-├── pages/
-│   ├── About.jsx
-│   ├── CollectionDetails.jsx
-│   ├── Collections.jsx
-│   ├── Contact.jsx
-│   ├── ForgotPassword.jsx
-│   ├── Home.jsx
-│   ├── Login.jsx
-│   ├── Notfound.jsx
-│   ├── ProductDetails.jsx
-│   └── Register.jsx
-├── routes/
-│   └── AppRoutes.jsx
-├── styles/
-│   └── *.css
-├── App.jsx
-├── index.css
-└── main.jsx
+frontend/
+├── public/
+├── src/
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
 ```
 
 ## Getting Started
@@ -84,12 +48,14 @@ src/
 ### Install dependencies
 
 ```bash
+cd frontend
 npm install
 ```
 
 ### Run the development server
 
 ```bash
+cd frontend
 npm run dev
 ```
 
@@ -98,18 +64,21 @@ Vite will provide the local URL in the terminal.
 ### Run the linter
 
 ```bash
+cd frontend
 npm run lint
 ```
 
 ### Build for production
 
 ```bash
+cd frontend
 npm run build
 ```
 
 ### Preview the production build
 
 ```bash
+cd frontend
 npm run preview
 ```
 
