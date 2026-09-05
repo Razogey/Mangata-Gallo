@@ -34,3 +34,9 @@ dist-ssr/
 # Project files
 unused_photos/*
 old.jpg
+
+# AI / Agent configuration
+.agents/
+.claude/
+.cursor/
+.devin/
