@@ -26,3 +26,11 @@ dist-ssr
 
 unused_photos/*
 old.jpg
+
+# Python / Virtual Environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+.env
