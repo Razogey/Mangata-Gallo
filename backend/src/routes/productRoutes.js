@@ -1,15 +1,9 @@
 import express from "express";
 import prisma from "../config/prisma.js";
+import { serializeBigInt } from "../utils/serialize.js";
 
 const router = express.Router();
 
-const serializeBigInt = (value) => {
-    return JSON.parse(
-        JSON.stringify(value, (_, value) =>
-            typeof value === "bigint" ? value.toString() : value
-        )
-    )
-}
 
 // GET all products
 router.get("/", async (req, res) => {
@@ -51,6 +45,49 @@ router.get("/", async (req, res) => {
         });
     }
            
+})
+
+// Get Product By Slug
+
+router.get("/:slug", async (req, res) => {
+    try {
+        const {slug} = req.params
+
+        const product = await prisma.product.findUnique({
+            where: {
+                slug: slug,
+            },
+            include: {
+                category: true,
+                collection: true,
+                images: true,
+                variants: {
+                    where: {
+                        isActive: true,
+                    },
+                    orderBy: {
+                        price: "asc",
+                    },
+                },
+            },
+        })
+
+        if (!product) {
+            return res.status(404).json({
+                message: "Product Not Found",
+            })
+        }
+        
+        res.json({
+            status: "ok",
+            data: serializeBigInt(product)
+        })
+    } catch (error) {
+        console.log("Error fetching product by slug:", error)
+        res.status(500).json({
+            message: "Error fetching product by slug"
+        })
+    }
 })
 
 export default router;
