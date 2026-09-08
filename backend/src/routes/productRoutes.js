@@ -3,6 +3,14 @@ import prisma from "../config/prisma.js";
 
 const router = express.Router();
 
+const serializeBigInt = (value) => {
+    return JSON.parse(
+        JSON.stringify(value, (_, value) =>
+            typeof value === "bigint" ? value.toString() : value
+        )
+    )
+}
+
 // GET all products
 router.get("/", async (req, res) => {
     try {
@@ -33,7 +41,7 @@ router.get("/", async (req, res) => {
         });
         res.json({
             status:"ok",
-            data:products,
+            data:serializeBigInt(products),
         })
     } catch (error) {
         console.log("Error fetching products:", error)
