@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import prisma from './config/prisma.js';
 import productRoutes from './routes/productRoutes.js';
+import collectionRoutes from './routes/collectionRoutes.js'
 
 const app = express();
 
@@ -10,6 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/products', productRoutes);
+
+app.use('/api/collections', collectionRoutes)
 
 app.get("/api/db-test", async (req, res) => {
     try {
