@@ -74,6 +74,7 @@ router.get("/:slug", async (req, res) => {
 
         if (!product) {
             return res.status(404).json({
+                status: "error",
                 message: "Product Not Found",
             })
         }
