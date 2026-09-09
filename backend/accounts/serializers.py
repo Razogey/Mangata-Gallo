@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.db import models
 from rest_framework import serializers
 
 User = get_user_model()
@@ -10,7 +11,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta: 
         model = User
-        fields = [
+        fields = [  # noqa: RUF012
             "username",
             "email",
             "password",
@@ -46,4 +47,27 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         return user
 
-    
+class LoginSerializer(serializers.Serializer):
+    identifier = serializers.CharField()
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        identifier = attrs.get("identifier")
+        password = attrs.get("password")
+
+        user = User.objects.filter(
+            models.Q(username__iexact=identifier) | models.Q(email__iexact=identifier)
+        ).first()
+
+        if user is None or not user.check_password(password):
+            raise serializers.ValidationError(
+                "Invalid username/email or password."
+            )
+
+        if not user.is_active:
+            raise serializers.ValidationError(
+                "This account is inactive."
+            )
+
+        attrs["user"] = user
+        return attrs
