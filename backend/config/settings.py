@@ -31,16 +31,18 @@ SECRET_KEY = 'django-insecure-&lyaitz4eei*_yej5ew3)v5m@3-nmwg5v857+k(v)&drmsjrj!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".onrender.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    "rest_framework",
-    "rest_framework_simplejwt.token_blacklist",
     "accounts",
     "products",
+    "categories",
+    "product_collections",
+    "rest_framework",
+    "rest_framework_simplejwt.token_blacklist",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
