@@ -1,7 +1,6 @@
+from accounts.permissions import IsStaffOrAdmin
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
-
-from accounts.permissions import IsStaffOrAdmin
 
 from .models import Collection, CollectionHighlight
 from .serializers import (

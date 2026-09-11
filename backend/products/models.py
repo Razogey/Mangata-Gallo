@@ -26,7 +26,24 @@ class Product(models.Model):
 
     class Meta:
         db_table = "products"
-        ordering = ["name"]
+        ordering = ["name"]  # noqa: RUF012
 
     def __str__(self):
         return self.name
+    
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
+    image_url = models.URLField(max_length=500)
+    alt_text = models.CharField(max_length=255, blank=True, null=True)
+    sort_order = models.IntegerField(default=0)
+    is_primary = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "product_images"
+        ordering = ["sort_order", "id"]  # noqa: RUF012
+
+    def __str__(self):
+        return self.alt_text or f"Image for: {self.product.name}"
+    
