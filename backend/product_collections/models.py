@@ -15,3 +15,20 @@ class Collection(models.Model):
 
     def __str__(self):
         return self.title
+
+class CollectionHighlight(models.Model):
+    collection = models.ForeignKey(
+        Collection,
+        on_delete=models.CASCADE,
+        related_name="highlights",
+    )
+    text = models.TextField()
+    sort_order = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "collection_highlights"
+        ordering = ["sort_order", "id"]
+
+    def __str__(self):
+        return self.text
