@@ -4,8 +4,12 @@ from rest_framework.exceptions import MethodNotAllowed
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Product, ProductImage
-from .serializers import ProductImageSerializer, ProductSerializer
+from .models import Product, ProductImage, ProductVariant
+from .serializers import (
+    ProductImageSerializer,
+    ProductSerializer,
+    ProductVariantSerializer,
+)
 
 
 class ProductViewSet(ModelViewSet):
@@ -45,3 +49,14 @@ class ProductImageViewSet(ModelViewSet):
     )
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
+
+
+class ProductVariantViewSet(ModelViewSet):
+    queryset = ProductVariant.objects.select_related("product").all()
+    serializer_class = ProductVariantSerializer
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            return [AllowAny()]
+
+        return [IsStaffOrAdmin()]
