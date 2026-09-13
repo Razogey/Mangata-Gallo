@@ -1,4 +1,5 @@
 from accounts.permissions import IsStaffOrAdmin
+from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework.exceptions import MethodNotAllowed
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
@@ -33,3 +34,14 @@ class ProductImageViewSet(ModelViewSet):
             return [AllowAny()]
 
         return [IsStaffOrAdmin()]
+
+    @extend_schema(
+        responses={
+            201: ProductImageSerializer,
+            400: OpenApiResponse(
+                description="Product already has a primary image."
+            ),
+        }
+    )
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)

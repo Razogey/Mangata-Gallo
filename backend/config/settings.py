@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "categories",
     "product_collections",
     "rest_framework",
+    "drf_spectacular",
     "rest_framework_simplejwt.token_blacklist",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -146,8 +147,15 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
+# OpenAPI schema configuration
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Mangata & Gallo API",
+    "DESCRIPTION": "REST API for the Mangata & Gallo jewelry store",
+    "VERSION": "1.0.0",
+}
 
 # JWT Configuration
 
