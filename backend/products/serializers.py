@@ -1,6 +1,6 @@
-from rest_framework import serializers
+from rest_framework import serializers  # noqa: I001
 
-from .models import OptionType, Product, ProductImage, ProductVariant
+from .models import OptionType, Product, ProductImage, ProductVariant, OptionValue
 
 
 class ProductImageSerializer(serializers.ModelSerializer):
@@ -71,6 +71,23 @@ class OptionTypeSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "name",
+            "created_at"
+        ]
+
+        read_only_fields = [
+            "id",
+            "created_at"
+        ]
+
+
+class OptionValueSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = OptionValue
+        fields = [
+            "id",
+            "option_type",
+            "value",
             "created_at"
         ]
 

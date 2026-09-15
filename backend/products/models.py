@@ -79,3 +79,15 @@ class OptionType(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class OptionValue(models.Model):
+    option_type = models.ForeignKey(OptionType, on_delete=models.CASCADE, related_name="option_values")
+    value = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["option_type", "value"],
+            name="unique_option_value_per_type")
+        ]

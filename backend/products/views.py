@@ -4,9 +4,10 @@ from rest_framework.exceptions import MethodNotAllowed
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
 
-from .models import OptionType, Product, ProductImage, ProductVariant
+from .models import OptionType, OptionValue, Product, ProductImage, ProductVariant
 from .serializers import (
     OptionTypeSerializer,
+    OptionValueSerializer,
     ProductImageSerializer,
     ProductSerializer,
     ProductVariantSerializer,
@@ -68,7 +69,18 @@ class OptionTypeViewSet(ModelViewSet):
     serializer_class = OptionTypeSerializer
 
     def get_permissions(self):
-        if self.action in ["list", "retrive"]:
+        if self.action in ["list", "retrieve"]:
+            return [AllowAny()]
+
+        return [IsStaffOrAdmin()]
+
+
+class OptionValueViewSet(ModelViewSet):
+    queryset = OptionValue.objects.all()
+    serializer_class = OptionValueSerializer
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
             return [AllowAny()]
 
         return [IsStaffOrAdmin()]
