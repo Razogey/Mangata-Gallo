@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -15,6 +16,8 @@ from .serializers import (
 
 class RegisterView(APIView):
     permission_classes = [AllowAny]
+
+    @extend_schema(request=RegisterSerializer,)
 
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -44,6 +47,8 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
+
+    @extend_schema(request=LoginSerializer)
 
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
@@ -97,6 +102,8 @@ class MeView(APIView):
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
+
+    @extend_schema(request=LogoutSerializer)
 
     def post(self, request):
         serializer = LogoutSerializer(data=request.data)

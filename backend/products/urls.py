@@ -11,7 +11,7 @@ router = DefaultRouter()
 
 router.register("images", ProductImageViewSet, basename="product-image")
 router.register("variants", ProductVariantViewSet, basename="product-variant")
-router.register("", ProductViewSet, basename="product")
 router.register("options", OptionTypeViewSet, basename="option-type")
+router.register("", ProductViewSet, basename="product")
 
 urlpatterns = router.urls
