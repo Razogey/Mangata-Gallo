@@ -67,3 +67,15 @@ class ProductVariant(models.Model):
 
     def __str__(self):
         return f"{self.product.name} - {self.sku}"
+
+
+class OptionType(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "option_types"
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name

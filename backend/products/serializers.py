@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Product, ProductImage, ProductVariant
+from .models import OptionType, Product, ProductImage, ProductVariant
 
 
 class ProductImageSerializer(serializers.ModelSerializer):
@@ -63,6 +63,21 @@ class ProductVariantSerializer(serializers.ModelSerializer):
                 "Price cannot be negative."
             )
         return value
+
+
+class OptionTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OptionType
+        fields = [
+            "id",
+            "name",
+            "created_at"
+        ]
+
+        read_only_fields = [
+            "id",
+            "created_at"
+        ]
 
 
 class ProductSerializer(serializers.ModelSerializer):
