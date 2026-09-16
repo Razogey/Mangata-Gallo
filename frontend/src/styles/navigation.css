@@ -1,10 +1,25 @@
 .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
     background-color: rgba(255, 255, 255, 0.96);
     padding: 25px 20px;
     border-bottom: 1px solid rgba(231, 220, 199, 0.8);
     backdrop-filter: blur(8px);
+
+    transition:
+        background-color 0.3s ease,
+        backdrop-filter 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.82);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
 }
 
 .navbar-container {
