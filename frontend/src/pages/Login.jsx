@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
 
+import { saveTokens } from "../api/storage";
+import { loginUser, getCurrentUser } from "../api/auth";
 import SocialAuth from "../components/SocialAuth";
 
 export default function Login() {
@@ -55,30 +57,50 @@ export default function Login() {
         return newErrors;
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-        if (isSubmitting) {
-            return;
+        const newErrors = {};
+
+        if (!formData.email.trim()) {
+            newErrors.email = "Email or username is required.";
         }
 
-        const newErrors = validateForm();
+        if (!formData.password) {
+            newErrors.password = "Password is required.";
+        }
+
+        setErrors(newErrors);
 
         if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-            setStatus("error");
             return;
         }
 
-        setErrors({});
-        setStatus("processing");
-        setIsSubmitting(true);
+        setStatus("loading");
 
-        submissionTimer.current = window.setTimeout(() => {
-            setIsSubmitting(false);
+        try {
+            const data = await loginUser(
+            formData.email.trim(),
+            formData.password
+            );
+
+            const {access, refresh} = data.tokens
+
+            saveTokens(access, refresh)
+
+            const user = await getCurrentUser(access)
+
+            console.log("Current User:", user)
+
+            console.log("Login response:", data);
+
             setStatus("success");
-        }, 500);
-    };
+        } catch (error) {
+            console.error("Login error:", error);
+
+            setStatus("error");
+        }
+        };
 
     return (
         <main className="auth-page">
