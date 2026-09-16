@@ -8,6 +8,7 @@
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: minmax(220px, 1.5fr) repeat(3, 1fr);
     gap: 56px;
@@ -37,8 +38,10 @@
 
 .footer-section h2 {
     position: relative;
+
     margin-bottom: 18px;
     padding-bottom: 12px;
+
     color: var(--color-white);
     font-size: 15px;
     letter-spacing: 0.12em;
@@ -47,25 +50,32 @@
 
 .footer-section h2::after {
     content: "";
+
     position: absolute;
     left: 0;
     bottom: 0;
+
     width: 28px;
     height: 1px;
+
     background-color: var(--color-gold);
 }
 
 .footer-section ul {
     display: grid;
     gap: 14px;
+
     list-style: none;
 }
 
 .footer-section a {
     display: inline-block;
+
     padding: 2px 0;
+
     color: rgba(255, 255, 255, 0.72);
     text-decoration: none;
+
     transition: color var(--transition-base);
 }
 
@@ -82,17 +92,65 @@
 .footer-contact address {
     display: grid;
     gap: 14px;
+
     font-style: normal;
 }
+
+/* Social links */
+
+.footer-social {
+    display: flex;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: color var(--transition-base);
+}
+
+.footer-social a:hover {
+    color: var(--color-gold);
+}
+
+/* Footer bottom */
 
 .footer-bottom {
     max-width: 1200px;
     margin: 45px auto 0;
     padding-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
     border-top: 1px solid rgba(255, 255, 255, 0.16);
+
     color: rgba(255, 255, 255, 0.58);
     font-size: 14px;
 }
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.58);
+    text-decoration: none;
+
+    transition: color var(--transition-base);
+}
+
+.footer-legal a:hover {
+    color: var(--color-gold);
+}
+
+/* Tablet */
 
 @media (max-width: 768px) {
     .footer {
@@ -112,6 +170,20 @@
 
     .footer-bottom {
         margin-top: 35px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-legal {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
