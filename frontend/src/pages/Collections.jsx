@@ -1,37 +1,55 @@
 import { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 
 import ProductCard from "../components/ProductCard";
 import Card from "../components/Card";
 import Banner from "../components/Banner";
 
-import collections from "../data/collections";
-
 import collectionsHeroImg from "../assets/collections-hero.jpg";
 
+import { getCollections } from "../api/collections";
 import { getProducts } from "../api/products";
 
 export default function Collections() {
+    const [collections, setCollections] = useState([]);
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+
+    const [loadingCollections, setLoadingCollections] = useState(true);
+    const [loadingProducts, setLoadingProducts] = useState(true);
+
+    const [collectionsError, setCollectionsError] = useState("");
+    const [productsError, setProductsError] = useState("");
+
+    useEffect(() => {
+        async function loadCollections() {
+            try {
+                const data = await getCollections();
+                setCollections(data);
+            } catch (error) {
+                console.error("Failed to load collections:", error);
+                setCollectionsError(
+                    "Unable to load collections. Please try again later."
+                );
+            } finally {
+                setLoadingCollections(false);
+            }
+        }
+
+        loadCollections();
+    }, []);
 
     useEffect(() => {
         async function loadProducts() {
             try {
                 const data = await getProducts();
-
                 setProducts(data);
-                console.log("Products from API:", data);
             } catch (error) {
                 console.error("Failed to load products:", error);
-
-                setError(
+                setProductsError(
                     "Unable to load products. Please try again later."
                 );
             } finally {
-                setLoading(false);
+                setLoadingProducts(false);
             }
         }
 
@@ -56,24 +74,50 @@ export default function Collections() {
                     </h2>
 
                     <p>
-                        Discover timeless jewelry crafted with
-                        exceptional materials and attention to detail.
+                        Discover timeless jewelry crafted with exceptional
+                        materials and attention to detail.
                     </p>
                 </div>
 
-                <div className="collection-grid">
-                    {collections.map((collection) => (
-                        <Card
-                            key={collection.id}
-                            image={collection.image}
-                            title={collection.title}
-                            description={collection.description}
-                            link="Explore Collection"
-                            path={`/collections/${collection.slug}`}
-                            className="collection-card"
-                        />
-                    ))}
-                </div>
+                {loadingCollections && (
+                    <p className="auth-status">
+                        Loading collections...
+                    </p>
+                )}
+
+                {collectionsError && (
+                    <p
+                        className="auth-status auth-status-error"
+                        role="alert"
+                    >
+                        {collectionsError}
+                    </p>
+                )}
+
+                {!loadingCollections &&
+                    !collectionsError && (
+                        <div className="collection-grid">
+                            {collections.map((collection) => {
+                                const primaryImage =
+                                    collection.images?.find(
+                                        (image) => image.is_primary
+                                    ) ||
+                                    collection.images?.[0];
+
+                                return (
+                                    <Card
+                                        key={collection.id}
+                                        image={primaryImage?.image_url}
+                                        title={collection.title}
+                                        description={collection.description}
+                                        link="Explore Collection"
+                                        path={`/collections/${collection.slug}`}
+                                        className="collection-card"
+                                    />
+                                );
+                            })}
+                        </div>
+                    )}
             </section>
 
             <section
@@ -91,31 +135,32 @@ export default function Collections() {
                     </p>
                 </div>
 
-                {loading && (
+                {loadingProducts && (
                     <p className="auth-status">
                         Loading products...
                     </p>
                 )}
 
-                {error && (
+                {productsError && (
                     <p
                         className="auth-status auth-status-error"
                         role="alert"
                     >
-                        {error}
+                        {productsError}
                     </p>
                 )}
 
-                {!loading && !error && (
-                    <div className="featured-grid">
-                        {products.map((product) => (
-                            <ProductCard
-                                key={product.id}
-                                product={product}
-                            />
-                        ))}
-                    </div>
-                )}
+                {!loadingProducts &&
+                    !productsError && (
+                        <div className="featured-grid">
+                            {products.map((product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    product={product}
+                                />
+                            ))}
+                        </div>
+                    )}
             </section>
 
             <section
