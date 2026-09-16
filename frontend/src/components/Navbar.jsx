@@ -23,6 +23,20 @@ export default function Navbar() {
     const menuToggleRef = useRef(null);
     const accountMenuRef = useRef(null);
 
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        function handleScroll() {
+            setScrolled(window.scrollY > 20);
+        }
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     useEffect(() => {
         if (!isMenuOpen) {
             return undefined;
@@ -104,7 +118,7 @@ export default function Navbar() {
     };
 
     return (
-        <header className="navbar">
+        <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
             <div className="navbar-container">
                 <Link
                     to="/"
