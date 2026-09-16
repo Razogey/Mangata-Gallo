@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import Button from "../components/Button";
 import SocialAuth from "../components/SocialAuth";
@@ -15,6 +15,9 @@ export default function Login() {
 
     const { login } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const redirectPath = new URLSearchParams(location.search).get("redirect") || "/";
 
     const [errors, setErrors] = useState({});
     const [status, setStatus] = useState("");
@@ -90,7 +93,7 @@ export default function Login() {
 
             setStatus("success");
 
-            navigate("/account");
+            navigate(redirectPath, { replace: true });
         } catch (error) {
             console.error("Login error:", error);
 
