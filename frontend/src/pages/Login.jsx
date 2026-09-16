@@ -1,28 +1,33 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Button from "../components/Button";
-
-import { saveTokens } from "../api/storage";
-import { loginUser, getCurrentUser } from "../api/auth";
 import SocialAuth from "../components/SocialAuth";
+
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        email: "",
+        identifier: "",
         password: "",
     });
+
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
     const [errors, setErrors] = useState({});
     const [status, setStatus] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+
     const submissionTimer = useRef(null);
 
-    useEffect(() => () => {
-        if (submissionTimer.current) {
-            window.clearTimeout(submissionTimer.current);
-        }
+    useEffect(() => {
+        return () => {
+            if (submissionTimer.current) {
+                window.clearTimeout(submissionTimer.current);
+            }
+        };
     }, []);
 
     const handleChange = (event) => {
@@ -37,17 +42,16 @@ export default function Login() {
             ...currentErrors,
             [name]: "",
         }));
+
         setStatus("");
     };
 
     const validateForm = () => {
         const newErrors = {};
 
-        if (!formData.email.trim()) {
-            newErrors.email = "Email is required.";
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email =
-                "Please enter a valid email address.";
+        if (!formData.identifier.trim()) {
+            newErrors.identifier =
+                "Email or username is required.";
         }
 
         if (!formData.password) {
@@ -57,50 +61,44 @@ export default function Login() {
         return newErrors;
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-        const newErrors = {};
-
-        if (!formData.email.trim()) {
-            newErrors.email = "Email or username is required.";
+        if (isSubmitting) {
+            return;
         }
 
-        if (!formData.password) {
-            newErrors.password = "Password is required.";
-        }
+        const newErrors = validateForm();
 
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length > 0) {
+            setStatus("error");
             return;
         }
 
-        setStatus("loading");
+        setStatus("processing");
+        setIsSubmitting(true);
 
         try {
-            const data = await loginUser(
-            formData.email.trim(),
-            formData.password
+            const currentUser = await login(
+                formData.identifier,
+                formData.password
             );
 
-            const {access, refresh} = data.tokens
-
-            saveTokens(access, refresh)
-
-            const user = await getCurrentUser(access)
-
-            console.log("Current User:", user)
-
-            console.log("Login response:", data);
+            console.log("Current User:", currentUser);
 
             setStatus("success");
+
+            navigate("/account");
         } catch (error) {
             console.error("Login error:", error);
 
             setStatus("error");
+        } finally {
+            setIsSubmitting(false);
         }
-        };
+    };
 
     return (
         <main className="auth-page">
@@ -125,34 +123,36 @@ export default function Login() {
                     noValidate
                 >
                     <div className="form-group">
-                        <label htmlFor="login-email">
-                            Email Address
+                        <label htmlFor="login-identifier">
+                            Email or Username
                         </label>
 
                         <input
-                            type="email"
-                            id="login-email"
-                            name="email"
-                            autoComplete="email"
-                            placeholder="Enter your email"
-                            value={formData.email}
+                            type="text"
+                            id="login-identifier"
+                            name="identifier"
+                            autoComplete="username"
+                            placeholder="Enter your email or username"
+                            value={formData.identifier}
                             onChange={handleChange}
                             required
-                            aria-invalid={Boolean(errors.email)}
+                            aria-invalid={Boolean(
+                                errors.identifier
+                            )}
                             aria-describedby={
-                                errors.email
-                                    ? "login-email-error"
+                                errors.identifier
+                                    ? "login-identifier-error"
                                     : undefined
                             }
                         />
 
-                        {errors.email && (
+                        {errors.identifier && (
                             <p
                                 className="auth-error"
-                                id="login-email-error"
+                                id="login-identifier-error"
                                 role="alert"
                             >
-                                {errors.email}
+                                {errors.identifier}
                             </p>
                         )}
                     </div>
@@ -216,25 +216,37 @@ export default function Login() {
                         className="auth-button"
                         disabled={isSubmitting}
                     >
-                        {isSubmitting ? "Checking..." : "Login"}
+                        {isSubmitting
+                            ? "Logging in..."
+                            : "Login"}
                     </Button>
 
                     {status === "processing" && (
-                        <p className="auth-status" role="status" aria-live="polite">
-                            Checking your details locally...
+                        <p
+                            className="auth-status"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            Signing you in...
                         </p>
                     )}
 
                     {status === "success" && (
-                        <p className="auth-status" role="status" aria-live="polite">
-                            Your details were validated by this frontend demo.
-                            No login was performed.
+                        <p
+                            className="auth-status"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            Login successful. Redirecting...
                         </p>
                     )}
 
                     {status === "error" && (
-                        <p className="auth-status auth-status-error" role="alert">
-                            Please correct the errors above and try again.
+                        <p
+                            className="auth-status auth-status-error"
+                            role="alert"
+                        >
+                            Invalid username/email or password.
                         </p>
                     )}
 
