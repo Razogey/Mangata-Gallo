@@ -2,23 +2,22 @@
     background-color: var(--color-white);
 }
 
-.collection-list {
-    padding: var(--section-padding-desktop);
-    background-color: var(--color-white);
-}
+/* =========================
+   Section Heading
+   ========================= */
 
 .section-heading {
-    text-align: center;
     max-width: 700px;
     margin: 0 auto 50px;
+    text-align: center;
 }
 
 .section-heading h2 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    color: var(--color-charcoal);
     margin-bottom: 15px;
-    letter-spacing: 0.04em;
+    color: var(--color-charcoal);
     font-family: "Georgia", "Times New Roman", serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    letter-spacing: 0.04em;
 }
 
 .section-heading h2::after {
@@ -26,8 +25,8 @@
     display: block;
     width: 56px;
     height: 2px;
-    background: var(--color-gold);
     margin: 16px auto 0;
+    background-color: var(--color-gold);
 }
 
 .section-heading p {
@@ -35,29 +34,48 @@
     line-height: 1.7;
 }
 
+
+/* =========================
+   Collections
+   ========================= */
+
+.collection-list {
+    padding: var(--section-padding-desktop);
+    background-color: var(--color-white);
+}
+
 .collection-grid {
     max-width: 1200px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
 }
 
+
+/* =========================
+   Collection Card
+   ========================= */
+
 .collection-card {
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
     background-color: var(--color-cream);
     border: 1px solid var(--color-border);
     border-radius: var(--card-radius-md);
-    overflow: hidden;
     box-shadow: var(--card-shadow-soft);
-    display: flex;
-    flex-direction: column;
+
     transition:
         transform var(--transition-base),
         box-shadow var(--transition-base);
 }
 
 .collection-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: var(--card-shadow-strong);
 }
 
@@ -66,6 +84,7 @@
     height: 280px;
     object-fit: cover;
     display: block;
+
     transition: transform 0.5s ease;
 }
 
@@ -74,31 +93,37 @@
 }
 
 .collection-card .card-content {
-    padding: 25px;
-    text-align: center;
+    flex: 1;
+
     display: flex;
     flex-direction: column;
-    flex: 1;
+
+    padding: 26px;
+    text-align: center;
 }
 
 .collection-card h2 {
     margin: 0 0 15px;
     color: var(--color-charcoal);
-    font-size: 26px;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 25px;
+    line-height: 1.3;
 }
 
 .collection-card p {
     margin: 0 0 25px;
     color: var(--color-text-muted);
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.7;
 }
 
 .collection-card a {
+    margin-top: auto;
+
     color: var(--color-gold);
     text-decoration: none;
     font-weight: 600;
-    margin-top: auto;
+
     transition: color var(--transition-base);
 }
 
@@ -106,13 +131,40 @@
     color: var(--color-gold-hover);
 }
 
+
+/* =========================
+   Featured Pieces
+   ========================= */
+
+.featured-pieces {
+    padding: var(--section-padding-desktop);
+    background-color: var(--color-white);
+}
+
+.featured-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+}
+
+
+/* =========================
+   Product Card
+   ========================= */
+
 .product-card {
+    overflow: hidden;
+
     background-color: var(--color-cream);
     border: 1px solid var(--color-border);
     border-radius: var(--card-radius-md);
-    overflow: hidden;
-    text-align: center;
     box-shadow: var(--card-shadow-soft);
+
+    text-align: center;
+
     transition:
         transform var(--transition-base),
         box-shadow var(--transition-base);
@@ -128,6 +180,7 @@
     height: 280px;
     object-fit: cover;
     display: block;
+
     transition: transform 0.5s ease;
 }
 
@@ -142,6 +195,7 @@
 .product-card-content span {
     display: block;
     margin-bottom: 12px;
+
     color: var(--color-gold);
     font-size: 13px;
     font-weight: 600;
@@ -150,9 +204,10 @@
 }
 
 .product-card-content h3 {
-    margin-bottom: 15px;
+    margin: 0 0 15px;
     color: var(--color-charcoal);
     font-size: 20px;
+    line-height: 1.35;
 }
 
 .product-card-content p {
@@ -172,6 +227,7 @@
     color: var(--color-gold);
     text-decoration: none;
     font-weight: 600;
+
     transition: color var(--transition-base);
 }
 
@@ -179,53 +235,64 @@
     color: var(--color-gold-hover);
 }
 
+
+/* =========================
+   Focus States
+   ========================= */
+
 .product-card-content a:focus-visible,
 .collection-card a:focus-visible {
     outline: 2px solid var(--color-gold);
     outline-offset: 4px;
 }
 
-.featured-pieces {
-    padding: var(--section-padding-desktop);
-    background-color: var(--color-white);
-}
 
-.featured-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 25px;
-}
+/* =========================
+   CTA
+   ========================= */
 
 .collections-cta {
     padding: 80px 20px;
+
     background-color: var(--color-charcoal);
     color: var(--color-white);
+
     text-align: center;
 }
 
 .collections-cta h2 {
-    font-size: 36px;
     margin-bottom: 15px;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 36px;
 }
 
 .collections-cta p {
     max-width: 600px;
     margin: 0 auto 30px;
+
     color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .collections-cta a {
     display: inline-block;
+
     padding: 12px 28px;
-    background: linear-gradient(135deg, var(--color-gold) 0%, #b8944b 100%);
+
+    background: linear-gradient(
+        135deg,
+        var(--color-gold) 0%,
+        #b8944b 100%
+    );
+
     color: var(--color-white);
     text-decoration: none;
     font-weight: 600;
+
     border-radius: 999px;
+
     box-shadow: 0 10px 25px rgba(198, 161, 91, 0.25);
+
     transition:
         transform var(--transition-base),
         box-shadow var(--transition-base);
@@ -241,8 +308,14 @@
     outline-offset: 4px;
 }
 
+
+/* =========================
+   Tablet
+   ========================= */
+
 @media (max-width: 1024px) {
-    .collection-list {
+    .collection-list,
+    .featured-pieces {
         padding: 60px 30px;
     }
 
@@ -250,17 +323,19 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .featured-pieces {
-        padding: 60px 30px;
-    }
-
     .featured-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+
+/* =========================
+   Mobile
+   ========================= */
+
 @media (max-width: 768px) {
-    .collection-list {
+    .collection-list,
+    .featured-pieces {
         padding: var(--section-padding-mobile);
     }
 
@@ -286,11 +361,7 @@
     }
 
     .collection-card .card-content {
-        padding: 20px;
-    }
-
-    .featured-pieces {
-        padding: var(--section-padding-mobile);
+        padding: 22px 20px;
     }
 
     .featured-grid {
@@ -308,5 +379,25 @@
 
     .collections-cta h2 {
         font-size: 30px;
+    }
+}
+
+
+/* =========================
+   Small Mobile
+   ========================= */
+
+@media (max-width: 480px) {
+    .collection-card img,
+    .product-card img {
+        height: 250px;
+    }
+
+    .collection-card .card-content {
+        padding: 20px;
+    }
+
+    .product-card-content {
+        padding: 22px 20px;
     }
 }
