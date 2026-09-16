@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 
-import collections from "../data/collections";
-import featuredProducts from "../data/featuredProducts";
+import collections from "../../data/collections";
+import featuredProducts from "../../data/featuredProducts";
 
 const formatSegment = (value) =>
     value
