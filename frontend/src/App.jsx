@@ -6,7 +6,8 @@ import "./components/Banner/banner.css";
 import "./components/Card/cards.css";
 import "./components/Button/button.css";
 import "./components/Footer/footer.css";
-import "./styles/pages.css";
+import "./pages/Development/development.css"
+import "./pages/NotFound/notfound.css"
 import "./pages/Collections/collections.css";
 import "./pages/CollectionDetails/collection-details.css";
 import "./pages/About/about.css";
