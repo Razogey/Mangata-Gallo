@@ -138,6 +138,9 @@ class Command(BaseCommand):
     help = "Seed the six Mangata & Gallo collections."
 
     def handle(self, *args, **options):
+
+        Collection.objects.exclude(slug__in=[data["slug"] for data in COLLECTIONS]).delete()
+
         for data in COLLECTIONS:
             collection, created = Collection.objects.update_or_create(
                 slug=data["slug"],
