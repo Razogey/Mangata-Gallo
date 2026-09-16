@@ -15,7 +15,9 @@ from .models import (
 from .serializers import (
     OptionTypeSerializer,
     OptionValueSerializer,
+    ProductDetailSerializer,
     ProductImageSerializer,
+    ProductListSerializer,
     ProductSerializer,
     ProductVariantSerializer,
     VariantOptionSerializer,
@@ -26,8 +28,19 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.select_related(
         "category",
         "collection",
-    ).all()
-    serializer_class = ProductSerializer
+    ).prefetch_related(
+        "images",
+        "variants__variant_options__option_value__option_type",
+    )
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return ProductListSerializer
+
+        if self.action == "retrieve":
+            return ProductDetailSerializer
+
+        return ProductSerializer
 
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
@@ -37,7 +50,6 @@ class ProductViewSet(ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         raise MethodNotAllowed("DELETE")
-
 
 class ProductImageViewSet(ModelViewSet):
     queryset = ProductImage.objects.select_related("product").all()
