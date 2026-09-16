@@ -4,7 +4,8 @@ import {
     useNavigate,
 } from "react-router-dom";
 
-import { useEffect } from "react";
+import ProtectedRoute from "../components/ProtectedRoute";
+import Account from "../pages/Account";
 
 import Home from "../pages/Home";
 import Collections from "../pages/Collections";
@@ -20,19 +21,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import MainLayout from "../layouts/MainLayout";
 
 export default function AppRoutes() {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const params = new URLSearchParams(
-            window.location.search
-        );
-
-        const redirect = params.get("redirect");
-
-        if (redirect) {
-            navigate(redirect, { replace: true });
-        }
-    }, [navigate]);
+    
 
     return (
         <Routes>
@@ -90,6 +79,14 @@ export default function AppRoutes() {
                     element={<ForgotPassword />}
                     handle={{ breadcrumb: "Forgot Password" }}
                 />
+
+                <Route element={<ProtectedRoute />}>
+                    <Route
+                        path="/account"
+                        element={<Account />}
+                        handle={{ breadcrumb: "My Account" }}
+                    />
+                </Route>
 
                 <Route
                     path="*"
