@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
 
 import footerLogo from "../assets/logo/Asset 3@3x.png";
+
 import contact from "../data/contact";
 
-const email = contact.info.find((item) => item.title === "Email")?.value;
-const phone = contact.info.find((item) => item.title === "Phone")?.value;
-const location = contact.info.find((item) => item.title === "Location")?.value;
+const email = contact.info.find(
+    (item) => item.title === "Email"
+)?.value;
+
+const phone = contact.info.find(
+    (item) => item.title === "Phone"
+)?.value;
+
+const location = contact.info.find(
+    (item) => item.title === "Location"
+)?.value;
 
 export default function Footer() {
     return (
@@ -17,33 +26,70 @@ export default function Footer() {
                         className="footer-logo"
                         aria-label="Mangata and Gallo home"
                     >
-                        <img src={footerLogo} alt="Mangata and Gallo" />
+                        <img
+                            src={footerLogo}
+                            alt="Mangata and Gallo"
+                        />
                     </Link>
 
                     <p>
-                        Timeless jewelry, thoughtfully crafted for life's most
-                        meaningful moments.
+                        Timeless jewelry, thoughtfully crafted for
+                        life's most meaningful moments.
                     </p>
+
+                    <div className="footer-social">
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                        >
+                            Instagram
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="Facebook"
+                        >
+                            Facebook
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="Pinterest"
+                        >
+                            Pinterest
+                        </a>
+                    </div>
                 </div>
 
                 <nav
                     className="footer-section"
                     aria-labelledby="footer-explore-title"
                 >
-                    <h2 id="footer-explore-title">Explore</h2>
+                    <h2 id="footer-explore-title">
+                        Explore
+                    </h2>
 
                     <ul>
                         <li>
                             <Link to="/">Home</Link>
                         </li>
+
                         <li>
-                            <Link to="/collections">Collections</Link>
+                            <Link to="/collections">
+                                Collections
+                            </Link>
                         </li>
+
                         <li>
-                            <Link to="/about">About Us</Link>
+                            <Link to="/about">
+                                About Us
+                            </Link>
                         </li>
+
                         <li>
-                            <Link to="/contact">Contact Us</Link>
+                            <Link to="/contact">
+                                Contact Us
+                            </Link>
                         </li>
                     </ul>
                 </nav>
@@ -52,14 +98,21 @@ export default function Footer() {
                     className="footer-section"
                     aria-labelledby="footer-account-title"
                 >
-                    <h2 id="footer-account-title">Account</h2>
+                    <h2 id="footer-account-title">
+                        Account
+                    </h2>
 
                     <ul>
                         <li>
-                            <Link to="/login">Login</Link>
+                            <Link to="/login">
+                                Login
+                            </Link>
                         </li>
+
                         <li>
-                            <Link to="/register">Create Account</Link>
+                            <Link to="/register">
+                                Create Account
+                            </Link>
                         </li>
                     </ul>
                 </nav>
@@ -68,7 +121,9 @@ export default function Footer() {
                     className="footer-section footer-contact"
                     aria-labelledby="footer-contact-title"
                 >
-                    <h2 id="footer-contact-title">Contact</h2>
+                    <h2 id="footer-contact-title">
+                        Contact
+                    </h2>
 
                     <address>
                         {email && (
@@ -76,18 +131,38 @@ export default function Footer() {
                                 {email}
                             </a>
                         )}
+
                         {phone && (
-                            <a href={`tel:${phone.replace(/[^\d+]/g, "")}`}>
+                            <a
+                                href={`tel:${phone.replace(
+                                    /[^\d+]/g,
+                                    ""
+                                )}`}
+                            >
                                 {phone}
                             </a>
                         )}
+
                         {location && <span>{location}</span>}
                     </address>
                 </div>
             </div>
 
             <div className="footer-bottom">
-                <p>© 2026 Mangata &amp; Gallo</p>
+                <p>
+                    © 2026 Mangata &amp; Gallo. All rights
+                    reserved.
+                </p>
+
+                <div className="footer-legal">
+                    <Link to="/privacy">
+                        Privacy Policy
+                    </Link>
+
+                    <Link to="/terms">
+                        Terms &amp; Conditions
+                    </Link>
+                </div>
             </div>
         </footer>
     );
