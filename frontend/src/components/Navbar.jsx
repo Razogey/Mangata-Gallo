@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 import {
     NavLink,
@@ -12,6 +13,7 @@ import navItems from "../data/navigation";
 
 export default function Navbar() {
     const location = useLocation();
+    const { user, isAuthenticated, logout } = useAuth();
 
     const isAccountActive =
         location.pathname === "/login" ||
@@ -56,6 +58,11 @@ export default function Navbar() {
 
     const closeMenu = () => {
         setIsMenuOpen(false);
+    };
+
+    const handleLogout = async () => {
+        closeMenu();
+        await logout();
     };
 
     const toggleMenu = () => {
@@ -135,13 +142,23 @@ export default function Navbar() {
                             Cart
                         </button>
 
-                        <NavLink
-                            to="/login"
-                            className={accountClass}
-                            onClick={closeMenu}
-                        >
-                            Login
-                        </NavLink>
+                        {isAuthenticated ? (
+                            <button
+                                type="button"
+                                className="navbar-action"
+                                onClick={handleLogout}
+                            >
+                                Logout
+                            </button>
+                        ) : (
+                            <NavLink
+                                to="/login"
+                                className={accountClass}
+                                onClick={closeMenu}
+                            >
+                                Login
+                            </NavLink>
+                        )}
                     </div>
                 </nav>
 
@@ -162,12 +179,22 @@ export default function Navbar() {
                         Cart
                     </button>
 
-                    <NavLink
-                        to="/login"
-                        className={accountClass}
-                    >
-                        Login
-                    </NavLink>
+                    {isAuthenticated ? (
+                        <button
+                            type="button"
+                            className="navbar-action"
+                            onClick={handleLogout}
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <NavLink
+                            to="/login"
+                            className={accountClass}
+                        >
+                            Login
+                        </NavLink>
+                    )}
                 </div>
 
             </div>
