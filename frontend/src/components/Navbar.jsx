@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+
 import { useAuth } from "../context/AuthContext";
 
 import {
@@ -8,19 +9,19 @@ import {
 } from "react-router-dom";
 
 import headerLogo from "../assets/logo/Asset 1@3x.png";
-
 import navItems from "../data/navigation";
 
 export default function Navbar() {
     const location = useLocation();
-    const { user, isAuthenticated, logout } = useAuth();
+    const { isAuthenticated, logout } = useAuth();
 
-    const isAccountActive =
-        location.pathname === "/login" ||
-        location.pathname === "/register";
+    const isAccountActive = location.pathname.startsWith("/account");
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
+
     const menuToggleRef = useRef(null);
+    const accountMenuRef = useRef(null);
 
     useEffect(() => {
         if (!isMenuOpen) {
@@ -35,7 +36,9 @@ export default function Navbar() {
         };
 
         const previousOverflow = document.body.style.overflow;
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        const isMobile = window.matchMedia(
+            "(max-width: 768px)"
+        ).matches;
 
         if (isMobile) {
             document.body.style.overflow = "hidden";
@@ -49,6 +52,26 @@ export default function Navbar() {
         };
     }, [isMenuOpen]);
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                accountMenuRef.current &&
+                !accountMenuRef.current.contains(event.target)
+            ) {
+                setIsAccountMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener(
+                "mousedown",
+                handleClickOutside
+            );
+        };
+    }, []);
+
     const navClass = ({ isActive }) =>
         isActive ? "nav-link active" : "nav-link";
 
@@ -60,8 +83,13 @@ export default function Navbar() {
         setIsMenuOpen(false);
     };
 
+    const closeAccountMenu = () => {
+        setIsAccountMenuOpen(false);
+    };
+
     const handleLogout = async () => {
         closeMenu();
+        closeAccountMenu();
         await logout();
     };
 
@@ -69,10 +97,15 @@ export default function Navbar() {
         setIsMenuOpen((currentState) => !currentState);
     };
 
+    const toggleAccountMenu = () => {
+        setIsAccountMenuOpen(
+            (currentState) => !currentState
+        );
+    };
+
     return (
         <header className="navbar">
             <div className="navbar-container">
-
                 <Link
                     to="/"
                     className="navbar-logo"
@@ -143,13 +176,45 @@ export default function Navbar() {
                         </button>
 
                         {isAuthenticated ? (
-                            <button
-                                type="button"
-                                className="navbar-action"
-                                onClick={handleLogout}
+                            <div
+                                className="account-dropdown"
+                                ref={accountMenuRef}
                             >
-                                Logout
-                            </button>
+                                <button
+                                    type="button"
+                                    className={accountClass}
+                                    onClick={toggleAccountMenu}
+                                    aria-expanded={
+                                        isAccountMenuOpen
+                                    }
+                                >
+                                    Account
+                                    <span aria-hidden="true">
+                                        ▾
+                                    </span>
+                                </button>
+
+                                {isAccountMenuOpen && (
+                                    <div className="account-dropdown-menu">
+                                        <NavLink
+                                            to="/account"
+                                            onClick={() => {
+                                                closeAccountMenu();
+                                                closeMenu();
+                                            }}
+                                        >
+                                            My Account
+                                        </NavLink>
+
+                                        <button
+                                            type="button"
+                                            onClick={handleLogout}
+                                        >
+                                            Logout
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
                         ) : (
                             <NavLink
                                 to="/login"
@@ -180,13 +245,42 @@ export default function Navbar() {
                     </button>
 
                     {isAuthenticated ? (
-                        <button
-                            type="button"
-                            className="navbar-action"
-                            onClick={handleLogout}
+                        <div
+                            className="account-dropdown"
+                            ref={accountMenuRef}
                         >
-                            Logout
-                        </button>
+                            <button
+                                type="button"
+                                className={accountClass}
+                                onClick={toggleAccountMenu}
+                                aria-expanded={
+                                    isAccountMenuOpen
+                                }
+                            >
+                                Account
+                                <span aria-hidden="true">
+                                    ▾
+                                </span>
+                            </button>
+
+                            {isAccountMenuOpen && (
+                                <div className="account-dropdown-menu">
+                                    <NavLink
+                                        to="/account"
+                                        onClick={closeAccountMenu}
+                                    >
+                                        My Account
+                                    </NavLink>
+
+                                    <button
+                                        type="button"
+                                        onClick={handleLogout}
+                                    >
+                                        Logout
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     ) : (
                         <NavLink
                             to="/login"
@@ -196,7 +290,6 @@ export default function Navbar() {
                         </NavLink>
                     )}
                 </div>
-
             </div>
         </header>
     );
