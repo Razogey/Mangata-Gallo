@@ -91,3 +91,19 @@ class OptionValue(models.Model):
             models.UniqueConstraint(fields=["option_type", "value"],
             name="unique_option_value_per_type")
         ]
+
+
+class VariantOption(models.Model):
+    product_variant = models.ForeignKey(ProductVariant, on_delete=models.CASCADE, related_name="variant_options")
+    option_value = models.ForeignKey(OptionValue, on_delete=models.CASCADE, related_name="variant_options")
+
+    class Meta:
+        constraints = [
+                models.UniqueConstraint(
+                fields = [
+                    "product_variant",
+                    "option_value"
+                ],
+                name = "unique_product_variant_option_value"
+            )
+        ]
