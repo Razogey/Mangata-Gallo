@@ -1,27 +1,83 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import featuredProducts from "../data/featuredProducts";
 import Button from "../components/Button";
+
+import { getProducts, getProductById } from "../api/products";
 
 export default function ProductDetails() {
     const { slug } = useParams();
 
-    const product = featuredProducts.find(
-        (item) => item.slug === slug
-    );
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
-    if (!product) {
+    useEffect(() => {
+        async function loadProduct() {
+            try {
+                setLoading(true);
+                setError("");
+
+                const products = await getProducts();
+
+                const productSummary = products.find(
+                    (item) => item.slug === slug
+                );
+
+                if (!productSummary) {
+                    setError(
+                        "The product you're looking for doesn't exist."
+                    );
+                    return;
+                }
+
+                const productDetails = await getProductById(
+                    productSummary.id
+                );
+
+                setProduct(productDetails);
+            } catch (error) {
+                console.error(
+                    "Failed to load product:",
+                    error
+                );
+
+                setError(
+                    "Unable to load this product. Please try again later."
+                );
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        loadProduct();
+    }, [slug]);
+
+    if (loading) {
+        return (
+            <main className="product-details">
+                <div className="product-not-found">
+                    <p>Loading product...</p>
+                </div>
+            </main>
+        );
+    }
+
+    if (error || !product) {
         return (
             <main className="product-details">
                 <div className="product-not-found">
                     <h1>Product Not Found</h1>
 
                     <p>
-                        The product you're looking for doesn't exist.
+                        {error ||
+                            "The product you're looking for doesn't exist."}
                     </p>
 
                     <Link to="/collections">
-                        <span className="back-link">←</span>
+                        <span className="back-link">
+                            ←
+                        </span>{" "}
                         Back to Collections
                     </Link>
                 </div>
@@ -29,40 +85,69 @@ export default function ProductDetails() {
         );
     }
 
+    const primaryImage =
+        product.images?.find(
+            (image) => image.is_primary
+        ) || product.images?.[0];
+
+    const categoryName =
+        typeof product.category === "object"
+            ? product.category?.name
+            : product.category;
+
+    const firstVariant = product.variants?.find(
+        (variant) => variant.is_active
+    );
+
     return (
         <main className="product-details">
             <section className="product-details-content">
                 <div className="product-details-image">
                     <img
-                        src={product.image}
-                        alt={product.title}
+                        src={primaryImage?.image_url}
+                        alt={
+                            primaryImage?.alt_text ||
+                            product.name
+                        }
                     />
                 </div>
 
                 <div className="product-details-info">
-                    <span className="product-category">
-                        {product.category}
-                    </span>
+                    {categoryName && (
+                        <span className="product-category">
+                            {categoryName}
+                        </span>
+                    )}
 
-                    <h1>{product.title}</h1>
+                    <h1>{product.name}</h1>
 
-                    <p className="product-price">
-                        {product.price}
-                    </p>
+                    {firstVariant?.price && (
+                        <p className="product-price">
+                            {firstVariant.price}
+                        </p>
+                    )}
 
                     <p className="product-description">
                         {product.description}
                     </p>
 
-                    <p className="product-details-text">
-                        {product.details}
-                    </p>
+                    {product.details && (
+                        <p className="product-details-text">
+                            {product.details}
+                        </p>
+                    )}
 
-                    <Button to="/contact" className="product-contact">
+                    <Button
+                        to="/contact"
+                        className="product-contact"
+                    >
                         Inquire About This Piece
                     </Button>
 
-                    <Link to="/collections" className="back-link">
+                    <Link
+                        to="/collections"
+                        className="back-link"
+                    >
                         ← Back to Collections
                     </Link>
                 </div>

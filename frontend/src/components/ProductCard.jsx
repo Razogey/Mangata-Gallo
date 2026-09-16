@@ -4,38 +4,54 @@ export default function ProductCard({
     product = {},
 }) {
     const {
-        image,
-        title,
-        category,
-        description,
-        price,
         slug,
+        name,
+        category,
+        primary_image,
+        is_active,
     } = product;
+
+    if (!is_active) {
+        return null;
+    }
+
+    const categoryName =
+        typeof category === "object"
+            ? category?.name
+            : category;
+
+    const imageUrl =
+        typeof primary_image === "object"
+            ? primary_image?.image_url
+            : primary_image;
+
+    const imageAlt =
+        typeof primary_image === "object"
+            ? primary_image?.alt_text
+            : categoryName
+                ? `${name} - ${categoryName}`
+                : name || "Product";
 
     return (
         <article className="product-card">
             <img
-                src={image}
-                alt={category ? `${title} - ${category}` : title || "Product"}
+                src={imageUrl}
+                alt={imageAlt}
                 loading="lazy"
             />
 
             <div className="product-card-content">
-                <span>{category}</span>
-
-                <h3>{title}</h3>
-
-                <p>{description}</p>
-
-                {price && (
-                    <p className="product-card-price">
-                        {price}
-                    </p>
+                {categoryName && (
+                    <span>{categoryName}</span>
                 )}
+
+                <h3>{name}</h3>
 
                 <Link
                     to={`/products/${slug}`}
-                    aria-label={`View details for ${title || "product"}`}
+                    aria-label={`View details for ${
+                        name || "product"
+                    }`}
                 >
                     View Details
                 </Link>
