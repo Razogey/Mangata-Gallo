@@ -1,12 +1,15 @@
-import {
-    Routes,
-    Route,
-    useNavigate,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import ProtectedRoute from "../components/ProtectedRoute";
-import Account from "../pages/Account";
 
+import AdminRoute from "../components/admin/AdminRoute";
+import AdminLayout from "../components/admin/AdminLayout";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import AdminProducts from "../pages/admin/AdminProducts";
+import AdminProductDetails from "../pages/admin/AdminProductDetails";
+
+
+import Account from "../pages/Account";
 import Home from "../pages/Home";
 import Collections from "../pages/Collections";
 import About from "../pages/About";
@@ -21,10 +24,9 @@ import ForgotPassword from "../pages/ForgotPassword";
 import MainLayout from "../layouts/MainLayout";
 
 export default function AppRoutes() {
-    
-
     return (
         <Routes>
+            {/* Main Website */}
             <Route element={<MainLayout />}>
                 <Route
                     path="/"
@@ -80,6 +82,7 @@ export default function AppRoutes() {
                     handle={{ breadcrumb: "Forgot Password" }}
                 />
 
+                {/* Customer Protected Routes */}
                 <Route element={<ProtectedRoute />}>
                     <Route
                         path="/account"
@@ -93,6 +96,23 @@ export default function AppRoutes() {
                     element={<NotFound />}
                     handle={{ breadcrumb: "Page Not Found" }}
                 />
+            </Route>
+
+            {/* Admin */}
+            <Route element={<AdminRoute />}>
+                <Route element={<AdminLayout />}>
+                    <Route
+                        path="/admin"
+                        element={<AdminDashboard />}
+                    />
+
+                    <Route path="/admin/products" element={<AdminProducts />} />
+
+                    <Route
+                        path="/admin/products/:id"
+                        element={<AdminProductDetails />}
+                    />
+                </Route>
             </Route>
         </Routes>
     );
