@@ -2,9 +2,10 @@ from accounts.permissions import IsStaffOrAdmin
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Collection, CollectionHighlight
+from .models import Collection, CollectionHighlight, CollectionImage
 from .serializers import (
     CollectionHighlightSerializer,
+    CollectionImageSerializer,
     CollectionSerializer,
 )
 
@@ -12,6 +13,19 @@ from .serializers import (
 class CollectionViewSet(ModelViewSet):
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer
+
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            return [AllowAny()]
+
+        return [IsStaffOrAdmin()]
+
+
+class CollectionImageViewSet(ModelViewSet):
+    queryset = CollectionImage.objects.select_related(
+        "collection"
+    ).all()
+    serializer_class = CollectionImageSerializer
 
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
