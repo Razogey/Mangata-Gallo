@@ -1,5 +1,5 @@
-import { useAuth } from "../context/AuthContext";
-import "../styles/account.css";
+import { useAuth } from "../../context/AuthContext";
+import "./account.css";
 
 export default function Account() {
     const { user } = useAuth();

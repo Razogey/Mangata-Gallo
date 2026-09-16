@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Banner from "../components/Banner";
-import Card from "../components/Card";
-import BannerImg from "../assets/banner.jpg";
-import { getCollections } from "../api/collections";
+import Banner from "../../components/Banner/Banner";
+import Card from "../../components/Card/Card";
+import BannerImg from "../../assets/banner.jpg";
+import { getCollections } from "../../api/collections";
 
 export default function Home() {
     const [collections, setCollections] = useState([]);

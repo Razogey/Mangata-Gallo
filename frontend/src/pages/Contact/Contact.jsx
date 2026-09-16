@@ -1,8 +1,8 @@
 import { useState } from "react";
-import contact from "../data/contact";
-import Button from "../components/Button";
-import Banner from "../components/Banner";
-import contactHeroImg from "../assets/contact-hero.jpg";
+import contact from "../../data/contact";
+import Button from "../../components/Button/Button";
+import Banner from "../../components/Banner/Banner";
+import contactHeroImg from "../../assets/contact-hero.jpg";
 
 export default function Contact() {
     const [formData, setFormData] = useState({

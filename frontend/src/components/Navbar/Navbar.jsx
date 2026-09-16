@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 import {
     NavLink,
@@ -8,8 +8,8 @@ import {
     useLocation,
 } from "react-router-dom";
 
-import headerLogo from "../assets/logo/Asset 1@3x.png";
-import navItems from "../data/navigation";
+import headerLogo from "../../assets/logo/Asset 1@3x.png";
+import navItems from "../../data/navigation";
 
 export default function Navbar() {
     const location = useLocation();

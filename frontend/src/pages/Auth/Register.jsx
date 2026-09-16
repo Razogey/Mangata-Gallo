@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import Button from "../components/Button";
-import SocialAuth from "../components/SocialAuth";
+import Button from "../../components/Button/Button";
+import SocialAuth from "../../components/SocialAuth";
 
-import { registerUser } from "../api/auth";
+import { registerUser } from "../../api/auth";
 
 export default function Register() {
     const navigate = useNavigate();

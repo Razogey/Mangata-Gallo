@@ -1,8 +1,8 @@
-import Banner from "../components/Banner";
-import Button from "../components/Button";
-import aboutHeroImg from "../assets/about-hero.jpg";
+import Banner from "../../components/Banner/Banner";
+import Button from "../../components/Button/Button";
+import aboutHeroImg from "../../assets/about-hero.jpg";
 
-import about from "../data/about";
+import about from "../../data/about";
 
 export default function About() {
     return (

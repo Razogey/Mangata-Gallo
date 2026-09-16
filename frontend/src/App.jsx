@@ -1,18 +1,18 @@
 import AppRoutes from "./routes/AppRoutes";
 import { useAuth } from "./context/AuthContext";
 
-import "./styles/navigation.css";
-import "./styles/banner.css";
-import "./styles/cards.css";
-import "./styles/footer.css";
+import "./components/Navbar/navigation.css";
+import "./components/Banner/banner.css";
+import "./components/Card/cards.css";
+import "./components/Button/button.css";
+import "./components/Footer/footer.css";
 import "./styles/pages.css";
-import "./styles/collections.css";
-import "./styles/about.css";
-import "./styles/contact.css";
-import "./styles/product-details.css";
-import "./styles/collection-details.css";
-import "./styles/button.css";
-import "./styles/auth.css";
+import "./pages/Collections/collections.css";
+import "./pages/CollectionDetails/collection-details.css";
+import "./pages/About/about.css";
+import "./pages/Contact/contact.css";
+import "./pages/ProductDetails/product-details.css";
+import "./pages/Auth/auth.css";
 
 export default function App() {
     const {user, isAuthenticated, loading} = useAuth()

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import ProductCard from "../components/ProductCard";
-import Card from "../components/Card";
-import Banner from "../components/Banner";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import Card from "../../components/Card/Card";
+import Banner from "../../components/Banner/Banner";
 
-import collectionsHeroImg from "../assets/collections-hero.jpg";
+import collectionsHeroImg from "../../assets/collections-hero.jpg";
 
-import { getCollections } from "../api/collections";
-import { getProducts } from "../api/products";
+import { getCollections } from "../../api/collections";
+import { getProducts } from "../../api/products";
 
 export default function Collections() {
     const [collections, setCollections] = useState([]);

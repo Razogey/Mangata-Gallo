@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 
-import "../../styles/admin.css";
+import "../../pages/admin/admin.css";
 
 export default function AdminLayout() {
     return (

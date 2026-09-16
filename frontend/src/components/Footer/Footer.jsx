@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import footerLogo from "../assets/logo/Asset 3@3x.png";
+import footerLogo from "../../assets/logo/Asset 3@3x.png";
 
-import contact from "../data/contact";
+import contact from "../../data/contact";
 
 const email = contact.info.find(
     (item) => item.title === "Email"

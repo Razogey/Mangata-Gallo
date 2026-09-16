@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import Button from "../components/Button";
+import Button from "../../components/Button/Button";
 
-import { getProducts, getProductById } from "../api/products";
+import { getProducts, getProductById } from "../../api/products";
 
 export default function ProductDetails() {
     const { slug } = useParams();

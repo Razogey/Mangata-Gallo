@@ -9,17 +9,17 @@ import AdminProducts from "../pages/admin/AdminProducts";
 import AdminProductDetails from "../pages/admin/AdminProductDetails";
 
 
-import Account from "../pages/Account";
-import Home from "../pages/Home";
-import Collections from "../pages/Collections";
-import About from "../pages/About";
-import Contact from "../pages/Contact";
-import ProductDetails from "../pages/ProductDetails";
-import CollectionDetails from "../pages/CollectionDetails";
-import NotFound from "../pages/Notfound";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import ForgotPassword from "../pages/ForgotPassword";
+import Account from "../pages/Account/Account";
+import Home from "../pages/Home/Home";
+import Collections from "../pages/Collections/Collections";
+import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
+import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import CollectionDetails from "../pages/CollectionDetails/CollectionDetails";
+import NotFound from "../pages/Notfound/Notfound";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
+import ForgotPassword from "../pages/Auth/ForgotPassword";
 
 import MainLayout from "../layouts/MainLayout";
 

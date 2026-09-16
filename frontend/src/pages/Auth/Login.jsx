@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-import Button from "../components/Button";
-import SocialAuth from "../components/SocialAuth";
+import Button from "../../components/Button/Button";
+import SocialAuth from "../../components/SocialAuth";
 
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
     const [formData, setFormData] = useState({

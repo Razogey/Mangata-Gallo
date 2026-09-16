@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import Button from "../components/Button";
+import Button from "../../components/Button/Button";
 
 export default function ForgotPassword() {
     const [email, setEmail] = useState("");

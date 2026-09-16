@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import ProductCard from "../components/ProductCard";
-import { getCollections } from "../api/collections";
-import { getProducts } from "../api/products";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import { getCollections } from "../../api/collections";
+import { getProducts } from "../../api/products";
 
 export default function CollectionDetails() {
     const { slug } = useParams();
