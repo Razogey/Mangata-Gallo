@@ -20,28 +20,6 @@ class CollectionImageSerializer(serializers.ModelSerializer):
         ]
 
 
-class CollectionSerializer(serializers.ModelSerializer):
-    images = CollectionImageSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = Collection
-        fields = [  # noqa: RUF012
-            "id",
-            "slug",
-            "title",
-            "description",
-            "details",
-            "images",
-            "created_at",
-            "updated_at",
-        ]
-        read_only_fields = [  # noqa: RUF012
-            "id",
-            "created_at",
-            "updated_at",
-        ]
-
-
 class CollectionHighlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = CollectionHighlight
@@ -55,4 +33,28 @@ class CollectionHighlightSerializer(serializers.ModelSerializer):
         read_only_fields = [  # noqa: RUF012
             "id",
             "created_at",
+        ]
+
+
+class CollectionSerializer(serializers.ModelSerializer):
+    images = CollectionImageSerializer(many=True, read_only=True)
+    highlights = CollectionHighlightSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Collection
+        fields = [
+            "id",
+            "slug",
+            "title",
+            "description",
+            "details",
+            "images",
+            "highlights",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = [
+            "id",
+            "created_at",
+            "updated_at",
         ]
