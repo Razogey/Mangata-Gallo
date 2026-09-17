@@ -9,11 +9,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const isAuthenticated = Boolean(user);
-
-  useEffect(() => {
-    restoreSession();
-  }, []);
-
+  
   async function restoreSession() {
     const accessToken = getAccessToken();
     const refreshToken = getRefreshToken();
@@ -46,6 +42,11 @@ export function AuthProvider({ children }) {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    restoreSession();
+  }, []);
+
 
   async function login(identifier, password) {
     const data = await loginUser(identifier, password);
