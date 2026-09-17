@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import {getCurrentUser, loginUser, logoutUser, refreshAccessToken} from "../api/auth";
-import {clearTokens, getAccessToken, getRefreshToken, saveTokens} from "../api/storage";
-
-const AuthContext = createContext(null);
+import { useEffect, useState } from "react";
+import { getCurrentUser, loginUser, logoutUser, refreshAccessToken } from "../api/auth";
+import { clearTokens, getAccessToken, getRefreshToken, saveTokens } from "../api/storage";
+import { AuthContext } from "./auth-context";
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -10,40 +9,37 @@ export function AuthProvider({ children }) {
 
   const isAuthenticated = Boolean(user);
   
-  async function restoreSession() {
-    const accessToken = getAccessToken();
-    const refreshToken = getRefreshToken();
+  useEffect(() => {
+    async function restoreSession() {
+      const accessToken = getAccessToken();
+      const refreshToken = getRefreshToken();
 
-    if (!accessToken && !refreshToken) {
-      setLoading(false);
-      return;
-    }
-
-    try {
-      if (accessToken) {
-        const currentUser = await getCurrentUser(accessToken);
-        setUser(currentUser);
+      if (!accessToken && !refreshToken) {
+        setLoading(false);
         return;
       }
 
-      if (refreshToken) {
-        const data = await refreshAccessToken(refreshToken);
+      try {
+        if (accessToken) {
+          const currentUser = await getCurrentUser(accessToken);
+          setUser(currentUser);
+          return;
+        }
 
+        const data = await refreshAccessToken(refreshToken);
         saveTokens(data.access, refreshToken);
 
         const currentUser = await getCurrentUser(data.access);
         setUser(currentUser);
+      } catch (error) {
+        console.error("Failed to restore session:", error);
+        clearTokens();
+        setUser(null);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Failed to restore session:", error);
-      clearTokens();
-      setUser(null);
-    } finally {
-      setLoading(false);
     }
-  }
 
-  useEffect(() => {
     restoreSession();
   }, []);
 
@@ -91,8 +87,4 @@ export function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
-
-export function useAuth() {
-  return useContext(AuthContext);
 }

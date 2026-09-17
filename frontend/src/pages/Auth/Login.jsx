@@ -5,7 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import SocialAuth from "../../components/SocialAuth";
 
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/useAuth";
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -26,9 +26,11 @@ export default function Login() {
     const submissionTimer = useRef(null);
 
     useEffect(() => {
+        const timer = submissionTimer.current;
+
         return () => {
-            if (submissionTimer.current) {
-                window.clearTimeout(submissionTimer.current);
+            if (timer) {
+                window.clearTimeout(timer);
             }
         };
     }, []);

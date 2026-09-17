@@ -1,5 +1,5 @@
 import AppRoutes from "./routes/AppRoutes";
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "./context/useAuth";
 
 import "./components/Navbar/navigation.css";
 import "./components/Banner/banner.css";
