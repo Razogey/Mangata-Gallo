@@ -1,4 +1,5 @@
 export default function AdminRoute() {
+    console.log("ADMIN ROUTE COMPONENT LOADED");
     const { user, loading } = useAuth();
     const location = useLocation();
 
