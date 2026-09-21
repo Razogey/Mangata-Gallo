@@ -16,7 +16,7 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import CollectionDetails from "../pages/CollectionDetails/CollectionDetails";
-import NotFound from "../pages/Notfound/Notfound";
+import NotFound from "../pages/NotFound/Notfound";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import ForgotPassword from "../pages/Auth/ForgotPassword";
