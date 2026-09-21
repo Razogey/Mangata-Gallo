@@ -3,6 +3,7 @@ import { useAuth } from "../../context/useAuth";
 
 export default function AdminRoute() {
     const { user, loading } = useAuth();
+    console.log("AdminRoute user:", user);
     const location = useLocation();
 
     if (loading) {
