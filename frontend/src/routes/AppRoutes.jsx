@@ -24,6 +24,7 @@ import ForgotPassword from "../pages/Auth/ForgotPassword";
 import MainLayout from "../layouts/MainLayout";
 
 export default function AppRoutes() {
+    console.log("APP ROUTES LOADED");
     return (
         <Routes>
             {/* Main Website */}
