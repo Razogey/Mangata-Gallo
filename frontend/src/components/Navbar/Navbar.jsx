@@ -13,17 +13,30 @@ import navItems from "../../data/navigation";
 
 export default function Navbar() {
     const location = useLocation();
+
     const { isAuthenticated, logout } = useAuth();
 
-    const isAccountActive = location.pathname.startsWith("/account");
+    const isAccountActive =
+        location.pathname.startsWith("/account");
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
+
+    const [isMobileAccountMenuOpen, setIsMobileAccountMenuOpen] =
+        useState(false);
+
+    const [isDesktopAccountMenuOpen, setIsDesktopAccountMenuOpen] =
+        useState(false);
 
     const menuToggleRef = useRef(null);
-    const accountMenuRef = useRef(null);
+
+    const mobileAccountMenuRef = useRef(null);
+    const desktopAccountMenuRef = useRef(null);
 
     const [scrolled, setScrolled] = useState(false);
+
+    /* =========================
+       Scroll
+    ========================= */
 
     useEffect(() => {
         function handleScroll() {
@@ -37,6 +50,10 @@ export default function Navbar() {
         };
     }, []);
 
+    /* =========================
+       Mobile Menu
+    ========================= */
+
     useEffect(() => {
         if (!isMenuOpen) {
             return undefined;
@@ -45,11 +62,14 @@ export default function Navbar() {
         const handleKeyDown = (event) => {
             if (event.key === "Escape") {
                 setIsMenuOpen(false);
+                setIsMobileAccountMenuOpen(false);
+
                 menuToggleRef.current?.focus();
             }
         };
 
         const previousOverflow = document.body.style.overflow;
+
         const isMobile = window.matchMedia(
             "(max-width: 768px)"
         ).matches;
@@ -62,21 +82,43 @@ export default function Navbar() {
 
         return () => {
             document.body.style.overflow = previousOverflow;
-            document.removeEventListener("keydown", handleKeyDown);
+
+            document.removeEventListener(
+                "keydown",
+                handleKeyDown
+            );
         };
     }, [isMenuOpen]);
 
+    /* =========================
+       Account Menu - Outside Click
+    ========================= */
+
     useEffect(() => {
         const handleClickOutside = (event) => {
+            const clickedInsideMobile =
+                mobileAccountMenuRef.current?.contains(
+                    event.target
+                );
+
+            const clickedInsideDesktop =
+                desktopAccountMenuRef.current?.contains(
+                    event.target
+                );
+
             if (
-                accountMenuRef.current &&
-                !accountMenuRef.current.contains(event.target)
+                !clickedInsideMobile &&
+                !clickedInsideDesktop
             ) {
-                setIsAccountMenuOpen(false);
+                setIsMobileAccountMenuOpen(false);
+                setIsDesktopAccountMenuOpen(false);
             }
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener(
+            "mousedown",
+            handleClickOutside
+        );
 
         return () => {
             document.removeEventListener(
@@ -86,6 +128,10 @@ export default function Navbar() {
         };
     }, []);
 
+    /* =========================
+       Navigation Classes
+    ========================= */
+
     const navClass = ({ isActive }) =>
         isActive ? "nav-link active" : "nav-link";
 
@@ -93,33 +139,61 @@ export default function Navbar() {
         ? "navbar-action active"
         : "navbar-action";
 
+    /* =========================
+       Menu Actions
+    ========================= */
+
     const closeMenu = () => {
         setIsMenuOpen(false);
+        setIsMobileAccountMenuOpen(false);
     };
 
-    const closeAccountMenu = () => {
-        setIsAccountMenuOpen(false);
+    const closeMobileAccountMenu = () => {
+        setIsMobileAccountMenuOpen(false);
+    };
+
+    const closeDesktopAccountMenu = () => {
+        setIsDesktopAccountMenuOpen(false);
     };
 
     const handleLogout = async () => {
         closeMenu();
-        closeAccountMenu();
+        closeMobileAccountMenu();
+        closeDesktopAccountMenu();
+
         await logout();
     };
 
     const toggleMenu = () => {
         setIsMenuOpen((currentState) => !currentState);
+
+        setIsMobileAccountMenuOpen(false);
     };
 
-    const toggleAccountMenu = () => {
-        setIsAccountMenuOpen(
+    const toggleMobileAccountMenu = () => {
+        setIsMobileAccountMenuOpen(
+            (currentState) => !currentState
+        );
+    };
+
+    const toggleDesktopAccountMenu = () => {
+        setIsDesktopAccountMenuOpen(
             (currentState) => !currentState
         );
     };
 
     return (
-        <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+        <header
+            className={`navbar ${
+                scrolled ? "navbar-scrolled" : ""
+            }`}
+        >
             <div className="navbar-container">
+
+                {/* =========================
+                    Logo
+                ========================= */}
+
                 <Link
                     to="/"
                     className="navbar-logo"
@@ -131,6 +205,10 @@ export default function Navbar() {
                         alt="Mangata and Gallo"
                     />
                 </Link>
+
+                {/* =========================
+                    Mobile Menu Toggle
+                ========================= */}
 
                 <button
                     ref={menuToggleRef}
@@ -149,6 +227,10 @@ export default function Navbar() {
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </button>
+
+                {/* =========================
+                    Main Navigation
+                ========================= */}
 
                 <nav
                     id="main-navigation"
@@ -172,7 +254,12 @@ export default function Navbar() {
                         ))}
                     </ul>
 
+                    {/* =========================
+                        Mobile Actions
+                    ========================= */}
+
                     <div className="navbar-mobile-actions">
+
                         <button
                             type="button"
                             className="navbar-action"
@@ -192,37 +279,41 @@ export default function Navbar() {
                         {isAuthenticated ? (
                             <div
                                 className="account-dropdown"
-                                ref={accountMenuRef}
+                                ref={mobileAccountMenuRef}
                             >
                                 <button
                                     type="button"
                                     className={accountClass}
-                                    onClick={toggleAccountMenu}
+                                    onClick={
+                                        toggleMobileAccountMenu
+                                    }
                                     aria-expanded={
-                                        isAccountMenuOpen
+                                        isMobileAccountMenuOpen
                                     }
                                 >
                                     Account
+
                                     <span aria-hidden="true">
                                         ▾
                                     </span>
                                 </button>
 
-                                {isAccountMenuOpen && (
+                                {isMobileAccountMenuOpen && (
                                     <div className="account-dropdown-menu">
                                         <NavLink
                                             to="/account"
-                                            onClick={() => {
-                                                closeAccountMenu();
-                                                closeMenu();
-                                            }}
+                                            onClick={
+                                                closeMenu
+                                            }
                                         >
                                             My Account
                                         </NavLink>
 
                                         <button
                                             type="button"
-                                            onClick={handleLogout}
+                                            onClick={
+                                                handleLogout
+                                            }
                                         >
                                             Logout
                                         </button>
@@ -241,7 +332,12 @@ export default function Navbar() {
                     </div>
                 </nav>
 
+                {/* =========================
+                    Desktop Actions
+                ========================= */}
+
                 <div className="navbar-actions">
+
                     <button
                         type="button"
                         className="navbar-action"
@@ -261,27 +357,32 @@ export default function Navbar() {
                     {isAuthenticated ? (
                         <div
                             className="account-dropdown"
-                            ref={accountMenuRef}
+                            ref={desktopAccountMenuRef}
                         >
                             <button
                                 type="button"
                                 className={accountClass}
-                                onClick={toggleAccountMenu}
+                                onClick={
+                                    toggleDesktopAccountMenu
+                                }
                                 aria-expanded={
-                                    isAccountMenuOpen
+                                    isDesktopAccountMenuOpen
                                 }
                             >
                                 Account
+
                                 <span aria-hidden="true">
                                     ▾
                                 </span>
                             </button>
 
-                            {isAccountMenuOpen && (
+                            {isDesktopAccountMenuOpen && (
                                 <div className="account-dropdown-menu">
                                     <NavLink
                                         to="/account"
-                                        onClick={closeAccountMenu}
+                                        onClick={
+                                            closeDesktopAccountMenu
+                                        }
                                     >
                                         My Account
                                     </NavLink>
