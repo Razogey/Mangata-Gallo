@@ -456,12 +456,23 @@
     padding: 8px 14px;
 }
 
-
 /* =========================
    Responsive
    ========================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+    .admin-layout {
+        grid-template-columns: 210px 1fr;
+    }
+
+    .admin-content {
+        padding: 35px;
+    }
+
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .admin-product-details {
         grid-template-columns: 1fr;
     }
@@ -479,9 +490,48 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .admin-layout {
+        display: block;
+        min-height: 100vh;
+    }
+
+    .admin-sidebar {
+        position: static;
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 15px;
+        overflow: visible;
+    }
+
+    .admin-brand {
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+    }
+
+    .admin-brand span {
+        font-size: 18px;
+    }
+
+    .admin-brand small {
+        font-size: 11px;
+    }
+
+    .admin-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .admin-nav a {
+        padding: 10px;
+        font-size: 13px;
+        text-align: center;
+    }
+
     .admin-content {
-        padding: 25px 15px;
+        padding: 25px 20px;
     }
 
     .admin-product-info {
@@ -516,56 +566,40 @@
     }
 }
 
-
-@media (max-width: 1024px) {
-    .admin-layout {
-        grid-template-columns: 210px 1fr;
-    }
-
-    .admin-content {
-        padding: 35px;
-    }
-
-    .admin-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .admin-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-sidebar {
-        min-height: auto;
-        padding: 20px;
-    }
-
-    .admin-brand {
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-    }
-
-    .admin-nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .admin-nav a {
-        padding: 9px 12px;
-    }
-
-    .admin-content {
-        padding: 30px 20px;
-    }
-}
-
 @media (max-width: 480px) {
+    .admin-content {
+        padding: 20px 15px;
+    }
+
     .admin-stats {
         grid-template-columns: 1fr;
+    }
+
+    .admin-page-header {
+        margin-bottom: 25px;
     }
 
     .admin-page-header h1 {
-        font-size: 30px;
+        font-size: 28px;
+    }
+
+    .admin-page-header p {
+        font-size: 12px;
+    }
+
+    .admin-table-wrapper {
+        margin-right: -5px;
+    }
+
+    .admin-product-details {
+        gap: 20px;
+    }
+
+    .admin-stat-card {
+        padding: 20px;
+    }
+
+    .admin-stat-card strong {
+        font-size: 28px;
     }
 }
