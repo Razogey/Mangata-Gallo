@@ -27,6 +27,24 @@ export default function AppRoutes() {
     console.log("APP ROUTES LOADED");
     return (
         <Routes>
+
+            {/* Admin */}
+            <Route element={<AdminRoute />}>
+                <Route element={<AdminLayout />}>
+                    <Route
+                        path="/admin"
+                        element={<AdminDashboard />}
+                    />
+
+                    <Route path="/admin/products" element={<AdminProducts />} />
+
+                    <Route
+                        path="/admin/products/:id"
+                        element={<AdminProductDetails />}
+                    />
+                </Route>
+            </Route>
+            
             {/* Main Website */}
             <Route element={<MainLayout />}>
                 <Route
@@ -97,23 +115,6 @@ export default function AppRoutes() {
                     element={<NotFound />}
                     handle={{ breadcrumb: "Page Not Found" }}
                 />
-            </Route>
-
-            {/* Admin */}
-            <Route element={<AdminRoute />}>
-                <Route element={<AdminLayout />}>
-                    <Route
-                        path="/admin"
-                        element={<AdminDashboard />}
-                    />
-
-                    <Route path="/admin/products" element={<AdminProducts />} />
-
-                    <Route
-                        path="/admin/products/:id"
-                        element={<AdminProductDetails />}
-                    />
-                </Route>
             </Route>
         </Routes>
     );
